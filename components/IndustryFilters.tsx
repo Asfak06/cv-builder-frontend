@@ -2,7 +2,6 @@
 import { useCVStore } from "@/store/cvStore";
 
 const industries = [
-    "All",
     "Accountant",
     "Product Manager",
     "Web Designer",

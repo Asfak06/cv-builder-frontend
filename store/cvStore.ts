@@ -49,7 +49,7 @@ export const useCVStore = create<CVState>((set) => ({
   education: [],
   skills: [],
   references: [],
-  selectedIndustry: 'All',
+  selectedIndustry: 'Accountant',
   selectedTemplate: 'template1',
 
   updatePersonalDetails: (key, value) =>
