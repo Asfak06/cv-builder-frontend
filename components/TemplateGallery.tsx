@@ -6,7 +6,7 @@ import { templates } from "@/lib/data";
 
 export default function TemplateGallery() {
     const router = useRouter();
-    const { selectedIndustry } = useCVStore();
+    const { selectedIndustry, selectedTemplate, updateTemplate } = useCVStore();
 
     // Filter templates based on the selected industry
     const filteredTemplates =
@@ -24,7 +24,10 @@ export default function TemplateGallery() {
                             <img src={template.img} alt={template.name} className="rounded-lg shadow-md w-full" />
                             <div className="absolute inset-0 bg-black bg-opacity-50 flex justify-center items-center opacity-0 group-hover:opacity-100 transition">
                                 <button
-                                    onClick={() => router.push(`/cv-builder?template=${template.id}`)}
+                                    onClick={() => {
+                                        updateTemplate(`template${template.id}`)
+                                        router.push(`/cv-builder?template=${template.id}`)
+                                    }}
                                     className="px-4 py-2 bg-pink-600 text-white font-bold rounded-lg"
                                 >
                                     Use this Template

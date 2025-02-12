@@ -29,13 +29,86 @@ export default function PersonalDetails() {
                     className="w-1/2 p-2 border rounded"
                 />
             </div>
-            <input
-                type="email"
-                placeholder="Email"
-                value={personalDetails.email}
-                onChange={(e) => updatePersonalDetails("email", e.target.value)}
-                className="w-full p-2 border rounded mt-2"
-            />
+            <div className="flex gap-4 mt-2">
+                <input
+                    type="email"
+                    placeholder="Email"
+                    value={personalDetails.email}
+                    onChange={(e) => updatePersonalDetails("email", e.target.value)}
+                    className="w-full p-2 border rounded mt-2"
+                />
+                <input
+                    type="text"
+                    placeholder="phone"
+                    value={personalDetails.phone}
+                    onChange={(e) => updatePersonalDetails("phone", e.target.value)}
+                    className="w-full p-2 border rounded mt-2"
+                />
+            </div>
+            <div className="flex gap-4 mt-2">
+                <input
+                    type="text"
+                    placeholder="City"
+                    value={personalDetails.city}
+                    onChange={(e) => updatePersonalDetails("city", e.target.value)}
+                    className="w-full p-2 border rounded mt-2"
+                />
+                <input
+                    type="text"
+                    placeholder="Country"
+                    value={personalDetails.country}
+                    onChange={(e) => updatePersonalDetails("country", e.target.value)}
+                    className="w-full p-2 border rounded mt-2"
+                />
+            </div>
+            <div className="flex gap-4 mt-2">
+                <input
+                    type="text"
+                    placeholder="Address"
+                    value={personalDetails.address}
+                    onChange={(e) => updatePersonalDetails("address", e.target.value)}
+                    className="w-full p-2 border rounded mt-2"
+                />
+                <input
+                    type="text"
+                    placeholder="Zip code"
+                    value={personalDetails.zipCode}
+                    onChange={(e) => updatePersonalDetails("zipCode", e.target.value)}
+                    className="w-full p-2 border rounded mt-2"
+                />
+            </div>
+            <div className="flex gap-4 mt-2">
+                <input
+                    type="text"
+                    placeholder="Id Number"
+                    value={personalDetails.idNumber}
+                    onChange={(e) => updatePersonalDetails("idNumber", e.target.value)}
+                    className="w-full p-2 border rounded mt-2"
+                />
+                <input
+                    type="text"
+                    placeholder="Date of birth"
+                    value={personalDetails.dob}
+                    onChange={(e) => updatePersonalDetails("dob", e.target.value)}
+                    className="w-full p-2 border rounded mt-2"
+                />
+            </div>
+            <div className="flex gap-4 mt-2">
+                <input
+                    type="text"
+                    placeholder="Nationality"
+                    value={personalDetails.nationality}
+                    onChange={(e) => updatePersonalDetails("nationality", e.target.value)}
+                    className="w-full p-2 border rounded mt-2"
+                />
+                <input
+                    type="text"
+                    placeholder="Driver's Lisence"
+                    value={personalDetails.driverLisence}
+                    onChange={(e) => updatePersonalDetails("driverLisence", e.target.value)}
+                    className="w-full p-2 border rounded mt-2"
+                />
+            </div>
         </div>
     );
 }

@@ -1,70 +1,74 @@
 import { useCVStore } from "@/store/cvStore";
+import { FaEnvelope, FaMapMarkerAlt, FaPhone } from "react-icons/fa";
 
 export default function Template2() {
-    const { personalDetails, summary, experience, education, skills, references } = useCVStore();
+    const { personalDetails, links, summary, experience, education, skills, references } = useCVStore();
 
     return (
-        <div className="bg-white p-6 shadow-lg rounded-lg flex flex-col md:flex-row">
-            {/* Left Sidebar */}
-            <div className="bg-gray-100 p-6 w-full md:w-1/3 rounded-lg">
-                <h1 className="text-2xl font-bold">{personalDetails.firstName} {personalDetails.lastName}</h1>
-                <p className="text-gray-600">{personalDetails.jobTitle}</p>
-                <hr className="my-4" />
-
-                {/* Contact Details */}
-                <div className="text-sm text-gray-700 space-y-2">
-                    <p>📧 {personalDetails.email}</p>
-                    <p>📞 {personalDetails.phone}</p>
-                    <p>📍 {personalDetails.city}, {personalDetails.country}</p>
+        <div className="bg-gray-100 p-10 flex flex-col max-w-4xl mx-auto shadow-lg rounded-lg min-h-[842px]">
+            {/* Header Section */}
+            <div className="flex items-center gap-6">
+                <img
+                    src={personalDetails.profileImage || "https://placehold.co/500"}
+                    alt="Profile"
+                    className="w-40 h-40 rounded-full border-4 border-gray-300"
+                />
+                <div>
+                    <h1 className="text-4xl font-bold text-gray-800">{personalDetails.firstName} {personalDetails.lastName}</h1>
+                    <p className="text-gray-600 text-lg">{personalDetails.jobTitle}</p>
                 </div>
-
-                <hr className="my-4" />
-
-                {/* Skills */}
-                <h2 className="text-lg font-semibold">Skills</h2>
+            </div>
+            {/* Profile Summary */}
+            <div className="mt-6">
+                <h2 className="text-xl font-semibold border-b pb-1">Profile Summary</h2>
+                <p className="text-gray-700 text-sm mt-2">{summary}</p>
+            </div>
+            {/* Work Experience */}
+            <div className="mt-6">
+                <h2 className="text-xl font-semibold border-b pb-1">Work Experience</h2>
+                {experience.map((exp, index) => (
+                    <div key={index} className="mt-4">
+                        <h3 className="text-lg font-semibold">{exp.jobTitle}</h3>
+                        <p className="text-gray-500 text-sm">{exp.company} ({exp.startDate} - {exp.endDate})</p>
+                    </div>
+                ))}
+            </div>
+            {/* Education */}
+            <div className="mt-6">
+                <h2 className="text-xl font-semibold border-b pb-1">Academic Background</h2>
+                {education.map((edu, index) => (
+                    <div key={index} className="mt-4">
+                        <h3 className="text-lg font-semibold">{edu.degree}</h3>
+                        <p className="text-gray-500 text-sm">{edu.institution} ({edu.year})</p>
+                    </div>
+                ))}
+            </div>
+            {/* Skills */}
+            <div className="mt-6">
+                <h2 className="text-xl font-semibold border-b pb-1">Skills & Expertise</h2>
                 <div className="flex flex-wrap gap-2 mt-2">
                     {skills.map((skill, index) => (
-                        <span key={index} className="bg-blue-500 text-white px-3 py-1 rounded-full text-xs">
-                            {skill}
-                        </span>
+                        <span key={index} className="bg-gray-700 text-white px-3 py-1 rounded-full text-sm">{skill}</span>
                     ))}
                 </div>
             </div>
-
-            {/* Right Content */}
-            <div className="w-full md:w-2/3 p-6">
-                {/* Summary */}
-                <h2 className="text-xl font-semibold">Summary</h2>
-                <p className="text-gray-700">{summary}</p>
-                <hr className="my-4" />
-
-                {/* Experience */}
-                <h2 className="text-xl font-semibold">Experience</h2>
-                {experience.map((exp, index) => (
-                    <div key={index} className="mt-2">
-                        <h3 className="text-lg font-semibold">{exp.jobTitle} at {exp.company}</h3>
-                        <p className="text-gray-500">{exp.startDate} - {exp.endDate}</p>
-                    </div>
+            {/* Contact Information */}
+            <div className="mt-6">
+                <h2 className="text-xl font-semibold border-b pb-1">Contact Information</h2>
+                <p className="flex items-center mt-2"><FaEnvelope className="mr-2" /> {personalDetails.email}</p>
+                <p className="flex items-center"><FaPhone className="mr-2" /> {personalDetails.phone}</p>
+                <p className="flex items-center"><FaMapMarkerAlt className="mr-2" /> {personalDetails.city}, {personalDetails.country}</p>
+                {links.map((link, index) => (
+                    <a href={link.url} key={index} className="flex items-center mt-2">
+                        {link.label}
+                    </a>
                 ))}
-                <hr className="my-4" />
-
-                {/* Education */}
-                <h2 className="text-xl font-semibold">Education</h2>
-                {education.map((edu, index) => (
-                    <div key={index} className="mt-2">
-                        <h3 className="text-lg font-semibold">{edu.degree}</h3>
-                        <p className="text-gray-500">{edu.institution} ({edu.year})</p>
-                    </div>
-                ))}
-                <hr className="my-4" />
-
-                {/* References */}
-                <h2 className="text-xl font-semibold">References</h2>
+            </div>
+            {/* References */}
+            <div className="mt-6">
+                <h2 className="text-xl font-semibold border-b pb-1">References</h2>
                 {references.map((ref, index) => (
-                    <div key={index} className="mt-2">
-                        <h3 className="text-lg font-semibold">{ref.name}</h3>
-                        <p className="text-gray-500">{ref.position} at {ref.company}</p>
-                    </div>
+                    <p key={index} className="text-gray-700 text-sm mt-2"><strong>{ref.name}</strong> - {ref.position}, {ref.company}</p>
                 ))}
             </div>
         </div>

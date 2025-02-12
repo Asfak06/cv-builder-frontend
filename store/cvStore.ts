@@ -4,13 +4,21 @@ import { create } from 'zustand';
 interface CVState {
   personalDetails: {
     jobTitle: string;
+    profileImage: string;
     firstName: string;
     lastName: string;
     email: string;
     phone: string;
     city: string;
     country: string;
+    address?: string;
+    zipCode?: string;
+    idNumber?: string;
+    dob?: string;
+    nationality?: string;
+    driverLisence?: string;
   };
+  links: { label: string; url: string }[];
   summary: string;
   experience: { jobTitle: string; company: string; startDate: string; endDate: string }[];
   education: { degree: string; institution: string; year: string }[];
@@ -26,6 +34,7 @@ interface CVState {
   addEducation: () => void;
   updateEducation: (index: number, key: string, value: string) => void;
   addSkill: (skill: string) => void;
+  addLinks: (link: { label: string; url: string }) => void;
   removeSkill: (skill: string) => void;
   addReference: () => void;
   updateReference: (index: number, key: string, value: string) => void;
@@ -37,13 +46,21 @@ interface CVState {
 export const useCVStore = create<CVState>((set) => ({
   personalDetails: {
     jobTitle: '',
+    profileImage: '',
     firstName: '',
     lastName: '',
     email: '',
     phone: '',
     city: '',
     country: '',
+    address: '',
+    zipCode: '',
+    idNumber: '',
+    dob: '',
+    nationality: '',
+    driverLisence: '',
   },
+  links: [],
   summary: '',
   experience: [],
   education: [],
@@ -86,6 +103,11 @@ export const useCVStore = create<CVState>((set) => ({
   addSkill: (skill) =>
     set((state) => ({
       skills: [...state.skills, skill],
+    })),
+
+  addLinks: (link) =>
+    set((state) => ({
+      links: [...state.links, link],
     })),
 
   removeSkill: (skill) =>
