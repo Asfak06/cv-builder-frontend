@@ -3,6 +3,7 @@ import { create } from 'zustand';
 // Define User State Type
 interface UserState {
   userData: {
+    id: string;
     firstName: string;
     lastName: string;
     email: string;
@@ -17,6 +18,7 @@ interface UserState {
 // Create Zustand Store
 export const useUserStore = create<UserState>((set) => ({
   userData: {
+    id: '12345678-abcd-efgh-ijkl-901234567890',
     firstName: 'John',
     lastName: 'Doe',
     email: 'john.doe@example.com',
@@ -33,6 +35,7 @@ export const useUserStore = create<UserState>((set) => ({
         setTimeout(
           () =>
             resolve({
+              id: '12345678-abcd-efgh-ijkl-901234567890',
               firstName: 'Jane',
               lastName: 'Smith',
               email: 'jane.smith@example.com',

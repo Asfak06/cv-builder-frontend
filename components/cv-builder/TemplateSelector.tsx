@@ -16,7 +16,7 @@ export default function TemplateSelector() {
                 className="w-full p-2 border rounded mt-2"
             >
                 {filteredTemplates.map((item) => (
-                    <option value={`template${item.id}`}> {item.industry}{' '} Template-{item.id} </option>
+                    <option value={`${item.id}`}> {item.industry}{' '} {item.id} </option>
                 ))}
 
             </select>
