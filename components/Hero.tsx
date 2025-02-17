@@ -18,7 +18,7 @@ export default function Hero() {
                 <button onClick={scrollToTemplates} className="px-6 py-3 bg-pink-600 hover:bg-pink-700 rounded-lg font-bold text-white">
                     Create New
                 </button>
-                <button onClick={() => router.push("/dashboard")} className="px-6 py-3 bg-gray-200 hover:bg-gray-300 rounded-lg font-bold text-black">
+                <button onClick={() => router.push("/my-cv")} className="px-6 py-3 bg-gray-200 hover:bg-gray-300 rounded-lg font-bold text-black">
                     Create From Draft
                 </button>
             </div>

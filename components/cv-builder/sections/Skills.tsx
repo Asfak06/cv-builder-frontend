@@ -1,12 +1,23 @@
 import { useCVStore } from "@/store/cvStore";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Skills() {
-    const { skills, addSkill, removeSkill } = useCVStore();
+    const { skills, addSkill, removeSkill, currentCV } = useCVStore();
     const [input, setInput] = useState("");
 
+    // Auto-fill skills when currentCV changes
+    useEffect(() => {
+        if (currentCV?.skills) {
+            currentCV.skills.forEach((skill) => {
+                if (!skills.includes(skill)) {
+                    addSkill(skill);
+                }
+            });
+        }
+    }, [currentCV, addSkill, skills]);
+
     const handleAddSkill = () => {
-        if (input.trim()) {
+        if (input.trim() && !skills.includes(input)) {
             addSkill(input);
             setInput("");
         }

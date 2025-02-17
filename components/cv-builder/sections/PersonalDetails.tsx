@@ -1,7 +1,17 @@
 import { useCVStore } from "@/store/cvStore";
+import { useEffect } from "react";
 
 export default function PersonalDetails() {
-    const { personalDetails, updatePersonalDetails } = useCVStore();
+    const { personalDetails, updatePersonalDetails, currentCV } = useCVStore();
+
+    // Auto-fill personal details when currentCV changes
+    useEffect(() => {
+        if (currentCV) {
+            Object.entries(currentCV.personalDetails || {}).forEach(([key, value]) => {
+                updatePersonalDetails(key, value as string);
+            });
+        }
+    }, [currentCV, updatePersonalDetails]);
 
     return (
         <div className="p-4 border rounded-lg bg-gray-50">
@@ -39,7 +49,7 @@ export default function PersonalDetails() {
                 />
                 <input
                     type="text"
-                    placeholder="phone"
+                    placeholder="Phone"
                     value={personalDetails.phone}
                     onChange={(e) => updatePersonalDetails("phone", e.target.value)}
                     className="w-full p-2 border rounded mt-2"
@@ -58,54 +68,6 @@ export default function PersonalDetails() {
                     placeholder="Country"
                     value={personalDetails.country}
                     onChange={(e) => updatePersonalDetails("country", e.target.value)}
-                    className="w-full p-2 border rounded mt-2"
-                />
-            </div>
-            <div className="flex gap-4 mt-2">
-                <input
-                    type="text"
-                    placeholder="Address"
-                    value={personalDetails.address}
-                    onChange={(e) => updatePersonalDetails("address", e.target.value)}
-                    className="w-full p-2 border rounded mt-2"
-                />
-                <input
-                    type="text"
-                    placeholder="Zip code"
-                    value={personalDetails.zipCode}
-                    onChange={(e) => updatePersonalDetails("zipCode", e.target.value)}
-                    className="w-full p-2 border rounded mt-2"
-                />
-            </div>
-            <div className="flex gap-4 mt-2">
-                <input
-                    type="text"
-                    placeholder="Id Number"
-                    value={personalDetails.idNumber}
-                    onChange={(e) => updatePersonalDetails("idNumber", e.target.value)}
-                    className="w-full p-2 border rounded mt-2"
-                />
-                <input
-                    type="text"
-                    placeholder="Date of birth"
-                    value={personalDetails.dob}
-                    onChange={(e) => updatePersonalDetails("dob", e.target.value)}
-                    className="w-full p-2 border rounded mt-2"
-                />
-            </div>
-            <div className="flex gap-4 mt-2">
-                <input
-                    type="text"
-                    placeholder="Nationality"
-                    value={personalDetails.nationality}
-                    onChange={(e) => updatePersonalDetails("nationality", e.target.value)}
-                    className="w-full p-2 border rounded mt-2"
-                />
-                <input
-                    type="text"
-                    placeholder="Driver's Lisence"
-                    value={personalDetails.driverLisence}
-                    onChange={(e) => updatePersonalDetails("driverLisence", e.target.value)}
                     className="w-full p-2 border rounded mt-2"
                 />
             </div>

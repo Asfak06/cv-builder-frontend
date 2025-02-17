@@ -1,8 +1,20 @@
 import { useCVStore } from "@/store/cvStore";
+import { useEffect } from "react";
 
 export default function References() {
-    const { references, addReference, updateReference } = useCVStore();
+    const { references, addReference, updateReference, currentCV } = useCVStore();
 
+
+    // Auto-fill experience when currentCV changes
+    useEffect(() => {
+        if (currentCV?.references) {
+            currentCV.references.forEach((exp, index) => {
+                updateReference(index, "name", exp.name);
+                updateReference(index, "position", exp.position);
+                updateReference(index, "company", exp.company);
+            });
+        }
+    }, [currentCV, updateReference]);
     return (
         <div className="p-4 border rounded-lg bg-gray-50">
             <h3 className="text-lg font-semibold">References</h3>

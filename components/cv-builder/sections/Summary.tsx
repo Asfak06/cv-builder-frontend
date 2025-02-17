@@ -1,7 +1,15 @@
 import { useCVStore } from "@/store/cvStore";
+import { useEffect } from "react";
 
 export default function Summary() {
-    const { summary, updateSummary } = useCVStore();
+    const { summary, updateSummary, currentCV } = useCVStore();
+
+    // Auto-fill summary when currentCV changes
+    useEffect(() => {
+        if (currentCV?.summary) {
+            updateSummary(currentCV.summary);
+        }
+    }, [currentCV, updateSummary]);
 
     return (
         <div className="p-4 border rounded-lg bg-gray-50">

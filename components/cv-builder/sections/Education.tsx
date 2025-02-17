@@ -1,8 +1,19 @@
 import { useCVStore } from "@/store/cvStore";
+import { useEffect } from "react";
 
 export default function Education() {
-    const { education, addEducation, updateEducation } = useCVStore();
+    const { education, addEducation, updateEducation, currentCV } = useCVStore();
 
+    // Auto-fill experience when currentCV changes
+    useEffect(() => {
+        if (currentCV?.education) {
+            currentCV.education.forEach((exp, index) => {
+                updateEducation(index, "degree", exp.degree);
+                updateEducation(index, "institution", exp.institution);
+                updateEducation(index, "year", exp.year);
+            });
+        }
+    }, [currentCV, updateEducation]);
     return (
         <div className="p-4 border rounded-lg bg-gray-50">
             <h3 className="text-lg font-semibold">Education</h3>
