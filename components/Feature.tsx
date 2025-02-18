@@ -1,7 +1,6 @@
 import Image from "next/image";
-import { memo } from "react";
 
-const Feature = memo(() => {
+const Feature = () => {
     return (
         <div className="pt-[80px] pb-[200px]">
             <div className="container">
@@ -71,6 +70,6 @@ const Feature = memo(() => {
             </div>
         </div>
     );
-});
+};
 
 export default Feature;

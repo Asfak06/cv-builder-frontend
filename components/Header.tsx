@@ -1,3 +1,4 @@
+import Link from "next/link";
 
 const Header = () => {
     return (
@@ -5,12 +6,12 @@ const Header = () => {
             <div className='container px-6'>
                 <div className='row'>
                     <div className='flex justify-between items-center'>
-                        <a className="text-[#fff] text-[24px] font-semibold" href="/">Surveylancer CV Builder</a>
+                        <Link className="text-[#fff] text-[24px] font-semibold" href="/">Surveylancer CV Builder</Link>
                         <ul className="flex text-[16px] text-[#fff] space-x-10">
-                            <li><a className="hover:text-[#CE367F]" href="#">Home</a></li>
-                            <li><a className="hover:text-[#CE367F]" href="#">About</a></li>
-                            <li><a className="hover:text-[#CE367F]" href="#">Service</a></li>
-                            <li><a className="hover:text-[#CE367F]" href="#">Contact</a></li>
+                            <li><Link className="hover:text-[#CE367F]" href="#">Home</Link></li>
+                            <li><Link className="hover:text-[#CE367F]" href="#">About</Link></li>
+                            <li><Link className="hover:text-[#CE367F]" href="#">Service</Link></li>
+                            <li><Link className="hover:text-[#CE367F]" href="#">Contact</Link></li>
                         </ul>
                     </div>
                 </div>

@@ -1,11 +1,12 @@
+import Feature from "@/components/Feature";
 import Footer from "@/components/Footer";
+import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import HowItWorks from "@/components/HowItWorks";
 import IndustryFilters from "@/components/IndustryFilters";
 import TemplateGallery from "@/components/TemplateGallery";
-import CreateCv from "../components/Feature.tsx";
-import Header from "../components/Header.tsx";
-import TemplatesHead from "../components/TemplatesHead.tsx";
+import TemplatesHead from "@/components/TemplatesHead";
+
 
 
 export default function HomePage() {
@@ -18,7 +19,7 @@ export default function HomePage() {
         <IndustryFilters />
         <TemplateGallery />
       </section>
-      <CreateCv />
+      <Feature />
       <HowItWorks />
       <Footer />
     </main>
