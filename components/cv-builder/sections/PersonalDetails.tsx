@@ -6,21 +6,26 @@ export default function PersonalDetails() {
     return (
         <div className="p-4 border rounded-lg bg-gray-50">
             <h3 className="text-lg font-semibold">Personal Details</h3>
-            <input
-                type="text"
-                placeholder="Job Title"
-                value={personalDetails.jobTitle}
-                onChange={(e) => updatePersonalDetails("jobTitle", e.target.value)}
-                className="w-full p-2 border rounded mt-2"
-            />
-            <div className="flex gap-4 mt-2">
+            <div className="relative">
+                <label className="text-[12px] text-[#5E6366] absolute top-[18px] left-[16px]">Job Title</label>
                 <input
                     type="text"
-                    placeholder="First Name"
-                    value={personalDetails.firstName}
-                    onChange={(e) => updatePersonalDetails("firstName", e.target.value)}
-                    className="w-1/2 p-2 border rounded"
+                    placeholder="Job Title"
+                    value={personalDetails.jobTitle}
+                    onChange={(e) => updatePersonalDetails("jobTitle", e.target.value)}
+                    className="w-full h-[58px] p-[15px] pt-[30px] text-[16px] border rounded-lg mt-2"
                 />
+            </div>
+            <div className="flex gap-4 mt-2">
+                <div className="w-[50%]">
+                    <input
+                        type="text"
+                        placeholder="First Name"
+                        value={personalDetails.firstName}
+                        onChange={(e) => updatePersonalDetails("firstName", e.target.value)}
+                        className="w-1/2 p-2 border rounded"
+                    />
+                </div>
                 <input
                     type="text"
                     placeholder="Last Name"
