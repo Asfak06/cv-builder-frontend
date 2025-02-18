@@ -9,11 +9,11 @@ export default function TemplateSelector() {
             : templates.filter((template) => template.industry === selectedIndustry);
     return (
         <div className="mb-4">
-            <label className="block text-lg font-semibold">Select Template:</label>
+            <label className="block text-lg text-[#CE367F] font-semibold">Select Template:</label>
             <select
                 value={selectedTemplate}
                 onChange={(e) => updateTemplate(e.target.value)}
-                className="w-full p-2 border rounded mt-2"
+                className="w-full h-[58px] p-2 border rounded-lg mt-2"
             >
                 {filteredTemplates.map((item, i) => (
                     <option key={i} value={`${item.id}`}> {item.industry}{' '} {item.id} </option>
