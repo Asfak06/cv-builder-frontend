@@ -26,6 +26,7 @@ export default function PersonalDetails() {
                         className="w-1/2 p-2 border rounded"
                     />
                 </div>
+                <div className=""></div>
                 <input
                     type="text"
                     placeholder="Last Name"
