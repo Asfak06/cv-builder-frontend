@@ -24,6 +24,9 @@ body {
   width: 100%;
   margin: 0 auto;
 }
+.bg-gradient-custom {
+  background: linear-gradient(90.63deg, #f0d3e6 21.32%, #d1dfef 132.04%);
+}
 .step__item:nth-child(1) img {
   right: -125px;
   top: 15px;
