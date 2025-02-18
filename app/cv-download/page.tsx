@@ -17,7 +17,7 @@ const templates: Record<string, React.FC> = {
 
 export default function CVDownload() {
     const searchParams = useSearchParams();
-    const { loadCVData, resetCV, updateTemplate, currentCV } = useCVStore();
+    const { loadCVData, resetCV, currentCV } = useCVStore();
     const { userData } = useUserStore();
     const cvId = searchParams.get("cvId"); // Get cvId from URL
     const selectedTemplate = searchParams.get("selectedTemplate"); // Get cvId from URL
