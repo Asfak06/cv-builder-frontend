@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const axiosInstance = axios.create({
-  baseURL: 'http://localhost:5000', // Dummy backend URL
+  baseURL: process.env.NEXT_PUBLIC_API_RESOURCE || 'https://api.cv.surveylancer.com',
   headers: {
     'Content-Type': 'application/json',
   },
