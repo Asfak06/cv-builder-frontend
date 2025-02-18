@@ -1,5 +1,10 @@
 import { useCVStore } from "@/store/cvStore";
+import dynamic from "next/dynamic";
 import { useEffect } from "react";
+import "react-quill-new/dist/quill.snow.css"; // Import Quill styles
+
+// Dynamically import React Quill New for Next.js SSR compatibility
+const ReactQuill = dynamic(() => import("react-quill-new"), { ssr: false });
 
 export default function Summary() {
     const { summary, updateSummary, currentCV } = useCVStore();
@@ -13,12 +18,12 @@ export default function Summary() {
 
     return (
         <div className="p-4 border rounded-lg bg-gray-50">
-            <h3 className="text-lg font-semibold">Professional Summary</h3>
-            <textarea
+            <h3 className="text-lg font-semibold py-2">Professional Summary</h3>
+            <ReactQuill
                 value={summary}
-                onChange={(e) => updateSummary(e.target.value)}
+                onChange={updateSummary}
                 placeholder="Write a short summary about yourself..."
-                className="w-full p-2 border rounded mt-2 h-24"
+                theme="snow" // Default toolbar UI
             />
         </div>
     );
