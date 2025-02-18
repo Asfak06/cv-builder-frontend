@@ -15,8 +15,8 @@ export default function TemplateSelector() {
                 onChange={(e) => updateTemplate(e.target.value)}
                 className="w-full p-2 border rounded mt-2"
             >
-                {filteredTemplates.map((item) => (
-                    <option value={`template${item.id}`}> {item.industry}{' '} Template-{item.id} </option>
+                {filteredTemplates.map((item, i) => (
+                    <option key={i} value={`${item.id}`}> {item.industry}{' '} {item.id} </option>
                 ))}
 
             </select>

@@ -1,7 +1,20 @@
 import { useCVStore } from "@/store/cvStore";
+import { useEffect } from "react";
 
 export default function Experience() {
-    const { experience, addExperience, updateExperience } = useCVStore();
+    const { experience, addExperience, updateExperience, currentCV } = useCVStore();
+
+    // Auto-fill experience when currentCV changes
+    useEffect(() => {
+        if (currentCV?.experience) {
+            currentCV.experience.forEach((exp, index) => {
+                updateExperience(index, "jobTitle", exp.jobTitle);
+                updateExperience(index, "company", exp.company);
+                updateExperience(index, "startDate", exp.startDate);
+                updateExperience(index, "endDate", exp.endDate);
+            });
+        }
+    }, [currentCV, updateExperience]);
 
     return (
         <div className="p-4 border rounded-lg bg-gray-50">

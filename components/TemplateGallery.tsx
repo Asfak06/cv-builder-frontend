@@ -25,7 +25,7 @@ export default function TemplateGallery() {
                             <div className="absolute inset-0 bg-black bg-opacity-50 flex justify-center items-center opacity-0 group-hover:opacity-100 transition">
                                 <button
                                     onClick={() => {
-                                        updateTemplate(`template${template.id}`)
+                                        updateTemplate(`${template.id}`)
                                         router.push(`/cv-builder?template=${template.id}`)
                                     }}
                                     className="px-4 py-2 bg-pink-600 text-white font-bold rounded-lg"
