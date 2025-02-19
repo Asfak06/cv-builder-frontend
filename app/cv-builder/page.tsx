@@ -10,7 +10,7 @@ export default function CVBuilderPage() {
     const searchParams = useSearchParams();
     const cvId = searchParams.get("cvId"); // Get cvId from URL
     const { userData } = useUserStore()
-    const { currentCV, loadCVData, resetCV } = useCVStore();
+    const { loadCVData, resetCV } = useCVStore();
     const router = useRouter();
     // Handle CV loading/reset logic
     useEffect(() => {

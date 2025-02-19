@@ -6,7 +6,7 @@ import { templates } from "@/lib/data";
 
 export default function TemplateGallery() {
     const router = useRouter();
-    const { selectedIndustry, selectedTemplate, updateTemplate } = useCVStore();
+    const { selectedIndustry, updateTemplate } = useCVStore();
 
     // Filter templates based on the selected industry
     const filteredTemplates =

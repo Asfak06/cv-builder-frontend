@@ -1,6 +1,6 @@
 import { useCVStore } from "@/store/cvStore";
+import parse from "html-react-parser";
 import { FaEnvelope, FaMapMarkerAlt, FaPhone } from "react-icons/fa";
-
 export default function Template3() {
     const { personalDetails, summary, experience, education, skills, references } = useCVStore();
 
@@ -19,7 +19,7 @@ export default function Template3() {
                 {/* About Me */}
                 <div className="mt-6 text-center">
                     <h2 className="text-lg font-semibold border-b pb-1">About Me</h2>
-                    <p className="text-gray-200 text-sm mt-2">{summary}</p>
+                    <p className="text-gray-200 text-sm mt-2">{parse(summary)}</p>
                 </div>
                 {/* Contact Info */}
                 <div className="mt-6 text-center">

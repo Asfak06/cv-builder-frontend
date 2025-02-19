@@ -67,7 +67,7 @@ interface CVState {
   updateIndustry: (industry: string) => void;
   updateTemplate: (template: string) => void;
   fetchUserCVs: (userId: string) => Promise<void>;
-  saveCVData: (userId: string) => void;
+  saveCVData: (userId: string) => Promise<void>;
   resetCV: () => void;
 }
 
