@@ -48,7 +48,7 @@ export default function Summary() {
     };
 
     return (
-        <div className="p-6 border rounded-lg bg-white shadow-md relative">
+        <div className="p-6 border rounded-lg bg-white shadow-md relative min-h-[300px]">
             {/* Header with Button */}
             <div className="flex justify-between items-center mb-4">
                 <h3 className="text-lg text-[#CE367F] font-semibold">Professional Summary</h3>
