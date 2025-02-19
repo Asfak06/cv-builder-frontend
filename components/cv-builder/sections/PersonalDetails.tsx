@@ -1,9 +1,11 @@
+import axiosInstance from "@/lib/axiosInstance";
 import { useCVStore } from "@/store/cvStore";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import toast from "react-hot-toast";
 
 export default function PersonalDetails() {
-    const { personalDetails, updatePersonalDetails, currentCV } = useCVStore();
-
+    const { personalDetails, updatePersonalDetails, currentCV, updateProfileImage } = useCVStore();
+    const [uploading, setUploading] = useState(false);
     // Auto-fill personal details when currentCV changes
     useEffect(() => {
         if (currentCV) {
@@ -13,9 +15,57 @@ export default function PersonalDetails() {
         }
     }, [currentCV, updatePersonalDetails]);
 
+    const handleImageUpload = async (event: React.ChangeEvent<HTMLInputElement>) => {
+        const file = event.target.files?.[0];
+        if (!file) return;
+
+        const formData = new FormData();
+        formData.append("profileImage", file);
+
+        try {
+            setUploading(true);
+            const response = await axiosInstance.post("/api/upload-image", formData, {
+                headers: { "Content-Type": "multipart/form-data" },
+            });
+
+            if (response.status === 200) {
+                updateProfileImage(response.data.imageUrl);
+                toast.success("Profile image uploaded successfully!");
+            } else {
+                toast.error("Failed to upload image. Please try again.");
+            }
+        } catch (error) {
+            console.error("Image Upload Error:", error);
+            toast.error("Error uploading image.");
+        } finally {
+            setUploading(false);
+        }
+    };
+
     return (
         <div className="p-[30px] border rounded-lg bg-[#fff]">
             <h3 className="text-lg text-[#CE367F] font-semibold">Personal Details</h3>
+            {/* Profile Image Upload */}
+            <div className="flex items-center space-x-4">
+                <label className="relative cursor-pointer bg-gray-200 text-gray-700 py-2 px-4 rounded-lg font-medium hover:bg-gray-300 transition">
+                    {uploading ? "Uploading..." : "Upload Image"}
+                    <input
+                        type="file"
+                        accept="image/*"
+                        onChange={handleImageUpload}
+                        className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+                    />
+                </label>
+
+                {/* Display Uploaded Image */}
+                {personalDetails.profileImage && (
+                    <img
+                        src={`${process.env.NEXT_PUBLIC_API_RESOURCE}${personalDetails.profileImage}`}
+                        alt="Profile"
+                        className="w-16 h-16 rounded-full border-2 border-gray-400 shadow"
+                    />
+                )}
+            </div>
             <div className="relative mb-[20px]">
                 <label className="text-[12px] text-[#5E6366] absolute top-[18px] left-[16px]">Job Title</label>
                 <input

@@ -11,7 +11,7 @@ export default function Template1() {
                 {/* Profile Image */}
                 <div className="flex justify-center">
                     <img
-                        src={personalDetails.profileImage || "https://placehold.co/500"}
+                        src={personalDetails.profileImage ? `${process.env.NEXT_PUBLIC_API_RESOURCE}${personalDetails.profileImage}` : "https://placehold.co/500"}
                         alt="Profile"
                         className="w-32 h-32 rounded-full border-4 border-white"
                     />
