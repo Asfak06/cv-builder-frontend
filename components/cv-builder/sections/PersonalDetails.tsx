@@ -72,7 +72,7 @@ export default function PersonalDetails() {
             </div>
             <div className="flex gap-4 mt-2 mb-[20px]">
                 <div className="w-[50%] relative">
-                    <label className="text-[12px] text-[#5E6366] absolute top-[18px] left-[16px]">Phone</label>
+                    <label className="text-[12px] text-[#5E6366] absolute top-[18px] left-[16px]">City</label>
                     <input
                         type="text"
                         placeholder="City"
