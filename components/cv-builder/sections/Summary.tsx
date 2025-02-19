@@ -18,14 +18,14 @@ export default function Summary() {
 
     return (
 
-        <div className="p-[30px] border rounded-lg bg-[#fff]">
+        <div className="p-[30px] h-[260px] border rounded-lg bg-[#fff]">
             <h3 className="text-lg text-[#CE367F] font-semibold">Professional Summary</h3>
-                <ReactQuill
+            <ReactQuill
                 value={summary}
                 onChange={updateSummary}
                 placeholder="Write a short summary about yourself..."
-                className="w-full p-2 text-[16px] border border-[#CFD3D4] resize-none rounded-lg mt-2 h-24"
-                theme="snow" // Default toolbar UI
+                className="w-full text-[16px] resize-none rounded-lg mt-2 h-[120px]"
+                theme="snow"
             />
         </div>
     );
