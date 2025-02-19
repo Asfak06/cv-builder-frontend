@@ -10,7 +10,7 @@ export default function Template3() {
             <div className=" text-white p-6 w-full md:w-1/3 rounded-lg md:rounded-r-none flex flex-col items-center">
                 {/* Profile Image */}
                 <img
-                    src={personalDetails.profileImage || "https://placehold.co/500"}
+                    src={personalDetails.profileImage ? `${process.env.NEXT_PUBLIC_API_RESOURCE}${personalDetails.profileImage}` : "https://placehold.co/500"}
                     alt="Profile"
                     className="w-32 h-32 rounded-full border-4 border-white"
                 />

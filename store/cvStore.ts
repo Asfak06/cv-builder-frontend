@@ -57,8 +57,10 @@ interface CVState {
   updateProfileImage: (imageUrl: string) => void;
   updateSummary: (text: string) => void;
   addExperience: () => void;
+  removeExperience: (index: number) => void;
   updateExperience: (index: number, key: string, value: string) => void;
   addEducation: () => void;
+  removeEducation: (index: number) => void;
   updateEducation: (index: number, key: string, value: string) => void;
   addSkill: (skill: string) => void;
   addLinks: (link: { label: string; url: string }) => void;
@@ -136,6 +138,11 @@ export const useCVStore = create<CVState>((set, get) => ({
       experience: [...state.experience, { jobTitle: '', company: '', startDate: '', endDate: '' }],
     })),
 
+  removeExperience: (index: number) =>
+    set((state) => ({
+      experience: state.experience.filter((_, i) => i !== index),
+    })),
+
   updateExperience: (index, key, value) =>
     set((state) => {
       const updated = [...state.experience];
@@ -146,6 +153,11 @@ export const useCVStore = create<CVState>((set, get) => ({
   addEducation: () =>
     set((state) => ({
       education: [...state.education, { degree: '', institution: '', year: '' }],
+    })),
+
+  removeEducation: (index: number) =>
+    set((state) => ({
+      education: state.education.filter((_, i) => i !== index),
     })),
 
   updateEducation: (index, key, value) =>

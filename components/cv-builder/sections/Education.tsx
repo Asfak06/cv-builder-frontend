@@ -1,8 +1,9 @@
 import { useCVStore } from "@/store/cvStore";
 import { useEffect } from "react";
+import { FaTrash } from "react-icons/fa";
 
 export default function Education() {
-    const { education, addEducation, updateEducation, currentCV } = useCVStore();
+    const { education, addEducation, updateEducation, currentCV, removeEducation } = useCVStore();
 
     // Auto-fill experience when currentCV changes
     useEffect(() => {
@@ -18,7 +19,13 @@ export default function Education() {
         <div className="p-[30px] border rounded-lg bg-[#fff]">
             <h3 className="text-lg text-[#CE367F] font-semibold">Education</h3>
             {education.map((edu, index) => (
-                <div key={index} className="mt-4 border p-[15px] rounded bg-white">
+                <div key={index} className="mt-4 border p-[35px] rounded bg-white relative">
+                    <button
+                        onClick={() => removeEducation(index)}
+                        className="absolute top-2 right-2 text-red-500 hover:text-red-700"
+                    >
+                        <FaTrash />
+                    </button>
                     <div className=" relative mb-[20px]">
                         <label className="text-[12px] text-[#5E6366] absolute top-[10px] left-[16px]">Degree</label>
                         <input
