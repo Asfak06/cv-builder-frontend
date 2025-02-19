@@ -57,18 +57,21 @@ interface CVState {
   updateProfileImage: (imageUrl: string) => void;
   updateSummary: (text: string) => void;
   addExperience: () => void;
+  removeExperience: (index: number) => void;
   updateExperience: (index: number, key: string, value: string) => void;
   addEducation: () => void;
+  removeEducation: (index: number) => void;
   updateEducation: (index: number, key: string, value: string) => void;
   addSkill: (skill: string) => void;
   addLinks: (link: { label: string; url: string }) => void;
   removeSkill: (skill: string) => void;
   addReference: () => void;
+  removeReference: (index: number) => void;
   updateReference: (index: number, key: string, value: string) => void;
   updateIndustry: (industry: string) => void;
   updateTemplate: (template: string) => void;
   fetchUserCVs: (userId: string) => Promise<void>;
-  saveCVData: (userId: string) => Promise<void>;
+  saveCVData: (userId: string, autoSave?: boolean) => Promise<void>;
   resetCV: () => void;
 }
 
@@ -136,6 +139,11 @@ export const useCVStore = create<CVState>((set, get) => ({
       experience: [...state.experience, { jobTitle: '', company: '', startDate: '', endDate: '' }],
     })),
 
+  removeExperience: (index: number) =>
+    set((state) => ({
+      experience: state.experience.filter((_, i) => i !== index),
+    })),
+
   updateExperience: (index, key, value) =>
     set((state) => {
       const updated = [...state.experience];
@@ -146,6 +154,11 @@ export const useCVStore = create<CVState>((set, get) => ({
   addEducation: () =>
     set((state) => ({
       education: [...state.education, { degree: '', institution: '', year: '' }],
+    })),
+
+  removeEducation: (index: number) =>
+    set((state) => ({
+      education: state.education.filter((_, i) => i !== index),
     })),
 
   updateEducation: (index, key, value) =>
@@ -174,7 +187,10 @@ export const useCVStore = create<CVState>((set, get) => ({
     set((state) => ({
       references: [...state.references, { name: '', position: '', company: '' }],
     })),
-
+  removeReference: (index: number) =>
+    set((state) => ({
+      references: state.references.filter((_, i) => i !== index),
+    })),
   updateReference: (index, key, value) =>
     set((state) => {
       const updated = [...state.references];
@@ -192,7 +208,7 @@ export const useCVStore = create<CVState>((set, get) => ({
       console.error('Error fetching CVs:', error);
     }
   },
-  saveCVData: async (userId: string) => {
+  saveCVData: async (userId: string, autoSave: boolean) => {
     const {
       currentCV,
       selectedTemplate,
@@ -219,7 +235,7 @@ export const useCVStore = create<CVState>((set, get) => ({
           skills,
           references,
         });
-        toast.success('CV updated successfully!'); // 🟢 Success toast
+        !autoSave && toast.success('CV updated successfully!'); // 🟢 Success toast
       } else {
         // ✅ Create New CV
         response = await axiosInstance.post('/api/cv', {

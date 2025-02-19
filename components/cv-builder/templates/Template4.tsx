@@ -13,7 +13,7 @@ export default function Template4() {
             </div>
             <div className="p-6 flex items-center gap-6">
                 <img
-                    src={personalDetails.profileImage || "https://placehold.co/500"}
+                    src={personalDetails.profileImage ? `${process.env.NEXT_PUBLIC_API_RESOURCE}${personalDetails.profileImage}` : "https://placehold.co/500"}
                     alt="Profile"
                     className="w-32 h-32 rounded-full border-4 border-gray-300"
                 />

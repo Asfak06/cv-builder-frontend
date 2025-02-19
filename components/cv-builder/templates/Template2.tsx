@@ -9,7 +9,7 @@ export default function Template2() {
             {/* Header Section */}
             <div className="flex items-center gap-6">
                 <img
-                    src={personalDetails.profileImage || "https://placehold.co/500"}
+                    src={personalDetails.profileImage ? `${process.env.NEXT_PUBLIC_API_RESOURCE}${personalDetails.profileImage}` : "https://placehold.co/500"}
                     alt="Profile"
                     className="w-40 h-40 rounded-full border-4 border-gray-300"
                 />

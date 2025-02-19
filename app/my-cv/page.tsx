@@ -6,7 +6,7 @@ import { useEffect } from "react";
 
 export default function MyCVPage() {
     const router = useRouter();
-    const { userCVs, fetchUserCVs } = useCVStore();
+    const { userCVs, fetchUserCVs, updateTemplate } = useCVStore();
 
     // Fake user ID (Replace with actual logged-in user ID)
     const userId = "12345678-abcd-efgh-ijkl-901234567890";
@@ -33,10 +33,13 @@ export default function MyCVPage() {
                         <div key={cv._id} className="relative group cursor-pointer border rounded-lg p-4 shadow-md bg-white">
                             <p className="text-lg font-semibold text-gray-600">{cv.personalDetails.firstName} {cv.personalDetails.lastName}</p>
                             <p className="text-sm text-gray-500 mb-4">Last Updated: {new Date(cv.updatedAt).toLocaleString()}</p>
-                            <img src={templates.find((item) => item.id === cv.templateId)?.img} alt={cv.templateId} className="rounded-lg shadow-md w-full" />
+                            <img src={templates.find((item) => item.id === cv.templateId)?.img} alt={cv.templateId} className="rounded-lg shadow-md w-full h-[350px] object-cover" />
                             <div className="absolute inset-0 bg-black bg-opacity-50  flex justify-center items-center opacity-0 group-hover:opacity-100 transition">
                                 <button
-                                    onClick={() => router.push(`/cv-builder?cvId=${cv._id}`)}
+                                    onClick={() => {
+                                        updateTemplate(cv.templateId)
+                                        router.push(`/cv-builder?cvId=${cv._id}`)
+                                    }}
                                     className="px-4 py-2 bg-pink-600 text-white font-bold rounded-lg"
                                 >
                                     Edit
