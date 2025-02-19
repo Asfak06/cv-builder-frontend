@@ -9,7 +9,7 @@ export default function Template1() {
             {/* Left Column */}
             <div className="bg-gray-800 text-white p-6 pr-0 w-full md:w-1/3">
                 {/* Profile Image */}
-                <div className="flex justify-center">
+                <div className="flex justify-center pr-5">
                     <img
                         src={personalDetails.profileImage ? `${process.env.NEXT_PUBLIC_API_RESOURCE}${personalDetails.profileImage}` : "https://placehold.co/500"}
                         alt="Profile"
@@ -19,16 +19,16 @@ export default function Template1() {
                 {/* Links */}
                 <div className="mt-4 space-y-2">
                     {links.map((link, index) => (
-                        <p key={index} className="flex items-center">
+                        <p key={index} className="flex items-left">
                             {link.label.includes("LinkedIn") ? <FaLinkedin className="mr-2" /> : <FaGithub className="mr-2" />}
                             {link.url}
                         </p>
                     ))}
                 </div>
                 {/* Summary */}
-                <div className="mt-6">
+                <div className="mt-6 border-b border-[#ddd]">
                     <h2 className="text-lg font-semibold border-b border-gray-800 uppercase pb-1">About Me</h2>
-                    <p className="text-gray-300 text-sm mt-2">{parse(summary)}</p>
+                    <p className="text-gray-300 text-sm mt-2 pr-5 pb-5 text-justify">{parse(summary)}</p>
                 </div>
                 {/* References */}
                 <div className="mt-6">
@@ -55,11 +55,11 @@ export default function Template1() {
                 </div>
                 {/* Experience */}
                 <div>
-                    <h2 className="text-xl font-semibold border-b border-gray-800 uppercase pb-1">Work Experience</h2>
+                    <h2 className="text-xl mb-5 font-semibold border-b border-gray-800 uppercase pb-1">Work Experience</h2>
                     {experience.map((exp, index) => (
-                        <div key={index} className="mt-4">
-                            <h3 className="text-lg font-semibold">{exp.jobTitle}</h3>
-                            <p className="text-gray-500 text-sm">{exp.company} ({exp.startDate} - {exp.endDate})</p>
+                        <div key={index} className="pl-4 border-l-2 border-gray-800">
+                            <h3 className="text-lg mb-2 font-semibold relative before:content-[''] before:w-2.5 before:h-2.5 before:bg-gray-800 before:rounded-full before:absolute before:-left-[22px] before:top-[0px] leading-[14px]">{exp.jobTitle}</h3>
+                            <p className="text-gray-500 text-sm pb-8">{exp.company} ({exp.startDate} - {exp.endDate})</p>
                         </div>
                     ))}
                 </div>
