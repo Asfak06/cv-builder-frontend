@@ -71,7 +71,7 @@ interface CVState {
   updateIndustry: (industry: string) => void;
   updateTemplate: (template: string) => void;
   fetchUserCVs: (userId: string) => Promise<void>;
-  saveCVData: (userId: string) => Promise<void>;
+  saveCVData: (userId: string, autoSave?: boolean) => Promise<void>;
   resetCV: () => void;
 }
 
@@ -208,7 +208,7 @@ export const useCVStore = create<CVState>((set, get) => ({
       console.error('Error fetching CVs:', error);
     }
   },
-  saveCVData: async (userId: string) => {
+  saveCVData: async (userId: string, autoSave: boolean) => {
     const {
       currentCV,
       selectedTemplate,
@@ -235,7 +235,7 @@ export const useCVStore = create<CVState>((set, get) => ({
           skills,
           references,
         });
-        toast.success('CV updated successfully!'); // 🟢 Success toast
+        !autoSave && toast.success('CV updated successfully!'); // 🟢 Success toast
       } else {
         // ✅ Create New CV
         response = await axiosInstance.post('/api/cv', {

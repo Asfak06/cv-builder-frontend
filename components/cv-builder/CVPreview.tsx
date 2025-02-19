@@ -1,6 +1,7 @@
 import { useCVStore } from "@/store/cvStore";
 import { useUserStore } from "@/store/userStore";
 import { useState } from "react";
+import { FaSpinner } from "react-icons/fa";
 import Template1 from "./templates/Template1";
 import Template2 from "./templates/Template2";
 import Template3 from "./templates/Template3";
@@ -21,7 +22,7 @@ export default function CVPreview() {
     const TemplateComponent = templates[selectedTemplate] || Template1;
 
     const handleDownloadPDF = async () => {
-        await saveCVData(userData.id)
+        await saveCVData(userData.id, true)
         setLoading(true)
         if (!currentCV?._id || !currentCV.personalDetails?.firstName) return;
 
@@ -57,9 +58,10 @@ export default function CVPreview() {
 
                 <button
                     onClick={handleDownloadPDF}
-                    className="px-4 py-2 bg-blue-600 text-white font-bold rounded-lg"
+                    className="px-4 py-2 bg-blue-600 text-white font-bold rounded-lg flex items-center gap-2"
+                    disabled={loading}
                 >
-                    {loading ? 'processing download...' : 'Download PDF'}
+                    {loading ? <><FaSpinner className="animate-spin" /> Processing Download</> : "Download PDF"}
                 </button>
             </div>
         </div>
