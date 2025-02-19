@@ -31,20 +31,20 @@ export default function Template1() {
                     <p className="text-gray-300 text-sm mt-2 pr-5 pb-5 text-justify">{parse(summary)}</p>
                 </div>
                 {/* References */}
-                <div className="mt-6">
+                <div className="mt-5 pb-5 border-b border-[#ddd]">
                     <h2 className="text-lg font-semibold border-b border-gray-800 uppercase pb-1">References</h2>
                     {references.map((ref, index) => (
-                        <p key={index} className="text-gray-300 text-sm mt-2"><strong>{ref.name}</strong> - {ref.position} at {ref.company}</p>
+                        <p key={index} className="text-gray-300 text-sm mt-2"><strong>{ref.name}</strong> <span className="font-normal block pt-1">{ref.position}</span> <span className="font-normal block pt-1">{ref.company}</span></p>
                     ))}
                 </div>
             </div>
 
             {/* Right Column */}
-            <div className="bg-white p-6 w-full md:w-2/3 rounded-lg md:rounded-l-none">
+            <div className="bg-white p-6 w-full md:w-2/3">
                 <div className="flex justify-between items-center pb-[30px] pt-[30px]">
                     {/* Personal Details */}
                     <div className="text-left mt-4">
-                        <h1 className="text-2xl font-bold">{personalDetails.firstName} {personalDetails.lastName}</h1>
+                        <h1 className="text-2xl font-bold uppercase">{personalDetails.firstName} {personalDetails.lastName}</h1>
                         <p className="text-gray-400 uppercase">{personalDetails.jobTitle}</p>
                     </div>
                     <div className="mt-4 space-y-2">
