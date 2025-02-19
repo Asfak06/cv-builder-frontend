@@ -54,6 +54,7 @@ interface CVState {
 
   loadCVData: (cvId: string, userId: string) => Promise<void>;
   updatePersonalDetails: (key: string, value: string) => void;
+  updateProfileImage: (imageUrl: string) => void;
   updateSummary: (text: string) => void;
   addExperience: () => void;
   updateExperience: (index: number, key: string, value: string) => void;
@@ -97,7 +98,7 @@ export const useCVStore = create<CVState>((set, get) => ({
   skills: [],
   references: [],
   selectedIndustry: 'Software Engineer',
-  selectedTemplate: 'template1',
+  selectedTemplate: 'template-1',
   userCVs: [],
 
   // Load CV Data & Populate Form
@@ -124,7 +125,10 @@ export const useCVStore = create<CVState>((set, get) => ({
     set((state) => ({
       personalDetails: { ...state.personalDetails, [key]: value },
     })),
-
+  updateProfileImage: (imageUrl: string) =>
+    set((state) => ({
+      personalDetails: { ...state.personalDetails, profileImage: imageUrl },
+    })),
   updateSummary: (text) => set(() => ({ summary: text })),
 
   addExperience: () =>
