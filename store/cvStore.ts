@@ -66,6 +66,7 @@ interface CVState {
   addLinks: (link: { label: string; url: string }) => void;
   removeSkill: (skill: string) => void;
   addReference: () => void;
+  removeReference: (index: number) => void;
   updateReference: (index: number, key: string, value: string) => void;
   updateIndustry: (industry: string) => void;
   updateTemplate: (template: string) => void;
@@ -186,7 +187,10 @@ export const useCVStore = create<CVState>((set, get) => ({
     set((state) => ({
       references: [...state.references, { name: '', position: '', company: '' }],
     })),
-
+  removeReference: (index: number) =>
+    set((state) => ({
+      references: state.references.filter((_, i) => i !== index),
+    })),
   updateReference: (index, key, value) =>
     set((state) => {
       const updated = [...state.references];

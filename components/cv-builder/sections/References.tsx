@@ -1,8 +1,9 @@
 import { useCVStore } from "@/store/cvStore";
 import { useEffect } from "react";
+import { FaTrash } from "react-icons/fa";
 
 export default function References() {
-    const { references, addReference, updateReference, currentCV } = useCVStore();
+    const { references, addReference, updateReference, currentCV, removeEducation } = useCVStore();
 
 
     // Auto-fill experience when currentCV changes
@@ -19,7 +20,13 @@ export default function References() {
         <div className="p-[30px] border rounded-lg bg-[#fff]">
             <h3 className="text-lg text-[#CE367F] font-semibold">References</h3>
             {references.map((ref, index) => (
-                <div key={index} className="mt-4 border p-[15px] rounded bg-white">
+                <div key={index} className="mt-4 border p-[35px] rounded bg-white">
+                    <button
+                        onClick={() => removeEducation(index)}
+                        className="absolute top-2 right-2 text-red-500 hover:text-red-700"
+                    >
+                        <FaTrash />
+                    </button>
                     <div className=" relative mb-[20px]">
                         <label className="text-[12px] text-[#5E6366] absolute top-[10px] left-[16px]">Name</label>
                         <input

@@ -48,7 +48,7 @@ export default function Experience() {
                             className="w-full h-[58px] p-[15px] pt-[30px] text-[16px] border border-[#CFD3D4] rounded-lg"
                         />
                     </div>
-                    <div className="flex gap-4 mt-2">
+                    <div className="flex gap-4 mt-2 items-center">
                         <div className="relative w-[50%]">
                             <label className="text-[12px] text-[#5E6366] absolute top-[10px] left-[16px]">Start Date</label>
                             <input
@@ -62,10 +62,20 @@ export default function Experience() {
                             <label className="text-[12px] text-[#5E6366] absolute top-[10px] left-[16px]">End Date</label>
                             <input
                                 type="date"
-                                value={exp.endDate}
+                                value={exp.endDate === "Present" ? "" : exp.endDate}
                                 onChange={(e) => updateExperience(index, "endDate", e.target.value)}
-                                className="w-full h-[58px] p-[15px] pt-[30px] text-[16px] border border-[#CFD3D4] rounded-lg"
+                                disabled={exp.endDate === "Present"}
+                                className="w-full h-[58px] p-[15px] pt-[30px] text-[16px] border border-[#CFD3D4] rounded-lg disabled:bg-gray-200"
                             />
+                        </div>
+                        <div className="flex items-center gap-2">
+                            <input
+                                type="checkbox"
+                                checked={exp.endDate === "Present"}
+                                onChange={(e) => updateExperience(index, "endDate", e.target.checked ? "Present" : "")}
+                                className="w-5 h-5 text-[#CE367F] border border-gray-300 rounded focus:ring focus:ring-[#CE367F]"
+                            />
+                            <label className="text-[14px] text-[#5E6366]">Currently Working Here</label>
                         </div>
                     </div>
                 </div>
