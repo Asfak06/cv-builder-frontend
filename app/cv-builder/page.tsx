@@ -24,10 +24,10 @@ export default function CVBuilderPage() {
     return (
         <div className="flex flex-col md:flex-row min-h-screen bg-gray-100">
             {/* Left Panel - Forms */}
-            <div className="w-full md:w-1/2 p-6 bg-white shadow-md">
+            <div className="w-full md:w-1/2 p-6 bg-[#EAEAEA] shadow-md">
                 <button
                     onClick={() => router.push(`/`)}
-                    className="px-4 py-2 mb-4 bg-pink-600 text-white font-bold rounded-lg"
+                    className="px-4 py-2 mb-4 bg-[#CE367F] text-white font-bold rounded-lg"
                 >
                     Go back
                 </button>
