@@ -14,7 +14,7 @@ export default function Skills() {
                 }
             });
         }
-    }, [currentCV, addSkill, skills]);
+    }, [currentCV, addSkill]);
 
     const handleAddSkill = () => {
         if (input.trim() && !skills.includes(input)) {

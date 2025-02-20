@@ -6,6 +6,7 @@ interface CV {
   _id: string;
   userId: string;
   templateId: string;
+  selectedIndustry: string;
   personalDetails: {
     firstName: string;
     lastName: string;
@@ -212,6 +213,7 @@ export const useCVStore = create<CVState>((set, get) => ({
     const {
       currentCV,
       selectedTemplate,
+      selectedIndustry,
       personalDetails,
       summary,
       experience,
@@ -228,6 +230,7 @@ export const useCVStore = create<CVState>((set, get) => ({
           cvId: currentCV?._id,
           userId,
           templateId: selectedTemplate,
+          selectedIndustry: selectedIndustry,
           personalDetails,
           summary,
           experience,
@@ -241,6 +244,7 @@ export const useCVStore = create<CVState>((set, get) => ({
         response = await axiosInstance.post('/api/cv', {
           userId,
           templateId: selectedTemplate,
+          selectedIndustry: selectedIndustry,
           personalDetails,
           summary,
           experience,
