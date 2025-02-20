@@ -6,7 +6,7 @@ import { useEffect } from "react";
 
 export default function MyCVPage() {
     const router = useRouter();
-    const { userCVs, fetchUserCVs, updateTemplate } = useCVStore();
+    const { userCVs, fetchUserCVs, updateTemplate, updateIndustry } = useCVStore();
 
     // Fake user ID (Replace with actual logged-in user ID)
     const userId = "12345678-abcd-efgh-ijkl-901234567890";
@@ -38,6 +38,7 @@ export default function MyCVPage() {
                                 <button
                                     onClick={() => {
                                         updateTemplate(cv.templateId)
+                                        updateIndustry(cv.selectedIndustry)
                                         router.push(`/cv-builder?cvId=${cv._id}`)
                                     }}
                                     className="px-4 py-2 bg-pink-600 text-white font-bold rounded-lg"
