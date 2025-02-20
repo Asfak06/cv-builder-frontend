@@ -5,7 +5,7 @@ export default function Template2() {
     const { personalDetails, links, summary, experience, education, skills, references } = useCVStore();
 
     return (
-        <div className="bg-[#ededed] flex flex-col md:flex-row max-w-4xl border-b-[15px] border-[#333d3f] mx-auto min-h-[842px]">
+        <div className="bg-[#ededed] flex flex-col md:flex-row max-w-4xl border-b-[15px] border-[#333d3f] mx-auto min-h-[1123px]">
             {/* Left Column */}
             <div className="bg-[#e3e3e3] text-white mt-[100px] p-4 w-full md:w-1/3">
                 {/* Header Section */}
