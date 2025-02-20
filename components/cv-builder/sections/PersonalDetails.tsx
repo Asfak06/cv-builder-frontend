@@ -45,36 +45,38 @@ export default function PersonalDetails() {
     return (
         <div className="p-[30px] border rounded-lg bg-[#fff]">
             <h3 className="text-lg text-[#CE367F] font-semibold">Personal Details</h3>
-            {/* Profile Image Upload */}
-            <div className="flex items-center space-x-4">
-                <label className="relative cursor-pointer bg-gray-200 text-gray-700 py-2 px-4 rounded-lg font-medium hover:bg-gray-300 transition">
-                    {uploading ? "Uploading..." : "Upload Image"}
+            <div className="flex gap-4 mt-2 mb-[20px]">
+                <div className="w-[50%] relative mb-[20px]">
+                    <label className="text-[12px] text-[#5E6366] absolute top-[18px] left-[16px]">Job Title</label>
                     <input
-                        type="file"
-                        accept="image/*"
-                        onChange={handleImageUpload}
-                        className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+                        type="text"
+                        placeholder="Job Title"
+                        value={personalDetails.jobTitle}
+                        onChange={(e) => updatePersonalDetails("jobTitle", e.target.value)}
+                        className="w-full h-[58px] p-[15px] pt-[30px] text-[16px] border border-[#CFD3D4] rounded-lg mt-2"
                     />
-                </label>
+                </div>
+                {/* Profile Image Upload */}
+                <div className="w-[50%] flex items-center space-x-4">
+                    <label className="relative cursor-pointer bg-[#EFF2F9] h-[58px] text-gray-700 py-[15px] px-4 rounded-lg font-medium hover:bg-gray-300 transition">
+                        {uploading ? "Uploading..." : "Upload Image"}
+                        <input
+                            type="file"
+                            accept="image/*"
+                            onChange={handleImageUpload}
+                            className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+                        />
+                    </label>
 
-                {/* Display Uploaded Image */}
-                {personalDetails.profileImage && (
-                    <img
-                        src={`${process.env.NEXT_PUBLIC_API_RESOURCE}${personalDetails.profileImage}`}
-                        alt="Profile"
-                        className="w-16 h-16 rounded-full border-2 border-gray-400 shadow"
-                    />
-                )}
-            </div>
-            <div className="relative mb-[20px]">
-                <label className="text-[12px] text-[#5E6366] absolute top-[18px] left-[16px]">Job Title</label>
-                <input
-                    type="text"
-                    placeholder="Job Title"
-                    value={personalDetails.jobTitle}
-                    onChange={(e) => updatePersonalDetails("jobTitle", e.target.value)}
-                    className="w-full h-[58px] p-[15px] pt-[30px] text-[16px] border border-[#CFD3D4] rounded-lg mt-2"
-                />
+                    {/* Display Uploaded Image */}
+                    {personalDetails.profileImage && (
+                        <img
+                            src={`${process.env.NEXT_PUBLIC_API_RESOURCE}${personalDetails.profileImage}`}
+                            alt="Profile"
+                            className="w-16 h-16 rounded-full border-2 border-gray-400 shadow"
+                        />
+                    )}
+                </div>
             </div>
             <div className="flex gap-4 mt-2 mb-[20px]">
                 <div className="w-[50%] relative">

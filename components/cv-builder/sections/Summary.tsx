@@ -54,7 +54,7 @@ export default function Summary() {
                 <h3 className="text-lg text-[#CE367F] font-semibold">Professional Summary</h3>
                 <button
                     onClick={fetchSuggestions}
-                    className="flex items-center gap-2 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition">
+                    className="flex items-center gap-2 bg-[#CE367F] text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition">
                     {loading ? "Loading..." : <> <FaMagic /> Get Suggestions</>}
                 </button>
             </div>
