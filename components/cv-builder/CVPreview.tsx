@@ -2,6 +2,8 @@ import { useCVStore } from "@/store/cvStore";
 import { useUserStore } from "@/store/userStore";
 import { useState } from "react";
 import { FaSpinner } from "react-icons/fa";
+import { FaFilePdf } from "react-icons/fa6";
+import { FiSave } from "react-icons/fi";
 import Template1 from "./templates/Template1";
 import Template2 from "./templates/Template2";
 import Template3 from "./templates/Template3";
@@ -51,8 +53,9 @@ export default function CVPreview() {
             <div className="flex gap-3 mt-5">
                 <button
                     onClick={() => saveCVData(userData.id)}
-                    className="px-4 py-2 bg-[#CE367F] text-white font-bold rounded-lg"
+                    className="flex justify-center items-center px-4 py-2 bg-[#CE367F] text-white font-bold rounded-lg"
                 >
+                    <FiSave className="pr-[2px]" />
                     Save
                 </button>
 
@@ -61,6 +64,7 @@ export default function CVPreview() {
                     className="px-4 py-2 bg-[#CE367F] text-white font-bold rounded-lg flex items-center gap-2"
                     disabled={loading}
                 >
+                    <FaFilePdf />
                     {loading ? <><FaSpinner className="animate-spin" /> Processing Download</> : "Download PDF"}
                 </button>
             </div>

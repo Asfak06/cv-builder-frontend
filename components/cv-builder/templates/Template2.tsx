@@ -5,64 +5,37 @@ export default function Template2() {
     const { personalDetails, links, summary, experience, education, skills, references } = useCVStore();
 
     return (
-        <div className="bg-gray-100 p-6 flex flex-col md:flex-row max-w-4xl mx-auto shadow-lg rounded-lg min-h-[842px]">
+        <div className="bg-[#ededed] flex flex-col md:flex-row max-w-4xl border-b-[15px] border-[#333d3f] mx-auto min-h-[1123px]">
             {/* Left Column */}
-            <div className="bg-gray-800 text-white p-6 pr-0 w-full md:w-1/3">
+            <div className="bg-[#e3e3e3] text-white mt-[100px] p-4 w-full md:w-1/3">
                 {/* Header Section */}
-                <div className="flex items-center gap-6">
+                <div className="flex justify-center items-center mt-[-80px] gap-6">
                     <img
                         src={personalDetails.profileImage ? `${process.env.NEXT_PUBLIC_API_RESOURCE}${personalDetails.profileImage}` : "https://placehold.co/500"}
                         alt="Profile"
                         className="w-40 h-40 rounded-full border-4 border-gray-300"
                     />
-                    <div>
-                        <h1 className="text-4xl font-bold text-gray-800">{personalDetails.firstName} {personalDetails.lastName}</h1>
-                        <p className="text-gray-600 text-lg">{personalDetails.jobTitle}</p>
-                    </div>
                 </div>
                 {/* Profile Summary */}
-                <div className="mt-6">
-                    <h2 className="text-xl font-semibold border-b pb-1">Profile Summary</h2>
-                    <p className="text-gray-700 text-sm mt-2">{parse(summary)}</p>
-                </div>
-            </div>
-            {/* Right Column */}
-            <div className="bg-white p-6 w-full md:w-2/3">
-                {/* Work Experience */}
-                <div className="mt-6">
-                    <h2 className="text-xl font-semibold border-b pb-1">Work Experience</h2>
-                    {experience.map((exp, index) => (
-                        <div key={index} className="mt-4">
-                            <h3 className="text-lg font-semibold">{exp.jobTitle}</h3>
-                            <p className="text-gray-500 text-sm">{exp.company} ({exp.startDate} - {exp.endDate})</p>
-                        </div>
-                    ))}
-                </div>
-                {/* Education */}
-                <div className="mt-6">
-                    <h2 className="text-xl font-semibold border-b pb-1">Academic Background</h2>
-                    {education.map((edu, index) => (
-                        <div key={index} className="mt-4">
-                            <h3 className="text-lg font-semibold">{edu.degree}</h3>
-                            <p className="text-gray-500 text-sm">{edu.institution} ({edu.year})</p>
-                        </div>
-                    ))}
+                <div className="mt-10">
+                    <h2 className="text-xl text-[#333a3f] uppercase font-semibold border-b pb-1">Profile Summary:</h2>
+                    <p className="text-gray-700 text-justify text-sm mt-2">{parse(summary)}</p>
                 </div>
                 {/* Skills */}
-                <div className="mt-6">
-                    <h2 className="text-xl font-semibold border-b pb-1">Skills & Expertise</h2>
-                    <div className="flex flex-wrap gap-2 mt-2">
+                <div className="mt-10">
+                    <h2 className="text-xl text-[#333a3f] uppercase font-semibold border-b pb-1">Skills & Expertise:</h2>
+                    <div className="gap-2 mt-2">
                         {skills.map((skill, index) => (
-                            <span key={index} className="bg-gray-700 text-white px-3 py-1 rounded-full text-sm">{skill}</span>
+                            <span key={index} className="block text-gray-700 pb-1 text-sm">{skill}</span>
                         ))}
                     </div>
                 </div>
                 {/* Contact Information */}
-                <div className="mt-6">
-                    <h2 className="text-xl font-semibold border-b pb-1">Contact Information</h2>
-                    <p className="flex items-center mt-2"><FaEnvelope className="mr-2" /> {personalDetails.email}</p>
-                    <p className="flex items-center"><FaPhone className="mr-2" /> {personalDetails.phone}</p>
-                    <p className="flex items-center"><FaMapMarkerAlt className="mr-2" /> {personalDetails.city}, {personalDetails.country}</p>
+                <div className="mt-10">
+                    <h2 className="text-xl text-[#333a3f] uppercase font-semibold border-b pb-1">Contact Information</h2>
+                    <p className="flex items-center mt-1 text-gray-700 pb-1 text-sm"><FaEnvelope className="mr-2" /> {personalDetails.email}</p>
+                    <p className="flex items-center mt-1 text-gray-700 pb-1 text-sm"><FaPhone className="mr-2" /> {personalDetails.phone}</p>
+                    <p className="flex items-center mt-1 text-gray-700 pb-1 text-sm"><FaMapMarkerAlt className="mr-2" /> {personalDetails.city}, {personalDetails.country}</p>
                     {links.map((link, index) => (
                         <a href={link.url} key={index} className="flex items-center mt-2">
                             {link.label}
@@ -71,9 +44,36 @@ export default function Template2() {
                 </div>
                 {/* References */}
                 <div className="mt-6">
-                    <h2 className="text-xl font-semibold border-b pb-1">References</h2>
+                    <h2 className="text-xl text-[#333a3f] uppercase font-semibold border-b pb-1">References</h2>
                     {references.map((ref, index) => (
-                        <p key={index} className="text-gray-700 text-sm mt-2"><strong>{ref.name}</strong> - {ref.position}, {ref.company}</p>
+                        <p key={index} className="text-gray-700 text-[16px] mt-2"><strong>{ref.name}</strong> <span className="flex items-center mt-1 text-gray-700 pb-1 text-sm">{ref.position}</span><span className="flex items-center text-gray-700 pb-1 text-sm">{ref.company}</span></p>
+                    ))}
+                </div>
+            </div>
+            {/* Right Column */}
+            <div className="p-6 pt-[130px] w-full md:w-2/3">
+                <div className="w-full pb-3">
+                    <h1 className="text-4xl mb-1 font-bold text-gray-800">{personalDetails.firstName} {personalDetails.lastName}</h1>
+                    <p className="text-gray-600 tracking-[3px] font-bold text-[16px] uppercase">{personalDetails.jobTitle}</p>
+                </div>
+                {/* Work Experience */}
+                <div className="mt-7">
+                    <h2 className="text-xl text-[#333a3f] uppercase font-semibold pb-2">Work Experience:</h2>
+                    {experience.map((exp, index) => (
+                        <div key={index} className="mt-1 mb-8">
+                            <h3 className="text-[16px] mb-2 uppercase font-semibold">{exp.jobTitle}</h3>
+                            <p className="text-gray-500 text-[16px] font-semibold italic">{exp.company} | {exp.startDate} - {exp.endDate}</p>
+                        </div>
+                    ))}
+                </div>
+                {/* Education */}
+                <div className="mt-10">
+                    <h2 className="text-xl text-[#333a3f] uppercase font-semibold pb-2">Academic Background:</h2>
+                    {education.map((edu, index) => (
+                        <div key={index} className="mt-2 mb-8">
+                            <h3 className="text-[16px] mb-2 uppercase font-semibold">{edu.degree}</h3>
+                            <p className="text-gray-500 text-[16px] font-semibold italic">{edu.institution} ({edu.year})</p>
+                        </div>
                     ))}
                 </div>
             </div>
