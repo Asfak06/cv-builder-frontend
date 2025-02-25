@@ -103,11 +103,11 @@ export default function AdditionalSections() {
                                 onChange={(e) => updateLanguage(index, e.target.value)}
                                 className="w-2/3 h-[40px] border border-gray-300 rounded px-2"
                             />
-                            {/* {index > 0 && ( */}
-                            <button onClick={() => removeLanguage(index)} className="px-3 py-1 bg-red-500 text-white rounded">
-                                ✖
-                            </button>
-                            {/* )} */}
+                            {index > 0 && (
+                                <button onClick={() => removeLanguage(index)} className="px-3 py-1 bg-red-500 text-white rounded">
+                                    ✖
+                                </button>
+                            )}
                         </div>
                     ))}
                     <button
@@ -142,11 +142,11 @@ export default function AdditionalSections() {
                                 onChange={(e) => updateHobby(index, e.target.value)}
                                 className="w-2/3 h-[40px] border border-gray-300 rounded px-2"
                             />
-                            {/* {index > 0 && ( */}
-                            <button onClick={() => removeHobby(index)} className="px-3 py-1 bg-red-500 text-white rounded">
-                                ✖
-                            </button>
-                            {/* )} */}
+                            {index > 0 && (
+                                <button onClick={() => removeHobby(index)} className="px-3 py-1 bg-red-500 text-white rounded">
+                                    ✖
+                                </button>
+                            )}
                         </div>
                     ))}
                     <button
