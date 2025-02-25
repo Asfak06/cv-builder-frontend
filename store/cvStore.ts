@@ -72,10 +72,12 @@ interface CVState {
   addLink: (link: { label: string; url: string }) => void;
   removeLink: (index: number) => void;
   updateLink: (index: number, key: string, value: string) => void;
-  addLanguage: (language: string) => void;
-  removeLanguage: (language: string) => void;
-  addHobby: (hobby: string) => void;
-  removeHobby: (hobby: string) => void;
+  addLanguage: () => void;
+  updateLanguage: (index: number, value: string) => void;
+  removeLanguage: (index: number) => void;
+  addHobby: () => void;
+  updateHobby: (index: number, value: string) => void;
+  removeHobby: (index: number) => void;
   addReference: () => void;
   removeReference: (index: number) => void;
   updateReference: (index: number, key: string, value: string) => void;
@@ -216,24 +218,29 @@ export const useCVStore = create<CVState>((set, get) => ({
       return { links: updatedLinks };
     }),
 
-  addLanguage: (language) =>
+  addLanguage: () => set((state) => ({ languages: [...state.languages, ''] })),
+  updateLanguage: (index, value) =>
+    set((state) => {
+      const updatedLanguages = [...state.languages];
+      updatedLanguages[index] = value;
+      return { languages: updatedLanguages };
+    }),
+  removeLanguage: (index) =>
     set((state) => ({
-      languages: [...state.languages, language],
+      languages: state.languages.filter((_, i) => i !== index),
     })),
 
-  removeLanguage: (language) =>
-    set((state) => ({
-      languages: state.languages.filter((lang) => lang !== language),
-    })),
+  addHobby: () => set((state) => ({ hobbies: [...state.hobbies, ''] })),
+  updateHobby: (index, value) =>
+    set((state) => {
+      const updatedHobbies = [...state.hobbies];
+      updatedHobbies[index] = value;
+      return { hobbies: updatedHobbies };
+    }),
 
-  addHobby: (hobby) =>
+  removeHobby: (index) =>
     set((state) => ({
-      hobbies: [...state.hobbies, hobby],
-    })),
-
-  removeHobby: (hobby) =>
-    set((state) => ({
-      hobbies: state.hobbies.filter((h) => h !== hobby),
+      hobbies: state.hobbies.filter((_, i) => i !== index),
     })),
   addReference: () =>
     set((state) => ({
@@ -250,11 +257,12 @@ export const useCVStore = create<CVState>((set, get) => ({
       return { references: updated };
     }),
   toggleAdditionalSection: (section) =>
-    set((state) => ({
-      activeAdditionalSections: state.activeAdditionalSections.includes(section)
-        ? state.activeAdditionalSections.filter((s) => s !== section) // Remove section
-        : [...state.activeAdditionalSections, section], // Add section
-    })),
+    set((state) => {
+      const updatedSections = state.activeAdditionalSections.includes(section)
+        ? state.activeAdditionalSections.filter((s) => s !== section)
+        : [...state.activeAdditionalSections, section];
+      return { activeAdditionalSections: updatedSections };
+    }),
   updateTemplate: (template) => set(() => ({ selectedTemplate: template })),
   updateIndustry: (industry) => set(() => ({ selectedIndustry: industry })),
 
@@ -391,6 +399,10 @@ export const useCVStore = create<CVState>((set, get) => ({
       experience: [],
       education: [],
       skills: [],
+      links: [],
+      hobbies: [],
+      languages: [],
+      customSections: [],
       references: [],
     }),
 }));
