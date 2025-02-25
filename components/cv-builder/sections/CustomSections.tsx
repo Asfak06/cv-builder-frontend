@@ -73,9 +73,9 @@ export default function CustomSections() {
 
             {["Links", "Languages", "Hobbies"].map((section) => (
                 <button key={section} onClick={() => {
-                    section === 'Links' && addLink({ label: "", url: "" })
-                    section === 'Languages' && addLanguage()
-                    section === 'Hobbies' && addHobby()
+                    if (section === 'Links') addLink({ label: "", url: "" });
+                    if (section === 'Languages') addLanguage();
+                    if (section === 'Hobbies') addHobby();
                     toggleAdditionalSection(section)
                 }} className={`mt-4 px-4 py-2 mx-2  text-white rounded ${activeAdditionalSections.includes(section) ? 'bg-slate-500' : 'bg-[#CE367F]'}`}>
                     {section}
