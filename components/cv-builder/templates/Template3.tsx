@@ -19,7 +19,7 @@ export default function Template3() {
                     alt="Profile"
                     className="w-40 h-40 rounded-full relative z-20 mt-[-120px] border-4 border-white"
                 />
-                <h1 className="text-[30px] font-extrabold uppercase text-center leading-[34px] mt-4 mb-2">{personalDetails.firstName} <spam className='block'>{personalDetails.lastName}</spam></h1>
+                <h1 className="text-[30px] font-extrabold uppercase text-center leading-[34px] mt-4 mb-2">{personalDetails.firstName} <span className='block'>{personalDetails.lastName}</span></h1>
                 <p className="text-white text-[16px] font-medium uppercase text-center">{personalDetails.jobTitle}</p>
                 {/* About Me */}
                 <div className="mt-6 text-center">

@@ -1,8 +1,9 @@
 import { useCVStore } from "@/store/cvStore";
 import parse from "html-react-parser";
-import { FaEnvelope, FaGithub, FaLinkedin, FaMapMarkerAlt, FaPhone } from "react-icons/fa";
+import { FaEnvelope, FaGithub, FaGlobe, FaHeart, FaLinkedin, FaMapMarkerAlt, FaPhone } from "react-icons/fa";
+
 export default function Template1() {
-    const { personalDetails, links, summary, experience, education, skills, references, customSections } = useCVStore();
+    const { personalDetails, links, summary, experience, education, skills, references, customSections, languages, hobbies } = useCVStore();
 
     return (
         <div className="bg-gray-100 p-6 flex flex-col md:flex-row max-w-4xl mx-auto shadow-lg rounded-lg min-h-[1123px]">
@@ -16,25 +17,59 @@ export default function Template1() {
                         className="w-32 h-32 rounded-full border-4 border-white"
                     />
                 </div>
-                {/* Links */}
-                <div className="mt-4 space-y-2">
-                    {links.map((link, index) => (
-                        <p key={index} className="flex items-left">
-                            {link.label.includes("LinkedIn") ? <FaLinkedin className="mr-2" /> : <FaGithub className="mr-2" />}
-                            {link.url}
-                        </p>
-                    ))}
-                </div>
-                {/* Summary */}
-                <div className="mt-6 border-b border-[#ddd]">
-                    <h2 className="text-lg font-semibold border-b border-gray-800 uppercase pb-1">About Me</h2>
+
+                {/* Links Section */}
+                {links.length > 0 && (
+                    <div className="mt-4 space-y-2 border-b border-gray-600 pb-4">
+                        <h2 className="text-lg font-semibold uppercase pb-1">Links</h2>
+                        {links.map((link, index) => (
+                            <p key={index} className="flex items-center">
+                                {link.label.toLowerCase().includes("linkedin") ? <FaLinkedin className="mr-2" /> : <FaGithub className="mr-2" />}
+                                <a href={link.url} target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">{link.label}</a>
+                            </p>
+                        ))}
+                    </div>
+                )}
+
+                {/* Summary Section */}
+                <div className="mt-6 border-b border-gray-600 pb-4">
+                    <h2 className="text-lg font-semibold uppercase pb-1">About Me</h2>
                     <p className="text-gray-300 text-sm mt-2 pr-5 pb-5 text-justify">{parse(summary)}</p>
                 </div>
-                {/* References */}
-                <div className="mt-5 pb-5 border-b border-[#ddd]">
-                    <h2 className="text-lg font-semibold border-b border-gray-800 uppercase pb-1">References</h2>
+
+                {/* Languages Section */}
+                {languages.length > 0 && (
+                    <div className="mt-6 border-b border-gray-600 pb-4">
+                        <h2 className="text-lg font-semibold uppercase pb-1 flex items-center"><FaGlobe className="mr-2" /> Languages</h2>
+                        <ul className="text-gray-300 text-sm mt-2 space-y-1">
+                            {languages.map((language, index) => (
+                                <li key={index}>• {language}</li>
+                            ))}
+                        </ul>
+                    </div>
+                )}
+
+                {/* Hobbies Section */}
+                {hobbies.length > 0 && (
+                    <div className="mt-6 border-b border-gray-600 pb-4">
+                        <h2 className="text-lg font-semibold uppercase pb-1 flex items-center"><FaHeart className="mr-2" /> Hobbies</h2>
+                        <ul className="text-gray-300 text-sm mt-2 space-y-1">
+                            {hobbies.map((hobby, index) => (
+                                <li key={index}>• {hobby}</li>
+                            ))}
+                        </ul>
+                    </div>
+                )}
+
+                {/* References Section */}
+                <div className="mt-5 pb-5 border-b border-gray-600">
+                    <h2 className="text-lg font-semibold uppercase pb-1">References</h2>
                     {references.map((ref, index) => (
-                        <p key={index} className="text-gray-300 text-sm mt-2"><strong>{ref.name}</strong> <span className="font-normal block pt-1">{ref.position}</span> <span className="font-normal block pt-1">{ref.company}</span></p>
+                        <p key={index} className="text-gray-300 text-sm mt-2">
+                            <strong>{ref.name}</strong>
+                            <span className="font-normal block pt-1">{ref.position}</span>
+                            <span className="font-normal block pt-1">{ref.company}</span>
+                        </p>
                     ))}
                 </div>
             </div>
@@ -53,27 +88,30 @@ export default function Template1() {
                         <p className="flex items-center"><span className="flex justify-center items-center w-[35px] mr-2 h-[35px] bg-gray-800 rounded-full"><FaMapMarkerAlt className="text-[#fff]" /></span> {personalDetails.city}, {personalDetails.country}</p>
                     </div>
                 </div>
-                {/* Experience */}
+
+                {/* Experience Section */}
                 <div>
                     <h2 className="text-xl mb-5 font-semibold border-b border-gray-800 uppercase pb-1">Work Experience</h2>
                     {experience.map((exp, index) => (
                         <div key={index} className="pl-4 border-l-2 border-gray-800">
-                            <h3 className="text-lg mb-2 font-semibold relative before:content-[''] before:w-2.5 before:h-2.5 before:bg-gray-800 before:rounded-full before:absolute before:-left-[22px] before:top-[0px] leading-[14px]">{exp.jobTitle}</h3>
+                            <h3 className="text-lg mb-2 font-semibold">{exp.jobTitle}</h3>
                             <p className="text-gray-500 text-sm pb-8">{exp.company} ({exp.startDate} - {exp.endDate})</p>
                         </div>
                     ))}
                 </div>
-                {/* Education */}
+
+                {/* Education Section */}
                 <div className="mt-6">
                     <h2 className="text-xl font-semibold mb-5 border-b border-gray-800 uppercase pb-1">Education</h2>
                     {education.map((edu, index) => (
                         <div key={index} className="pl-4 border-l-2 border-gray-800">
-                            <h3 className="text-lg mb-2 font-semibold relative before:content-[''] before:w-2.5 before:h-2.5 before:bg-gray-800 before:rounded-full before:absolute before:-left-[22px] before:top-[0px] leading-[14px]">{edu.degree}</h3>
+                            <h3 className="text-lg mb-2 font-semibold">{edu.degree}</h3>
                             <p className="text-gray-500 pb-8 text-sm">{edu.institution} ({edu.year})</p>
                         </div>
                     ))}
                 </div>
-                {/* Skills */}
+
+                {/* Skills Section */}
                 <div className="mt-6">
                     <h2 className="text-xl font-semibold uppercase border-b border-gray-800 pb-1">Skills</h2>
                     <div className="grid grid-cols-2 gap-5 mt-5">
@@ -82,6 +120,7 @@ export default function Template1() {
                         ))}
                     </div>
                 </div>
+
                 {/* Custom Sections */}
                 <div className="mt-6">
                     {customSections.map((section, index) => (
@@ -90,7 +129,7 @@ export default function Template1() {
                             {section.items.map((item, idx) => (
                                 <div key={idx} className="mt-4">
                                     <h3 className="text-lg font-semibold">{item.title}</h3>
-                                    <p className="text-gray-500 text-sm">{parse(item.description)}</p>
+                                    <div className="text-gray-500 text-sm">{parse(item.description)}</div>
                                 </div>
                             ))}
                         </div>
