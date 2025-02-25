@@ -44,11 +44,14 @@ interface CVState {
   currentCV: CV | null;
   personalDetails: PersonalDetails;
   links: { label: string; url: string }[];
+  languages: string[];
+  hobbies: string[];
   summary: string;
   experience: { jobTitle: string; company: string; startDate: string; endDate: string }[];
   education: { degree: string; institution: string; year: string }[];
   skills: string[];
   references: { name: string; position: string; company: string }[];
+  activeAdditionalSections: string[];
   selectedIndustry: string;
   selectedTemplate: string;
   customSections: { sectionTitle: string; items: { title: string; description: string }[] }[];
@@ -65,11 +68,18 @@ interface CVState {
   removeEducation: (index: number) => void;
   updateEducation: (index: number, key: string, value: string) => void;
   addSkill: (skill: string) => void;
-  addLinks: (link: { label: string; url: string }) => void;
   removeSkill: (skill: string) => void;
+  addLink: (link: { label: string; url: string }) => void;
+  removeLink: (index: number) => void;
+  updateLink: (index: number, key: string, value: string) => void;
+  addLanguage: (language: string) => void;
+  removeLanguage: (language: string) => void;
+  addHobby: (hobby: string) => void;
+  removeHobby: (hobby: string) => void;
   addReference: () => void;
   removeReference: (index: number) => void;
   updateReference: (index: number, key: string, value: string) => void;
+  toggleAdditionalSection: (section: string) => void;
   updateIndustry: (industry: string) => void;
   updateTemplate: (template: string) => void;
   addCustomSection: () => void;
@@ -103,11 +113,14 @@ export const useCVStore = create<CVState>((set, get) => ({
     driverLisence: '',
   },
   links: [],
+  languages: [],
+  hobbies: [],
   summary: '',
   experience: [],
   education: [],
   skills: [],
   references: [],
+  activeAdditionalSections: [],
   selectedIndustry: 'Software Engineer',
   selectedTemplate: 'template-1',
   customSections: [],
@@ -181,17 +194,47 @@ export const useCVStore = create<CVState>((set, get) => ({
     set((state) => ({
       skills: [...state.skills, skill],
     })),
-
-  addLinks: (link) =>
-    set((state) => ({
-      links: [...state.links, link],
-    })),
-
   removeSkill: (skill) =>
     set((state) => ({
       skills: state.skills.filter((s) => s !== skill),
     })),
 
+  addLink: (link) =>
+    set((state) => ({
+      links: [...state.links, link],
+    })),
+
+  removeLink: (index) =>
+    set((state) => ({
+      links: state.links.filter((_, i) => i !== index),
+    })),
+
+  updateLink: (index, key, value) =>
+    set((state) => {
+      const updatedLinks = [...state.links];
+      updatedLinks[index][key as keyof (typeof updatedLinks)[number]] = value;
+      return { links: updatedLinks };
+    }),
+
+  addLanguage: (language) =>
+    set((state) => ({
+      languages: [...state.languages, language],
+    })),
+
+  removeLanguage: (language) =>
+    set((state) => ({
+      languages: state.languages.filter((lang) => lang !== language),
+    })),
+
+  addHobby: (hobby) =>
+    set((state) => ({
+      hobbies: [...state.hobbies, hobby],
+    })),
+
+  removeHobby: (hobby) =>
+    set((state) => ({
+      hobbies: state.hobbies.filter((h) => h !== hobby),
+    })),
   addReference: () =>
     set((state) => ({
       references: [...state.references, { name: '', position: '', company: '' }],
@@ -206,6 +249,12 @@ export const useCVStore = create<CVState>((set, get) => ({
       updated[index] = { ...updated[index], [key as keyof (typeof updated)[number]]: value };
       return { references: updated };
     }),
+  toggleAdditionalSection: (section) =>
+    set((state) => ({
+      activeAdditionalSections: state.activeAdditionalSections.includes(section)
+        ? state.activeAdditionalSections.filter((s) => s !== section) // Remove section
+        : [...state.activeAdditionalSections, section], // Add section
+    })),
   updateTemplate: (template) => set(() => ({ selectedTemplate: template })),
   updateIndustry: (industry) => set(() => ({ selectedIndustry: industry })),
 
@@ -269,6 +318,9 @@ export const useCVStore = create<CVState>((set, get) => ({
       education,
       skills,
       references,
+      links,
+      languages,
+      hobbies,
       customSections,
     } = get();
 
@@ -287,6 +339,9 @@ export const useCVStore = create<CVState>((set, get) => ({
           education,
           skills,
           references,
+          links,
+          languages,
+          hobbies,
           customSections,
         });
         !autoSave && toast.success('CV updated successfully!'); // 🟢 Success toast

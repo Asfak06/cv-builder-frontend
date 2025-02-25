@@ -1,4 +1,5 @@
 
+import AdditionalSections from "./sections/AdditionalSections";
 import CustomSections from "./sections/CustomSections";
 import Education from "./sections/Education";
 import Experience from "./sections/Experience";
@@ -17,6 +18,7 @@ export default function FormPanel() {
             <Education />
             <Skills />
             <References />
+            <AdditionalSections />
             <CustomSections />
         </div>
     );

@@ -5,7 +5,7 @@ import "react-quill-new/dist/quill.snow.css";
 const ReactQuill = dynamic(() => import("react-quill-new"), { ssr: false });
 export default function CustomSections() {
     const { customSections, addCustomSection, removeCustomSection, updateCustomSectionTitle, addCustomItem, updateCustomItem, removeCustomItem } = useCVStore();
-
+    const { toggleAdditionalSection, activeAdditionalSections } = useCVStore();
     return (
         <div className="p-[30px] border rounded-lg bg-[#fff]">
             <h3 className="text-lg text-[#CE367F] font-semibold">Custom Sections</h3>
@@ -70,12 +70,21 @@ export default function CustomSections() {
             ))}
 
             {/* Add Section Button */}
+
+            {["Links", "Languages", "Hobbies"].map((section) => (
+                <button key={section} onClick={() => toggleAdditionalSection(section)} className={`mt-4 px-4 py-2 mx-2  text-white rounded ${activeAdditionalSections.includes(section) ? 'bg-slate-500' : 'bg-[#CE367F]'}`}>
+                    {section}
+                </button>
+            ))}
             <button
                 onClick={addCustomSection}
                 className="mt-4 px-4 py-2 bg-green-500 text-white rounded"
             >
                 + Add Section
             </button>
+
+
+
         </div>
     );
 }
