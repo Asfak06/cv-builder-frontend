@@ -318,6 +318,9 @@ export const useCVStore = create<CVState>((set, get) => ({
       education,
       skills,
       references,
+      links,
+      languages,
+      hobbies,
       customSections,
     } = get();
 
@@ -336,6 +339,9 @@ export const useCVStore = create<CVState>((set, get) => ({
           education,
           skills,
           references,
+          links,
+          languages,
+          hobbies,
           customSections,
         });
         !autoSave && toast.success('CV updated successfully!'); // 🟢 Success toast
