@@ -5,9 +5,9 @@ export default function Template1() {
     const { personalDetails, links, summary, experience, education, skills, references, customSections } = useCVStore();
 
     return (
-        <div className="bg-gray-100 p-6 flex flex-col md:flex-row max-w-4xl mx-auto shadow-lg rounded-lg min-h-[1123px]">
+        <div className="bg-gray-100 flex flex-col md:flex-row max-w-4xl mx-auto shadow-lg rounded-lg min-h-[1123px]">
             {/* Left Column */}
-            <div className="bg-gray-800 text-white p-6 pr-0 w-full md:w-1/3">
+            <div className="bg-[#434345] text-white p-6 pr-0 w-full md:w-1/3">
                 {/* Profile Image */}
                 <div className="flex justify-center pr-5">
                     <img
@@ -27,12 +27,12 @@ export default function Template1() {
                 </div>
                 {/* Summary */}
                 <div className="mt-6 border-b border-[#ddd]">
-                    <h2 className="text-lg font-semibold border-b border-gray-800 uppercase pb-1">About Me</h2>
+                    <h2 className="text-lg font-semibold border-b border-white-800 uppercase pb-1">About Me</h2>
                     <p className="text-gray-300 text-sm mt-2 pr-5 pb-5 text-justify">{parse(summary)}</p>
                 </div>
                 {/* References */}
                 <div className="mt-5 pb-5 border-b border-[#ddd]">
-                    <h2 className="text-lg font-semibold border-b border-gray-800 uppercase pb-1">References</h2>
+                    <h2 className="text-lg font-semibold border-b border-white-800 uppercase pb-1">References</h2>
                     {references.map((ref, index) => (
                         <p key={index} className="text-gray-300 text-sm mt-2"><strong>{ref.name}</strong> <span className="font-normal block pt-1">{ref.position}</span> <span className="font-normal block pt-1">{ref.company}</span></p>
                     ))}
@@ -44,7 +44,7 @@ export default function Template1() {
                 <div className="flex justify-between items-center pb-[30px] pt-[30px]">
                     {/* Personal Details */}
                     <div className="text-left mt-4">
-                        <h1 className="text-2xl font-bold uppercase">{personalDetails.firstName} {personalDetails.lastName}</h1>
+                        <h1 className="text-2xl font-bold uppercase">{personalDetails.firstName} <span className="block">{personalDetails.lastName}</span></h1>
                         <p className="text-gray-400 uppercase">{personalDetails.jobTitle}</p>
                     </div>
                     <div className="mt-4 space-y-2">
