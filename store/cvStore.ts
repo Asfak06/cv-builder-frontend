@@ -51,6 +51,7 @@ interface CVState {
   references: { name: string; position: string; company: string }[];
   selectedIndustry: string;
   selectedTemplate: string;
+  customSections: { sectionTitle: string; items: { title: string; description: string }[] }[];
   userCVs: CV[];
 
   loadCVData: (cvId: string, userId: string) => Promise<void>;
@@ -71,6 +72,12 @@ interface CVState {
   updateReference: (index: number, key: string, value: string) => void;
   updateIndustry: (industry: string) => void;
   updateTemplate: (template: string) => void;
+  addCustomSection: () => void;
+  removeCustomSection: (index: number) => void;
+  updateCustomSectionTitle: (index: number, title: string) => void;
+  addCustomItem: (sectionIndex: number) => void;
+  updateCustomItem: (sectionIndex: number, itemIndex: number, key: string, value: string) => void;
+  removeCustomItem: (sectionIndex: number, itemIndex: number) => void;
   fetchUserCVs: (userId: string) => Promise<void>;
   saveCVData: (userId: string, autoSave?: boolean) => Promise<void>;
   resetCV: () => void;
@@ -103,6 +110,7 @@ export const useCVStore = create<CVState>((set, get) => ({
   references: [],
   selectedIndustry: 'Software Engineer',
   selectedTemplate: 'template-1',
+  customSections: [],
   userCVs: [],
 
   // Load CV Data & Populate Form
@@ -200,6 +208,47 @@ export const useCVStore = create<CVState>((set, get) => ({
     }),
   updateTemplate: (template) => set(() => ({ selectedTemplate: template })),
   updateIndustry: (industry) => set(() => ({ selectedIndustry: industry })),
+
+  addCustomSection: () =>
+    set((state) => ({
+      customSections: [...state.customSections, { sectionTitle: '', items: [] }],
+    })),
+
+  removeCustomSection: (index: number) =>
+    set((state) => ({
+      customSections: state.customSections.filter((_, i) => i !== index),
+    })),
+
+  updateCustomSectionTitle: (index: number, title: string) =>
+    set((state) => {
+      const updated = [...state.customSections];
+      updated[index].sectionTitle = title;
+      return { customSections: updated };
+    }),
+
+  addCustomItem: (sectionIndex: number) =>
+    set((state) => {
+      const updated = [...state.customSections];
+      updated[sectionIndex].items.push({ title: '', description: '' });
+      return { customSections: updated };
+    }),
+
+  updateCustomItem: (sectionIndex: number, itemIndex: number, key: string, value: string) =>
+    set((state) => {
+      const updated = [...state.customSections];
+      updated[sectionIndex].items[itemIndex][
+        key as keyof (typeof updated)[number]['items'][number]
+      ] = value;
+      return { customSections: updated };
+    }),
+
+  removeCustomItem: (sectionIndex: number, itemIndex: number) =>
+    set((state) => {
+      const updated = [...state.customSections];
+      updated[sectionIndex].items = updated[sectionIndex].items.filter((_, i) => i !== itemIndex);
+      return { customSections: updated };
+    }),
+
   // Fetch CVs from API
   fetchUserCVs: async (userId) => {
     try {
@@ -220,6 +269,7 @@ export const useCVStore = create<CVState>((set, get) => ({
       education,
       skills,
       references,
+      customSections,
     } = get();
 
     try {
@@ -237,6 +287,7 @@ export const useCVStore = create<CVState>((set, get) => ({
           education,
           skills,
           references,
+          customSections,
         });
         !autoSave && toast.success('CV updated successfully!'); // 🟢 Success toast
       } else {
@@ -251,6 +302,7 @@ export const useCVStore = create<CVState>((set, get) => ({
           education,
           skills,
           references,
+          customSections,
         });
         toast.success('CV created successfully!'); // 🟢 Success toast
       }

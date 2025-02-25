@@ -2,7 +2,7 @@ import { useCVStore } from "@/store/cvStore";
 import parse from "html-react-parser";
 import { FaEnvelope, FaGithub, FaLinkedin, FaMapMarkerAlt, FaPhone } from "react-icons/fa";
 export default function Template1() {
-    const { personalDetails, links, summary, experience, education, skills, references } = useCVStore();
+    const { personalDetails, links, summary, experience, education, skills, references, customSections } = useCVStore();
 
     return (
         <div className="bg-gray-100 p-6 flex flex-col md:flex-row max-w-4xl mx-auto shadow-lg rounded-lg min-h-[1123px]">
@@ -82,7 +82,20 @@ export default function Template1() {
                         ))}
                     </div>
                 </div>
-
+                {/* Custom Sections */}
+                <div className="mt-6">
+                    {customSections.map((section, index) => (
+                        <div key={index} className="mb-6">
+                            <h2 className="text-xl font-semibold border-b border-gray-800 pb-1 uppercase">{section.sectionTitle}</h2>
+                            {section.items.map((item, idx) => (
+                                <div key={idx} className="mt-4">
+                                    <h3 className="text-lg font-semibold">{item.title}</h3>
+                                    <p className="text-gray-500 text-sm">{parse(item.description)}</p>
+                                </div>
+                            ))}
+                        </div>
+                    ))}
+                </div>
             </div>
         </div>
     );
