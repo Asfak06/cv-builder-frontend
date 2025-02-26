@@ -1,9 +1,16 @@
 import { useCVStore } from "@/store/cvStore";
 import parse from "html-react-parser";
+import { useEffect, useState } from "react";
 import { FaEnvelope, FaFacebookF, FaGlobe, FaHeart, FaLinkedin, FaMapMarkerAlt, FaPhone } from "react-icons/fa";
+
 
 export default function Template1() {
     const { personalDetails, links, summary, experience, education, skills, references, customSections, languages, hobbies } = useCVStore();
+    const [croppedImage, setCroppedImage] = useState(null);
+
+    useEffect(() => {
+        setCroppedImage(personalDetails.profileImage);
+    }, [personalDetails.profileImage]);
 
     return (
         <div className="bg-gray-100 flex flex-col md:flex-row max-w-4xl mx-auto shadow-lg rounded-lg min-h-[1123px]">
@@ -12,7 +19,7 @@ export default function Template1() {
                 {/* Profile Image */}
                 <div className="flex justify-center pr-5">
                     <img
-                        src={personalDetails.profileImage ? `${process.env.NEXT_PUBLIC_API_RESOURCE}${personalDetails.profileImage}` : "https://placehold.co/500"}
+                        src={croppedImage || "https://placehold.co/500"}
                         alt="Profile"
                         className="w-32 h-32 rounded-full border-4 border-white"
                     />
@@ -38,18 +45,6 @@ export default function Template1() {
                     </div>
                 )}
 
-                {/* Languages Section */}
-                {languages.length > 0 && (
-                    <div className="mt-6 border-b border-white-200 pb-4">
-                        <h2 className="text-lg font-semibold uppercase pb-1 flex items-center"><FaGlobe className="mr-2" /> Languages</h2>
-                        <ul className="text-gray-300 text-sm mt-2 space-y-1">
-                            {languages.map((language, index) => (
-                                <li key={index}>• {language}</li>
-                            ))}
-                        </ul>
-                    </div>
-                )}
-
                 {/* References Section */}
                 <div className="mt-5 pb-5 border-b border-white-200">
                     <h2 className="text-lg font-semibold uppercase pb-1">References</h2>
@@ -68,11 +63,17 @@ export default function Template1() {
                         <h2 className="text-lg font-semibold uppercase pb-1 flex items-center"><FaHeart className="mr-2" /> Hobbies</h2>
                         <ul className="text-gray-300 text-sm mt-2 space-y-1">
                             {hobbies.map((hobby, index) => (
-                                <li key={index}>• {hobby}</li>
+                                <li
+                                    className="pl-4 relative before:content-[''] before:w-[8px] before:h-[8px] before:bg-gray-300 before:rounded-full before:absolute before:left-[0] before:top-[5px] last:before:content-none"
+                                    key={index}
+                                >
+                                    {hobby}
+                                </li>
                             ))}
                         </ul>
                     </div>
                 )}
+
 
             </div>
 
@@ -122,6 +123,23 @@ export default function Template1() {
                         ))}
                     </div>
                 </div>
+
+                {/* Languages Section */}
+                {languages.length > 0 && (
+                    <div className="mt-6 pb-4">
+                        <h2 className="text-xl font-semibold uppercase border-b border-gray-800 mb-5 pb-1 flex items-center">
+                            <FaGlobe className="mr-2" /> Languages
+                        </h2>
+                        <ul className="text-gray-800 text-sm mt-2 space-y-1 grid grid-cols-2 gap-5">
+                            {languages.slice(0, -1).map((language, index) => (
+                                <li className="text-gray-800 text-sm pb-1 uppercase border-b-[3px] border-gray-800" key={index}>
+                                    {language}
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                )}
+
 
                 {/* Custom Sections */}
                 <div className="mt-6">

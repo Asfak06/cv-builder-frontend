@@ -7,7 +7,7 @@ export default function Template2() {
     return (
         <div className="bg-[#ededed] flex flex-col md:flex-row max-w-4xl border-b-[15px] border-[#333d3f] mx-auto min-h-[1123px]">
             {/* Left Column */}
-            <div className="bg-[#e3e3e3] text-white mt-[100px] p-4 w-full md:w-1/3">
+            <div className="bg-[#e3e3e3] text-white mt-[100px] p-4 w-full md:w-1/2">
                 {/* Header Section */}
                 <div className="flex justify-center items-center mt-[-80px] gap-6">
                     <img
