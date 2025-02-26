@@ -54,7 +54,7 @@ export default function CustomSections() {
                     {/* Add Item Button */}
                     <button
                         onClick={() => addCustomItem(sectionIndex)}
-                        className="mt-3 px-4 py-2 bg-blue-500 text-white rounded"
+                        className="mt-3 px-4 py-2 bg-[#CE367F] text-white rounded"
                     >
                         + Add Item
                     </button>
