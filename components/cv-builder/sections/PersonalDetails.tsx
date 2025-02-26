@@ -21,31 +21,32 @@ export default function PersonalDetails() {
         }
     }, [currentCV, updatePersonalDetails]);
 
-
-    const handleImageUpload = (event) => {
+    const handleImageUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
         const file = event.target.files?.[0];
         if (!file) return;
 
         const reader = new FileReader();
         reader.readAsDataURL(file);
         reader.onload = () => {
-            setImageSrc(reader.result);
+            setImageSrc(reader.result as string);
             setShowCropper(true);
         };
     };
 
-    const handleCropComplete = (croppedBlob) => {
+    const handleCropComplete = (croppedBlob: Blob) => {
         if (!croppedBlob) return;
 
         const reader = new FileReader();
         reader.readAsDataURL(croppedBlob);
         reader.onloadend = () => {
-            setCroppedImage(reader.result);
-            updateProfileImage(reader.result); // Update Global Store
+            const croppedDataUrl = reader.result as string;
+            setCroppedImage(croppedDataUrl);
+            updateProfileImage(croppedDataUrl); // ✅ TypeScript issue fixed
         };
 
         setShowCropper(false);
     };
+
 
     return (
 
