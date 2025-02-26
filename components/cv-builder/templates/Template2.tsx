@@ -1,8 +1,14 @@
 import { useCVStore } from "@/store/cvStore";
 import parse from "html-react-parser";
+import { useEffect, useState } from "react";
 import { FaEnvelope, FaMapMarkerAlt, FaPhone } from "react-icons/fa";
 export default function Template2() {
     const { personalDetails, links, summary, experience, education, skills, references } = useCVStore();
+    const [croppedImage, setCroppedImage] = useState(null);
+
+    useEffect(() => {
+        setCroppedImage(personalDetails.profileImage);
+    }, [personalDetails.profileImage]);
 
     return (
         <div className="bg-[#ededed] flex flex-col md:flex-row max-w-4xl border-b-[15px] border-[#333d3f] mx-auto min-h-[1123px]">
@@ -10,10 +16,15 @@ export default function Template2() {
             <div className="bg-[#e3e3e3] text-white mt-[100px] p-4 w-full md:w-1/2">
                 {/* Header Section */}
                 <div className="flex justify-center items-center mt-[-80px] gap-6">
-                    <img
+                    {/* <img
                         src={personalDetails.profileImage ? `${process.env.NEXT_PUBLIC_API_RESOURCE}${personalDetails.profileImage}` : "https://placehold.co/500"}
                         alt="Profile"
                         className="w-40 h-40 rounded-full border-4 border-gray-300"
+                    /> */}
+                    <img
+                        src={croppedImage || "https://placehold.co/500"}
+                        alt="Profile"
+                        className="w-40 h-40 rounded-full border-4 border-white"
                     />
                 </div>
                 {/* Profile Summary */}

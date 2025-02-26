@@ -21,7 +21,7 @@ export default function Template1() {
                     <img
                         src={croppedImage || "https://placehold.co/500"}
                         alt="Profile"
-                        className="w-32 h-32 rounded-full border-4 border-white"
+                        className="w-40 h-40 rounded-full border-4 border-white"
                     />
                 </div>
 
