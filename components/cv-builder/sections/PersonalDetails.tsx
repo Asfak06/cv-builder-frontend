@@ -8,7 +8,7 @@ import ImageCropper from "../../ImageCropper";
 
 export default function PersonalDetails() {
     const { personalDetails, updatePersonalDetails, currentCV, updateProfileImage } = useCVStore();
-    const [uploading, setUploading] = useState(false);
+    const [uploading] = useState(false);
     const [imageSrc, setImageSrc] = useState(null);
     const [croppedImage, setCroppedImage] = useState(null);
     const [showCropper, setShowCropper] = useState(false);
