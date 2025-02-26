@@ -142,6 +142,9 @@ export const useCVStore = create<CVState>((set, get) => ({
         skills: cvData.skills || [],
         links: cvData.links || [],
         references: cvData.references || [],
+        languages: cvData.languages,
+        hobbies: cvData.hobbies,
+        customSections: cvData.customSections,
       });
     } catch (error) {
       console.error('Error fetching CV data:', error);
