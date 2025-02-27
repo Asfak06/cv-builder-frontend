@@ -1,6 +1,7 @@
 import "cropperjs/dist/cropper.css";
 import { useRef } from "react";
 import Cropper from "react-cropper";
+import { FaCropSimple, FaRegCircleStop } from "react-icons/fa6";
 
 const ImageCropper = ({ imageSrc, onCropComplete, onClose = () => { } }) => {
   const cropperRef = useRef(null);
@@ -44,8 +45,8 @@ const ImageCropper = ({ imageSrc, onCropComplete, onClose = () => { } }) => {
           checkOrientation={false}
         />
         <div className="flex justify-end gap-2 mt-3">
-          <button onClick={onClose} className="px-4 py-2 bg-[#CE367F] text-white rounded">Cancel</button>
-          <button onClick={getCroppedImage} className="px-4 py-2 bg-[#CE367F] text-white rounded">Crop</button>
+          <button onClick={onClose} className="px-4 flex justify-center items-center py-2 bg-[#CE367F] text-white rounded"><FaRegCircleStop className="pr-1 text-[18px]" /> Cancel</button>
+          <button onClick={getCroppedImage} className="px-4 py-2 flex justify-center items-center bg-[#CE367F] text-white rounded"><FaCropSimple className="pr-1 text-[18px]" /> Crop</button>
         </div>
       </div>
     </div>

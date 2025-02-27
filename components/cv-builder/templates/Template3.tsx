@@ -1,7 +1,11 @@
 import { useCVStore } from "@/store/cvStore";
 import parse from "html-react-parser";
+import { FaFacebookF, FaGlobe, FaHeart, FaLinkedin } from "react-icons/fa";
+
+
+
 export default function Template3() {
-    const { personalDetails, summary, experience, education, skills, references } = useCVStore();
+    const { personalDetails, links, summary, experience, education, skills, languages, hobbies, customSections, references } = useCVStore();
 
     return (
         <div className="bg-[#fff] flex flex-col relative overflow-hidden md:flex-row max-w-4xl mx-auto shadow-lg min-h-[1123]">
@@ -19,7 +23,7 @@ export default function Template3() {
                     alt="Profile"
                     className="w-40 h-40 rounded-full relative z-20 mt-[-120px] border-4 border-white"
                 />
-                <h1 className="text-[30px] font-extrabold uppercase text-center leading-[34px] mt-4 mb-2">{personalDetails.firstName} <span className='block'>{personalDetails.lastName}</span></h1>
+                <h1 className="text-[26px] font-extrabold uppercase text-center leading-[34px] mt-4 mb-2">{personalDetails.firstName} <span className='block'>{personalDetails.lastName}</span></h1>
                 <p className="text-white text-[16px] font-medium uppercase text-center">{personalDetails.jobTitle}</p>
                 {/* About Me */}
                 <div className="mt-6 text-center">
@@ -33,6 +37,36 @@ export default function Template3() {
                     <p className="text-gray-200 mb-3"><strong className="block uppercase text-white pb-1">Email</strong> {personalDetails.email}</p>
                     <p className="text-gray-200 mb-3"><strong className="block uppercase text-white pb-1">Address</strong> {personalDetails.city}, {personalDetails.country}</p>
                 </div>
+
+                {/* Links Section */}
+                {links.length > 0 && (
+                    <div className="mt-4 space-y-2 pb-4">
+                        <h2 className="text-xl text-[#fff] uppercase font-semibold pb-1">Links</h2>
+                        {links.slice(0, -1).map((link, index) => (
+                            <p key={index} className="flex items-center">
+                                {link.label.toLowerCase().includes("linkedin") ? <FaLinkedin className="mr-2 text-[#fff]" /> : <FaFacebookF className="mr-2 text-[#fff]" />}
+                                <a href={link.url} target="_blank" rel="noopener noreferrer" className="text-[#fff] text-sm pb-1 hover:underline">{link.label}</a>
+                            </p>
+                        ))}
+                    </div>
+                )}
+
+                {/* Hobbies Section */}
+                {hobbies.length > 0 && (
+                    <div className="mt-4 pb-4">
+                        <h2 className="text-lg text-[#fff] font-semibold uppercase pb-1 flex items-center"><FaHeart className="mr-2 text-[#fff]" /> Hobbies</h2>
+                        <ul className="text-gray-300 text-sm mt-2 space-y-1">
+                            {hobbies.map((hobby, index) => (
+                                <li
+                                    className="pl-4 text-[#fff] relative before:content-[''] before:w-[8px] before:h-[8px] before:bg-[#fff] before:rounded-full before:absolute before:left-[0] before:top-[5px] last:before:content-none"
+                                    key={index}
+                                >
+                                    {hobby}
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                )}
 
             </div>
 
@@ -77,6 +111,38 @@ export default function Template3() {
                         ))}
                     </div>
                 </div>
+
+                {/* Languages Section */}
+                {languages.length > 0 && (
+                    <div className="mt-6 pb-4">
+                        <h2 className="text-xl font-semibold uppercase border-b border-gray-800 mb-5 pb-1 flex items-center">
+                            <FaGlobe className="mr-2" /> Languages
+                        </h2>
+                        <ul className="text-gray-800 text-sm mt-2 space-y-1 grid grid-cols-2 gap-5">
+                            {languages.slice(0, -1).map((language, index) => (
+                                <li className="text-gray-800 text-sm pb-1 uppercase border-b-[3px] border-gray-800" key={index}>
+                                    {language}
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                )}
+
+                {/* Custom Sections */}
+                <div className="text-right">
+                    {customSections.map((section, index) => (
+                        <div key={index} className="mb-6">
+                            <h2 className="text-[20px] mb-2 text-right font-semibold rounded-full rounded-r-none uppercase py-2 px-5 text-white bg-[#62888b]">{section.sectionTitle}</h2>
+                            {section.items.map((item, idx) => (
+                                <div key={idx} className="py-3 p-5">
+                                    <h3 className="text-[18px] mb-1 font-semibold">{item.title}</h3>
+                                    <div className="text-gray-500 text-smtext-gray-400 text-[14px]">{parse(item.description)}</div>
+                                </div>
+                            ))}
+                        </div>
+                    ))}
+                </div>
+
             </div>
         </div >
     );
