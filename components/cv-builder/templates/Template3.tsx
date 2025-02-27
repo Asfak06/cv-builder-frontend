@@ -1,6 +1,7 @@
 import { useCVStore } from "@/store/cvStore";
 import parse from "html-react-parser";
-import { FaFacebookF, FaGlobe, FaHeart, FaLinkedin } from "react-icons/fa";
+import { FaGlobe, FaHeart } from "react-icons/fa";
+import { TbWorld } from "react-icons/tb";
 
 
 
@@ -42,9 +43,9 @@ export default function Template3() {
                 {links.length > 0 && (
                     <div className="mt-4 space-y-2 pb-4">
                         <h2 className="text-xl text-[#fff] uppercase font-semibold pb-1">Links</h2>
-                        {links.slice(0, -1).map((link, index) => (
+                        {links.map((link, index) => (
                             <p key={index} className="flex items-center">
-                                {link.label.toLowerCase().includes("linkedin") ? <FaLinkedin className="mr-2 text-[#fff]" /> : <FaFacebookF className="mr-2 text-[#fff]" />}
+                                <TbWorld className="mr-2" />
                                 <a href={link.url} target="_blank" rel="noopener noreferrer" className="text-[#fff] text-sm pb-1 hover:underline">{link.label}</a>
                             </p>
                         ))}
@@ -119,7 +120,7 @@ export default function Template3() {
                             <FaGlobe className="mr-2" /> Languages
                         </h2>
                         <ul className="text-gray-800 text-sm mt-2 space-y-1 grid grid-cols-2 gap-5">
-                            {languages.slice(0, -1).map((language, index) => (
+                            {languages.map((language, index) => (
                                 <li className="text-gray-800 text-sm pb-1 uppercase border-b-[3px] border-gray-800" key={index}>
                                     {language}
                                 </li>

@@ -1,16 +1,12 @@
 import { useCVStore } from "@/store/cvStore";
 import parse from "html-react-parser";
-import { useEffect, useState } from "react";
-import { FaEnvelope, FaFacebookF, FaGlobe, FaHeart, FaLinkedin, FaMapMarkerAlt, FaPhone } from "react-icons/fa";
+import { FaEnvelope, FaGlobe, FaHeart, FaMapMarkerAlt, FaPhone } from "react-icons/fa";
+import { TbWorld } from "react-icons/tb";
 
 
 export default function Template1() {
     const { personalDetails, links, summary, experience, education, skills, references, customSections, languages, hobbies } = useCVStore();
-    const [croppedImage, setCroppedImage] = useState(null);
 
-    useEffect(() => {
-        setCroppedImage(personalDetails.profileImage);
-    }, [personalDetails.profileImage]);
 
     return (
         <div className="bg-gray-100 flex flex-col md:flex-row max-w-4xl mx-auto shadow-lg rounded-lg min-h-[1123px]">
@@ -36,9 +32,9 @@ export default function Template1() {
                 {links.length > 0 && (
                     <div className="mt-4 space-y-2 border-b border-white-200 pb-4">
                         <h2 className="text-lg font-semibold uppercase pb-1">Links</h2>
-                        {links.slice(0, -1).map((link, index) => (
+                        {links.map((link, index) => (
                             <p key={index} className="flex items-center">
-                                {link.label.toLowerCase().includes("linkedin") ? <FaLinkedin className="mr-2" /> : <FaFacebookF className="mr-2" />}
+                                <TbWorld className="mr-2" />
                                 <a href={link.url} target="_blank" rel="noopener noreferrer" className="text-gray-300 text-sm pb-1 hover:underline">{link.label}</a>
                             </p>
                         ))}
@@ -131,7 +127,7 @@ export default function Template1() {
                             <FaGlobe className="mr-2" /> Languages
                         </h2>
                         <ul className="text-gray-800 text-sm mt-2 space-y-1 grid grid-cols-2 gap-5">
-                            {languages.slice(0, -1).map((language, index) => (
+                            {languages.map((language, index) => (
                                 <li className="text-gray-800 text-sm pb-1 uppercase border-b-[3px] border-gray-800" key={index}>
                                     {language}
                                 </li>

@@ -1,6 +1,7 @@
 import { useCVStore } from "@/store/cvStore";
 import parse from "html-react-parser";
-import { FaEnvelope, FaFacebookF, FaLinkedin, FaMapMarkerAlt, FaPhone } from "react-icons/fa";
+import { FaEnvelope, FaMapMarkerAlt, FaPhone } from "react-icons/fa";
+import { TbWorld } from "react-icons/tb";
 export default function Template4() {
     const { personalDetails, summary, experience, education, skills, customSections, links, hobbies, languages } = useCVStore();
 
@@ -52,9 +53,9 @@ export default function Template4() {
                 {links.length > 0 && (
                     <div className="p-6 pl-5 pt-0">
                         <h2 className="text-[17px] pl-2 mb-5 border-l-8 border-l-[#81ad89] text-[#090909] uppercase font-semibold">Links</h2>
-                        {links.slice(0, -1).map((link, index) => (
+                        {links.map((link, index) => (
                             <p key={index} className="flex items-center">
-                                {link.label.toLowerCase().includes("linkedin") ? <FaLinkedin className="mr-2 text-[#333a3f]" /> : <FaFacebookF className="mr-2 text-[#333a3f]" />}
+                                <TbWorld className="mr-2" />
                                 <a href={link.url} target="_blank" rel="noopener noreferrer" className="text-[#333a3f] text-sm pb-1 hover:underline">{link.label}</a>
                             </p>
                         ))}
@@ -114,7 +115,7 @@ export default function Template4() {
                             </h2>
                             <div className="mt-2 mb-7 pl-2 py-2 relative border-l-[20px] border-l-[#81ad89]">
                                 <ul className="">
-                                    {languages.slice(0, -1).map((language, index) => (
+                                    {languages.map((language, index) => (
                                         <li className="text-gray-200 pb-2 text-sm" key={index}>
                                             {language}
                                         </li>
