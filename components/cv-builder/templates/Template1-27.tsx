@@ -19,9 +19,9 @@ export default function Template1() {
                 {/* Profile Image */}
                 <div className="flex justify-center pr-5">
                     <img
-                        src={personalDetails.profileImage ? `${process.env.NEXT_PUBLIC_API_RESOURCE}${personalDetails.profileImage}` : "https://placehold.co/500"}
+                        src={croppedImage || personalDetails.profileImage || "https://placehold.co/500"}
                         alt="Profile"
-                        className="w-32 h-32 rounded-full border-4 border-white"
+                        className="w-40 h-40 rounded-full border-4 border-white"
                     />
                 </div>
 
@@ -36,7 +36,7 @@ export default function Template1() {
                 {links.length > 0 && (
                     <div className="mt-4 space-y-2 border-b border-white-200 pb-4">
                         <h2 className="text-lg font-semibold uppercase pb-1">Links</h2>
-                        {links.slice(0, -1).map((link, index) => (
+                        {links.map((link, index) => (
                             <p key={index} className="flex items-center">
                                 {link.label.toLowerCase().includes("linkedin") ? <FaLinkedin className="mr-2" /> : <FaFacebookF className="mr-2" />}
                                 <a href={link.url} target="_blank" rel="noopener noreferrer" className="text-gray-300 text-sm pb-1 hover:underline">{link.label}</a>
@@ -83,7 +83,7 @@ export default function Template1() {
                     {/* Personal Details */}
                     <div className="text-left mt-4">
                         <h1 className="text-2xl font-bold uppercase">{personalDetails.firstName} <span className="block">{personalDetails.lastName}</span></h1>
-                        <p className="text-gray-400 text-[14px] uppercase">{personalDetails.jobTitle}</p>
+                        <p className="text-gray-400 uppercase">{personalDetails.jobTitle}</p>
                     </div>
                     <div className="mt-4 space-y-2">
                         <p className="flex items-center"><span className="flex justify-center items-center w-[35px] mr-2 h-[35px] bg-gray-800 rounded-full"><FaEnvelope className="text-[#fff]" /></span> {personalDetails.email}</p>
@@ -118,7 +118,7 @@ export default function Template1() {
                 <div className="mt-6">
                     <h2 className="text-xl font-semibold uppercase border-b border-gray-800 pb-1">Skills</h2>
                     <div className="grid grid-cols-2 gap-5 mt-5">
-                        {skills.slice(0, -1).map((skill, index) => (
+                        {skills.map((skill, index) => (
                             <span key={index} className="text-gray-800 text-sm pb-1 uppercase border-b-[3px] border-gray-800">{skill}</span>
                         ))}
                     </div>

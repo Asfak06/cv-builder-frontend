@@ -10,7 +10,7 @@ export default function CustomSections() {
         <div className="p-[30px] border rounded-lg bg-[#fff]">
             <h3 className="text-lg text-[#CE367F] font-semibold">Additional Sections</h3>
             {customSections.map((section, sectionIndex) => (
-                <div key={sectionIndex} className="mb-6 border p-4 rounded-lg shadow">
+                <div key={sectionIndex} className="mb-6 p-[30px] border p-4 rounded-lg shadow">
                     {/* Section Title Input */}
                     <input
                         type="text"

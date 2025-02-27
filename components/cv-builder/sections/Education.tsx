@@ -22,7 +22,7 @@ export default function Education() {
                 <div key={index} className="mt-4 border p-[35px] rounded bg-white relative">
                     <button
                         onClick={() => removeEducation(index)}
-                        className="absolute top-2 right-2 text-red-500 hover:text-red-700"
+                        className="absolute top-2 right-2 text-[#CE367F] hover:text-red-700"
                     >
                         <FaTrash />
                     </button>

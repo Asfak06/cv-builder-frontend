@@ -1,9 +1,9 @@
 import { useCVStore } from "@/store/cvStore";
 import parse from "html-react-parser";
 import { useEffect, useState } from "react";
-import { FaEnvelope, FaMapMarkerAlt, FaPhone } from "react-icons/fa";
+import { FaEnvelope, FaFacebookF, FaGlobe, FaHeart, FaLinkedin, FaMapMarkerAlt, FaPhone } from "react-icons/fa";
 export default function Template2() {
-    const { personalDetails, links, summary, experience, education, skills, references } = useCVStore();
+    const { personalDetails, links, summary, experience, education, skills, references, customSections, languages, hobbies } = useCVStore();
     const [croppedImage, setCroppedImage] = useState(null);
 
     useEffect(() => {
@@ -22,9 +22,9 @@ export default function Template2() {
                         className="w-40 h-40 rounded-full border-4 border-gray-300"
                     /> */}
                     <img
-                        src={croppedImage || "https://placehold.co/500"}
+                        src={personalDetails.profileImage ? `${process.env.NEXT_PUBLIC_API_RESOURCE}${personalDetails.profileImage}` : "https://placehold.co/500"}
                         alt="Profile"
-                        className="w-40 h-40 rounded-full border-4 border-white"
+                        className="w-32 h-32 rounded-full border-4 border-white"
                     />
                 </div>
                 {/* Profile Summary */}
@@ -48,7 +48,7 @@ export default function Template2() {
                     <p className="flex items-center mt-1 text-gray-700 pb-1 text-sm"><FaPhone className="mr-2" /> {personalDetails.phone}</p>
                     <p className="flex items-center mt-1 text-gray-700 pb-1 text-sm"><FaMapMarkerAlt className="mr-2" /> {personalDetails.city}, {personalDetails.country}</p>
                     {links.map((link, index) => (
-                        <a href={link.url} key={index} className="flex items-center mt-2">
+                        <a href={link.url} key={index} className="flex items-center mt-2 text-[#333a3f]">
                             {link.label}
                         </a>
                     ))}
@@ -60,6 +60,36 @@ export default function Template2() {
                         <p key={index} className="text-gray-700 text-[16px] mt-2"><strong>{ref.name}</strong> <span className="flex items-center mt-1 text-gray-700 pb-1 text-sm">{ref.position}</span><span className="flex items-center text-gray-700 pb-1 text-sm">{ref.company}</span></p>
                     ))}
                 </div>
+
+                {/* Links Section */}
+                {links.length > 0 && (
+                    <div className="mt-4 space-y-2 border-b border-white-200 pb-4">
+                        <h2 className="text-xl text-[#333a3f] uppercase font-semibold border-b pb-1">Links</h2>
+                        {links.slice(0, -1).map((link, index) => (
+                            <p key={index} className="flex items-center">
+                                {link.label.toLowerCase().includes("linkedin") ? <FaLinkedin className="mr-2 text-[#333a3f]" /> : <FaFacebookF className="mr-2 text-[#333a3f]" />}
+                                <a href={link.url} target="_blank" rel="noopener noreferrer" className="text-[#333a3f] text-sm pb-1 hover:underline">{link.label}</a>
+                            </p>
+                        ))}
+                    </div>
+                )}
+
+                {/* Hobbies Section */}
+                {hobbies.length > 0 && (
+                    <div className="mt-4 border-b border-white-200 pb-4">
+                        <h2 className="text-lg text-[#333a3f] font-semibold uppercase pb-1 flex items-center"><FaHeart className="mr-2" /> Hobbies</h2>
+                        <ul className="text-gray-300 text-sm mt-2 space-y-1">
+                            {hobbies.map((hobby, index) => (
+                                <li
+                                    className="pl-4 text-[#333a3f] relative before:content-[''] before:w-[8px] before:h-[8px] before:bg-[#333a3f] before:rounded-full before:absolute before:left-[0] before:top-[5px] last:before:content-none"
+                                    key={index}
+                                >
+                                    {hobby}
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                )}
             </div>
             {/* Right Column */}
             <div className="p-6 pt-[130px] w-full md:w-2/3">
@@ -87,6 +117,38 @@ export default function Template2() {
                         </div>
                     ))}
                 </div>
+
+                {/* Languages Section */}
+                {languages.length > 0 && (
+                    <div className="mt-6 pb-4">
+                        <h2 className="text-xl font-semibold uppercase border-b border-gray-800 mb-5 pb-1 flex items-center">
+                            <FaGlobe className="mr-2" /> Languages
+                        </h2>
+                        <ul className="text-gray-800 text-sm mt-2 space-y-1 grid grid-cols-2 gap-5">
+                            {languages.slice(0, -1).map((language, index) => (
+                                <li className="text-gray-800 text-sm pb-1 uppercase border-b-[3px] border-gray-800" key={index}>
+                                    {language}
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                )}
+
+                {/* Custom Sections */}
+                <div className="mt-6">
+                    {customSections.map((section, index) => (
+                        <div key={index} className="mb-6">
+                            <h2 className="text-xl font-semibold border-b border-gray-800 pb-1 uppercase">{section.sectionTitle}</h2>
+                            {section.items.map((item, idx) => (
+                                <div key={idx} className="mt-4">
+                                    <h3 className="text-lg text-gray-600 mt-[-2px] capitalize leading-none mb-2 font-semibold">{item.title}</h3>
+                                    <div className="text-gray-500 text-sm text-justify">{parse(item.description)}</div>
+                                </div>
+                            ))}
+                        </div>
+                    ))}
+                </div>
+
             </div>
         </div>
     );

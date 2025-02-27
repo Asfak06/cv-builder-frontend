@@ -1,14 +1,14 @@
-import axiosInstance from "@/lib/axiosInstance";
 import { useCVStore } from "@/store/cvStore";
 import { useEffect, useState } from "react";
-import toast from "react-hot-toast";
 import ImageCropper from "../../ImageCropper";
+
+
 
 
 
 export default function PersonalDetails() {
     const { personalDetails, updatePersonalDetails, currentCV, updateProfileImage } = useCVStore();
-    const [uploading] = useState(false);
+    const [uploading, setUploading] = useState(false);
     const [imageSrc, setImageSrc] = useState(null);
     const [croppedImage, setCroppedImage] = useState(null);
     const [showCropper, setShowCropper] = useState(false);
@@ -33,29 +33,17 @@ export default function PersonalDetails() {
         };
     };
 
-    const handleCropComplete = async (croppedBlob: Blob) => {
+    const handleCropComplete = (croppedBlob: Blob) => {
         if (!croppedBlob) return;
 
-        const formData = new FormData();
-        formData.append("profileImage", croppedBlob);
-        try {
-            setUploading(true);
-            const response = await axiosInstance.post("/api/upload-image", formData, {
-                headers: { "Content-Type": "multipart/form-data" },
-            });
+        const reader = new FileReader();
+        reader.readAsDataURL(croppedBlob);
+        reader.onloadend = () => {
+            const croppedDataUrl = reader.result as string;
+            setCroppedImage(croppedDataUrl);
+            updateProfileImage(croppedDataUrl); // ✅ TypeScript issue fixed
+        };
 
-            if (response.status === 200) {
-                updateProfileImage(response.data.imageUrl);
-                toast.success("Profile image uploaded successfully!");
-            } else {
-                toast.error("Failed to upload image. Please try again.");
-            }
-        } catch (error) {
-            console.error("Image Upload Error:", error);
-            toast.error("Error uploading image.");
-        } finally {
-            setUploading(false);
-        }
         setShowCropper(false);
     };
 
@@ -89,12 +77,13 @@ export default function PersonalDetails() {
                         />
                     </label>
 
-                    <img
-                        src={personalDetails.profileImage ? `${process.env.NEXT_PUBLIC_API_RESOURCE}${personalDetails.profileImage}` : "https://placehold.co/500"}
-                        alt="Profile"
-                        className="w-14 h-14 rounded-full border-4 border-white"
-                    />
-
+                    {croppedImage && (
+                        <img
+                            src={croppedImage || personalDetails.profileImage || "https://placehold.co/500"}
+                            alt="Profile"
+                            className="w-14 h-14 rounded-full border-4 border-white"
+                        />
+                    )}
                     {showCropper && (
                         <div className="fixed inset-0 z-50 bg-black bg-opacity-50 flex justify-center items-center">
                             <div className="p-6 rounded-lg shadow-lg w-96">
