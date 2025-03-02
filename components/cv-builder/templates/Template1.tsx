@@ -77,14 +77,14 @@ export default function Template1() {
             <div className="bg-white p-6 w-full md:w-2/3">
                 <div className="flex justify-between items-center pb-[30px] pt-[30px]">
                     {/* Personal Details */}
-                    <div className="text-left mt-4">
-                        <h1 className="text-2xl font-bold uppercase">{personalDetails.firstName} <span className="block">{personalDetails.lastName}</span></h1>
-                        <p className="text-gray-400 text-[14px] uppercase">{personalDetails.jobTitle}</p>
+                    <div className="text-left mt-4 pr-2">
+                        <h1 className="text-[22px] font-bold uppercase">{personalDetails.firstName} <span className="block">{personalDetails.lastName}</span></h1>
+                        <p className="text-gray-400 text-[12px] uppercase">{personalDetails.jobTitle}</p>
                     </div>
                     <div className="mt-4 space-y-2">
-                        <p className="flex items-center"><span className="flex justify-center items-center w-[35px] mr-2 h-[35px] bg-gray-800 rounded-full"><FaEnvelope className="text-[#fff]" /></span> {personalDetails.email}</p>
-                        <p className="flex items-center"><span className="flex justify-center items-center w-[35px] mr-2 h-[35px] bg-gray-800 rounded-full"><FaPhone className="text-[#fff]" /></span> {personalDetails.phone}</p>
-                        <p className="flex items-center"><span className="flex justify-center items-center w-[35px] mr-2 h-[35px] bg-gray-800 rounded-full"><FaMapMarkerAlt className="text-[#fff]" /></span> {personalDetails.city}, {personalDetails.country}</p>
+                        <p className="flex text-[14px] items-center"><span className="flex justify-center items-center w-[30px] mr-2 h-[30px] bg-gray-800 rounded-full"><FaEnvelope className="text-[#fff]" /></span> {personalDetails.email}</p>
+                        <p className="flex text-[14px] items-center"><span className="flex justify-center items-center w-[30px] mr-2 h-[30px] bg-gray-800 rounded-full"><FaPhone className="text-[#fff]" /></span> {personalDetails.phone}</p>
+                        <p className="flex text-[14px] items-center"><span className="flex justify-center items-center w-[30px] mr-2 h-[30px] bg-gray-800 rounded-full"><FaMapMarkerAlt className="text-[#fff]" /></span> {personalDetails.city}, {personalDetails.country}</p>
                     </div>
                 </div>
 
