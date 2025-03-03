@@ -55,7 +55,7 @@ export default function Template4() {
                         <h2 className="text-[17px] pl-2 mb-5 border-l-8 border-l-[#81ad89] text-[#090909] uppercase font-semibold">Links</h2>
                         {links.map((link, index) => (
                             <p key={index} className="flex items-center">
-                                <TbWorld className="mr-2" />
+                                <TbWorld className="mr-2 mt-[-2px] text-[#333a3f]" />
                                 <a href={link.url} target="_blank" rel="noopener noreferrer" className="text-[#333a3f] text-sm pb-1 hover:underline">{link.label}</a>
                             </p>
                         ))}

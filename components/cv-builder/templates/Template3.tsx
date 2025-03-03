@@ -1,6 +1,6 @@
 import { useCVStore } from "@/store/cvStore";
 import parse from "html-react-parser";
-import { FaGlobe, FaHeart } from "react-icons/fa";
+import { FaHeart } from "react-icons/fa";
 import { TbWorld } from "react-icons/tb";
 
 
@@ -25,7 +25,7 @@ export default function Template3() {
                     className="w-40 h-40 rounded-full relative z-20 mt-[-120px] border-4 border-white"
                 />
                 <h1 className="text-[26px] font-extrabold uppercase text-center leading-[34px] mt-4 mb-2">{personalDetails.firstName} <span className='block'>{personalDetails.lastName}</span></h1>
-                <p className="text-white text-[16px] font-medium uppercase text-center">{personalDetails.jobTitle}</p>
+                <p className="text-white text-[14px] font-medium uppercase text-center">{personalDetails.jobTitle}</p>
                 {/* About Me */}
                 <div className="mt-6 text-center">
                     <h2 className="text-[18px] uppercase font-semibold pb-1">About Me</h2>
@@ -41,7 +41,7 @@ export default function Template3() {
 
                 {/* Links Section */}
                 {links.length > 0 && (
-                    <div className="mt-4 space-y-2 pb-4">
+                    <div className="mt-4 space-y-2 pb-4 text-center">
                         <h2 className="text-xl text-[#fff] uppercase font-semibold pb-1">Links</h2>
                         {links.map((link, index) => (
                             <p key={index} className="flex items-center">
@@ -54,7 +54,7 @@ export default function Template3() {
 
                 {/* Hobbies Section */}
                 {hobbies.length > 0 && (
-                    <div className="mt-4 pb-4">
+                    <div className="mt-4 pb-4 text-center">
                         <h2 className="text-lg text-[#fff] font-semibold uppercase pb-1 flex items-center"><FaHeart className="mr-2 text-[#fff]" /> Hobbies</h2>
                         <ul className="text-gray-300 text-sm mt-2 space-y-1">
                             {hobbies.map((hobby, index) => (
@@ -75,7 +75,7 @@ export default function Template3() {
             <div className="bg-white p-6 pr-0 pt-[80px] w-full md:w-2/3 rounded-lg md:rounded-l-none">
                 {/* Education */}
                 <div className="text-right">
-                    <h2 className="text-[20px] mb-2 font-semibold rounded-full rounded-r-none uppercase border-b py-2 px-5 text-white bg-[#62888b]">Education</h2>
+                    <h2 className="text-[20px] ml-10 mb-2 font-semibold rounded-full rounded-r-none uppercase border-b py-2 px-5 text-white bg-[#62888b]">Education</h2>
                     {education.map((edu, index) => (
                         <div key={index} className="py-3 p-5">
                             <h3 className="text-[18px] mb-1 font-semibold">{edu.degree}</h3>
@@ -85,7 +85,7 @@ export default function Template3() {
                 </div>
                 {/* Work Experience */}
                 <div className="mt-6 text-right">
-                    <h2 className="text-[20px] mb-2 text-right font-semibold rounded-full rounded-r-none uppercase border-b py-2 px-5 text-white bg-[#62888b]">Work Experience</h2>
+                    <h2 className="text-[20px] ml-10 mb-2 text-right font-semibold rounded-full rounded-r-none uppercase border-b py-2 px-5 text-white bg-[#62888b]">Work Experience</h2>
                     {experience.map((exp, index) => (
                         <div key={index} className="py-3 p-5">
                             <h3 className="text-[18px] mb-1 font-semibold">{exp.jobTitle}</h3>
@@ -95,7 +95,7 @@ export default function Template3() {
                 </div>
                 {/* References */}
                 <div className="mt-6 text-right">
-                    <h2 className="text-[20px] mb-2 text-right font-semibold rounded-full rounded-r-none uppercase border-b py-2 px-5 text-white bg-[#62888b]">References</h2>
+                    <h2 className="text-[20px] ml-10 mb-2 text-right font-semibold rounded-full rounded-r-none uppercase border-b py-2 px-5 text-white bg-[#62888b]">References</h2>
                     {references.map((ref, index) => (
                         <div key={index} className="py-3 p-5">
                             <h3 className="text-[18px] mb-1 font-semibold">{ref.name}</h3>
@@ -105,7 +105,7 @@ export default function Template3() {
                 </div>
                 {/* Skills */}
                 <div className="mt-6">
-                    <h2 className="text-[20px] mb-2 text-right font-semibold rounded-full rounded-r-none uppercase border-b py-2 px-5 text-white bg-[#62888b]">Personal Skills</h2>
+                    <h2 className="text-[20px] ml-10 mb-2 text-right font-semibold rounded-full rounded-r-none uppercase border-b py-2 px-5 text-white bg-[#62888b]">Personal Skills</h2>
                     <div className="py-3 p-5 pl-[200px] text-right">
                         {skills.map((skill, index) => (
                             <span key={index} className="block text-[18px] mb-4 font-semibold border-b-[5px] border-[#afccc8]">{skill}</span>
@@ -116,12 +116,12 @@ export default function Template3() {
                 {/* Languages Section */}
                 {languages.length > 0 && (
                     <div className="mt-6 pb-4">
-                        <h2 className="text-xl font-semibold uppercase border-b border-gray-800 mb-5 pb-1 flex items-center">
-                            <FaGlobe className="mr-2" /> Languages
+                        <h2 className="text-[20px] ml-10 mb-2 text-right font-semibold rounded-full rounded-r-none uppercase border-b py-2 px-5 text-white bg-[#62888b]">
+                            Languages
                         </h2>
-                        <ul className="text-gray-800 text-sm mt-2 space-y-1 grid grid-cols-2 gap-5">
+                        <ul className="py-3 p-5 text-gray-800 text-sm mt-5 space-y-1 grid grid-cols-2 gap-5">
                             {languages.map((language, index) => (
-                                <li className="text-gray-800 text-sm pb-1 uppercase border-b-[3px] border-gray-800" key={index}>
+                                <li className="text-gray-800 text-sm pb-1 uppercase border-b-[3px] border-[#afccc8]" key={index}>
                                     {language}
                                 </li>
                             ))}
