@@ -59,7 +59,7 @@ export default function References() {
                     </div>
                 </div>
             ))}
-            <button onClick={addReference} className="mt-4 px-4 py-2 bg-[#CE367F] text-white rounded">
+            <button onClick={addReference} className="mt-4 px-4 py-2 bg-[#CE367F] hover:bg-slate-600 text-white rounded">
                 + Add Reference
             </button>
         </div>

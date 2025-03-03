@@ -1,4 +1,3 @@
-
 import AdditionalSections from "./sections/AdditionalSections";
 import CustomSections from "./sections/CustomSections";
 import Education from "./sections/Education";

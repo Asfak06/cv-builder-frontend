@@ -58,7 +58,7 @@ export default function Education() {
                     </div>
                 </div>
             ))}
-            <button onClick={addEducation} className="mt-4 px-4 py-2 bg-[#CE367F] text-white rounded">
+            <button onClick={addEducation} className="mt-4 px-4 py-2 bg-[#CE367F] hover:bg-slate-600 text-white rounded">
                 + Add Education
             </button>
         </div>

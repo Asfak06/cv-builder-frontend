@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const Feature = () => {
     return (
-        <div className="pt-[80px] pb-[200px]">
+        <div className="pt-[80px] pb-[100px] bg-[#fff]">
             <div className="container">
                 <div className="row">
                     <div className="text-center pb-[80px]">
