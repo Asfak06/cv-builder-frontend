@@ -7,10 +7,10 @@ export default function CustomSections() {
     const { customSections, addCustomSection, removeCustomSection, updateCustomSectionTitle, addCustomItem, updateCustomItem, removeCustomItem, addLink, addLanguage, addHobby } = useCVStore();
     const { toggleAdditionalSection, activeAdditionalSections } = useCVStore();
     return (
-        <div className="p-[30px] border rounded-lg bg-[#fff]">
-            <h3 className="text-lg text-[#CE367F] font-semibold">Additional Sections</h3>
+        <>
             {customSections.map((section, sectionIndex) => (
-                <div key={sectionIndex} className="mb-6 p-[30px] border p-4 rounded-lg shadow">
+                <div key={sectionIndex} className="mb-6 p-[30px] bg-[#fff] border p-4 rounded-lg">
+                    <h3 className="text-lg text-[#CE367F] font-semibold mb-3">Additional Sections</h3>
                     {/* Section Title Input */}
                     <input
                         type="text"
@@ -26,7 +26,7 @@ export default function CustomSections() {
                             {/* Remove Item Button */}
                             <button
                                 onClick={() => removeCustomItem(sectionIndex, itemIndex)}
-                                className="mt-2 px-3 py-1 bg-red-500 text-white rounded my-2"
+                                className="mt-2 px-3 py-1 bg-[#CE367F] hover:bg-slate-600 text-white rounded my-2"
                             >
                                 Remove Item
                             </button>
@@ -54,7 +54,7 @@ export default function CustomSections() {
                     {/* Add Item Button */}
                     <button
                         onClick={() => addCustomItem(sectionIndex)}
-                        className="mt-3 px-4 py-2 bg-[#CE367F] text-white rounded"
+                        className="mt-3 px-4 py-2 bg-[#CE367F] hover:bg-slate-600 text-white rounded"
                     >
                         + Add Item
                     </button>
@@ -62,34 +62,32 @@ export default function CustomSections() {
                     {/* Remove Section Button */}
                     <button
                         onClick={() => removeCustomSection(sectionIndex)}
-                        className="ml-2 mt-3 px-4 py-2 bg-red-500 text-white rounded"
+                        className="ml-2 mt-3 px-4 py-2 bg-[#CE367F] hover:bg-slate-600 text-white rounded"
                     >
                         Remove Section
                     </button>
                 </div>
             ))}
+            <div className="p-[30px] border rounded-lg bg-[#fff]">
+                {/* Add Section Button */}
 
-            {/* Add Section Button */}
-
-            {["Links", "Languages", "Hobbies"].map((section) => (
-                <button key={section} onClick={() => {
-                    if (section === 'Links') addLink({ label: "", url: "" });
-                    if (section === 'Languages') addLanguage();
-                    if (section === 'Hobbies') addHobby();
-                    toggleAdditionalSection(section)
-                }} className={`mt-4 px-4 py-2 mx-2  text-white rounded ${activeAdditionalSections.includes(section) ? 'bg-slate-500' : 'bg-[#CE367F]'}`}>
-                    {section}
+                {["Links", "Languages", "Hobbies"].map((section) => (
+                    <button key={section} onClick={() => {
+                        if (section === 'Links') addLink({ label: "", url: "" });
+                        if (section === 'Languages') addLanguage();
+                        if (section === 'Hobbies') addHobby();
+                        toggleAdditionalSection(section)
+                    }} className={`mt-4 px-4 py-2 mx-2  text-white rounded ${activeAdditionalSections.includes(section) ? 'bg-slate-500' : 'bg-[#CE367F]'}`}>
+                        {section}
+                    </button>
+                ))}
+                <button
+                    onClick={addCustomSection}
+                    className="mt-4 px-4 py-2 bg-[#CE367F] hover:bg-slate-600 text-white rounded"
+                >
+                    + Add Section
                 </button>
-            ))}
-            <button
-                onClick={addCustomSection}
-                className="mt-4 px-4 py-2 bg-[#CE367F] text-white rounded"
-            >
-                + Add Section
-            </button>
-
-
-
-        </div>
+            </div>
+        </>
     );
 }

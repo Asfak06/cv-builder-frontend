@@ -53,7 +53,7 @@ export default function CVPreview() {
             <div className="flex gap-3 mt-5">
                 <button
                     onClick={() => saveCVData(userData.id)}
-                    className="flex justify-center items-center px-4 py-2 bg-[#CE367F] text-white font-bold rounded-lg"
+                    className="flex justify-center items-center px-4 py-2 bg-[#CE367F] hover:bg-slate-600 text-white font-bold rounded-lg"
                 >
                     <FiSave className="pr-[2px]" />
                     Save
@@ -61,7 +61,7 @@ export default function CVPreview() {
 
                 <button
                     onClick={handleDownloadPDF}
-                    className="px-4 py-2 bg-[#CE367F] text-white font-bold rounded-lg flex items-center gap-2"
+                    className="px-4 py-2 bg-[#CE367F] hover:bg-slate-600 text-white font-bold rounded-lg flex items-center gap-2"
                     disabled={loading}
                 >
                     <FaFilePdf />

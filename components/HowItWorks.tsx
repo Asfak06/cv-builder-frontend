@@ -4,13 +4,13 @@ const steps = [
     { title: "Create Account", desc: "Sign up to start building your professional CV.", Icon: "/user-plus-duotone.svg", stepArrow: '/step-arrows-1.png' },
     { title: "Upload CV/Resume", desc: "Easily upload your existing resume for quick edits.", Icon: "/cloud-arrow-up-duotone.svg", stepArrow: '/step-arrows-2.png' },
     { title: "Find Suitable Job", desc: "Get matched with top job opportunities in your field.", Icon: "/magnifying-glass-plus-duotone.svg", stepArrow: '/step-arrows-3.png' },
-    { title: "Apply Job", desc: "Submit applications effortlessly with your new CV.", Icon: "/circle-wavy-check-duotone.svg" }, // No stepArrow
+    { title: "Apply Job", desc: "Submit applications effortlessly with your new CV.", Icon: "/circle-wavy-check-duotone.svg" },
 ];
 
 export default function HowItWorks() {
     return (
         <section className="py-[100px] text-center text-gray-500 bg-gray-50">
-            <h2 className="text-3xl font-bold">How jobpilot works</h2>
+            <h2 className="text-3xl font-bold text-[#18191C]">How CV Builder work</h2>
             <div className="flex flex-wrap justify-center gap-8 mt-[40px] px-6">
                 {steps.map((step, index) => (
                     <div
@@ -18,7 +18,7 @@ export default function HowItWorks() {
                         className="step__item max-w-xs p-6 relative rounded-xl transition-all duration-300 hover:bg-white hover:shadow-lg group"
                     >
                         {step.Icon && (
-                            <span className="w-[72px] h-[72px] rounded-full flex justify-center items-center m-auto bg-white transition-all duration-300 group-hover:bg-[#0A65CC]">
+                            <span className="w-[72px] h-[72px] rounded-full flex justify-center items-center m-auto bg-white transition-all duration-300 group-hover:bg-[#CE367F]">
                                 <Image
                                     src={step.Icon}
                                     alt="icon"

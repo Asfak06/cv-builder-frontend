@@ -45,7 +45,7 @@ export default function AdditionalSections() {
                             toggleAdditionalSection("Links");
                             useCVStore.setState({ links: [] });
                         }}
-                        className="absolute top-2 right-2 px-3 py-1 bg-red-500 text-white rounded text-sm"
+                        className="absolute top-2 right-2 px-3 py-1 bg-[#CE367F] hover:bg-slate-600 text-white rounded text-sm"
                     >
                         ✖ Remove
                     </button>
@@ -67,7 +67,7 @@ export default function AdditionalSections() {
                                 className="w-2/3 h-[40px] border border-gray-300 rounded px-2"
                             />
                             {index > 0 && (
-                                <button onClick={() => removeLink(index)} className="px-3 py-1 bg-red-500 text-white rounded">
+                                <button onClick={() => removeLink(index)} className="px-3 py-1 bg-[#CE367F]  text-white rounded">
                                     ✖
                                 </button>
                             )}
@@ -75,7 +75,7 @@ export default function AdditionalSections() {
                     ))}
                     <button
                         onClick={() => addLink({ label: "", url: "" })}
-                        className="mt-2 px-3 py-1 bg-[#CE367F] text-white rounded"
+                        className="mt-2 px-3 py-1 bg-[#CE367F] hover:bg-slate-600 text-white rounded"
                     >
                         + Add
                     </button>
@@ -91,7 +91,7 @@ export default function AdditionalSections() {
                             toggleAdditionalSection("Languages");
                             useCVStore.setState({ languages: [] });
                         }}
-                        className="absolute top-2 right-2 px-3 py-1 bg-red-500 text-white rounded text-sm"
+                        className="absolute top-2 right-2 px-3 py-1 bg-[#CE367F] hover:bg-slate-600 text-white rounded text-sm"
                     >
                         ✖ Remove
                     </button>
@@ -106,7 +106,7 @@ export default function AdditionalSections() {
                                 className="w-2/3 h-[40px] border border-gray-300 rounded px-2"
                             />
                             {index > 0 && (
-                                <button onClick={() => removeLanguage(index)} className="px-3 py-1 bg-red-500 text-white rounded">
+                                <button onClick={() => removeLanguage(index)} className="px-3 py-1 bg-[#CE367F] text-white rounded">
                                     ✖
                                 </button>
                             )}
@@ -114,7 +114,7 @@ export default function AdditionalSections() {
                     ))}
                     <button
                         onClick={addLanguage}
-                        className="mt-2 px-3 py-1 bg-[#CE367F] text-white rounded"
+                        className="mt-2 px-3 py-1 bg-[#CE367F] hover:bg-slate-600 text-white rounded"
                     >
                         + Add
                     </button>
@@ -130,7 +130,7 @@ export default function AdditionalSections() {
                             toggleAdditionalSection("Hobbies");
                             useCVStore.setState({ hobbies: [] });
                         }}
-                        className="absolute top-2 right-2 px-3 py-1 bg-red-500 text-white rounded text-sm"
+                        className="absolute top-2 right-2 px-3 py-1 bg-[#CE367F] hover:bg-slate-600 text-white rounded text-sm"
                     >
                         ✖ Remove
                     </button>
@@ -145,7 +145,7 @@ export default function AdditionalSections() {
                                 className="w-2/3 h-[40px] border border-gray-300 rounded px-2"
                             />
                             {index > 0 && (
-                                <button onClick={() => removeHobby(index)} className="px-3 py-1 bg-red-500 text-white rounded">
+                                <button onClick={() => removeHobby(index)} className="px-3 py-1 bg-[#CE367F] text-white rounded">
                                     ✖
                                 </button>
                             )}
@@ -153,7 +153,7 @@ export default function AdditionalSections() {
                     ))}
                     <button
                         onClick={addHobby}
-                        className="mt-2 px-3 py-1 bg-[#CE367F] text-white rounded"
+                        className="mt-2 px-3 py-1 bg-[#CE367F] hover:bg-slate-600 text-white rounded"
                     >
                         + Add
                     </button>
