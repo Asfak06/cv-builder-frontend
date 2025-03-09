@@ -39,3 +39,15 @@ body {
   right: -125px;
   top: 10px;
 }
+
+.cv-page {
+  break-after: always;
+  page-break-after: always;
+  overflow: hidden;
+}
+
+@media print {
+  .cv-page {
+    page-break-after: always;
+  }
+}

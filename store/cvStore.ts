@@ -1,4 +1,5 @@
 import axiosInstance from '@/lib/axiosInstance';
+import { ReactNode } from 'react';
 import toast from 'react-hot-toast';
 import { create } from 'zustand';
 // Define CV Data Type
@@ -42,6 +43,10 @@ interface PersonalDetails {
 // Define CV Data Type
 interface CVState {
   currentCV: CV | null;
+  pages: ReactNode[][]; // Updated: Stores paginated content
+  currentPage: number; // Unchanged: Tracks the active page
+  setPages: (pages: ReactNode[][]) => void; // Updated: Updates pages state
+  setCurrentPage: (page: number) => void; // Unchanged: Updates currentPage state
   personalDetails: PersonalDetails;
   links: { label: string; url: string }[];
   languages: string[];
@@ -98,6 +103,10 @@ interface CVState {
 // Zustand store
 export const useCVStore = create<CVState>((set, get) => ({
   currentCV: null,
+  pages: [],
+  currentPage: 0,
+  setPages: (pages) => set({ pages }),
+  setCurrentPage: (page) => set({ currentPage: page }),
   personalDetails: {
     jobTitle: '',
     profileImage: '',

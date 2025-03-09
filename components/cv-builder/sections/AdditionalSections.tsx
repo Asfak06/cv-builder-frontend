@@ -32,7 +32,6 @@ export default function AdditionalSections() {
 
     }, [links, languages, hobbies]);
 
-    console.log(languages)
 
     return (
         <div className="space-y-6 text-gray-600">

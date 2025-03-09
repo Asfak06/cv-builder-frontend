@@ -9,7 +9,7 @@ export default function Template1() {
 
 
     return (
-        <div className="bg-gray-100 flex flex-col md:flex-row max-w-4xl mx-auto shadow-lg rounded-lg min-h-[1123px]">
+        <div className="cv-page bg-gray-100 flex flex-col md:flex-row max-w-4xl mx-auto shadow-lg rounded-lg min-h-[1123px]">
             {/* Left Column */}
             <div className="bg-[#434345] text-white p-6 pr-0 w-full md:w-1/3">
                 {/* Profile Image */}
