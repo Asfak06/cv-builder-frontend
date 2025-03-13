@@ -17,10 +17,10 @@ export default function References() {
         }
     }, [currentCV, updateReference]);
     return (
-        <div className="p-[30px] border rounded-lg bg-[#fff]">
+        <div className="lg:p-[30px] p-[15px] border rounded-lg bg-[#fff]">
             <h3 className="text-lg text-[#CE367F] font-semibold">References</h3>
             {references.map((ref, index) => (
-                <div key={index} className="mt-4 border p-[35px] rounded bg-white relative">
+                <div key={index} className="mt-4 border lg:p-[35px] p-[25px] rounded bg-white relative">
                     <button
                         onClick={() => removeEducation(index)}
                         className="absolute top-2 right-2 text-[#CE367F] hover:text-red-700"

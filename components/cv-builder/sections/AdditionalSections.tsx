@@ -38,7 +38,7 @@ export default function AdditionalSections() {
         <div className="space-y-6 text-gray-600">
             {/* Links Section */}
             {activeAdditionalSections.includes("Links") && (
-                <div className="border rounded-lg p-[30px] bg-white shadow relative">
+                <div className="border rounded-lg lg:p-[30px] p-[15px] bg-white shadow relative">
                     <h4 className="text-lg font-semibold text-[#CE367F]">Links</h4>
                     <button
                         onClick={() => {
@@ -84,7 +84,7 @@ export default function AdditionalSections() {
 
             {/* Languages Section */}
             {activeAdditionalSections.includes("Languages") && (
-                <div className="border rounded-lg p-[30px] bg-white shadow relative">
+                <div className="border rounded-lg lg:p-[30px] p-[15px] bg-white shadow relative">
                     <h4 className="text-lg font-semibold text-[#CE367F]">Languages</h4>
                     <button
                         onClick={() => {
@@ -123,7 +123,7 @@ export default function AdditionalSections() {
 
             {/* Hobbies Section */}
             {activeAdditionalSections.includes("Hobbies") && (
-                <div className="border rounded-lg p-[30px] bg-white shadow relative">
+                <div className="border rounded-lg lg:p-[30px] p-[15px] bg-white shadow relative">
                     <h4 className="text-lg font-semibold text-[#CE367F]">Hobbies</h4>
                     <button
                         onClick={() => {

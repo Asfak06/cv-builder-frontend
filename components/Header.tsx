@@ -6,8 +6,8 @@ const Header = () => {
             <div className='container px-6'>
                 <div className='row'>
                     <div className='flex justify-between items-center'>
-                        <Link className="text-[#fff] text-[24px] font-semibold" href="/">Surveylancer CV Builder</Link>
-                        <ul className="flex text-[16px] text-[#fff] space-x-10">
+                        <Link className="text-[#fff] lg:text-[24px] md:text-[20px] sm:text-[18px] text-[14px] font-semibold" href="/">Surveylancer CV Builder</Link>
+                        <ul className="flex lg:text-[16px] md:text-[15px] sm:text-[14px] text-[12px] text-[#fff] lg:space-x-10 md:space-x-8 sm:space-x-5 space-x-4">
                             <li><Link className="hover:text-[#CE367F]" href="#">Home</Link></li>
                             <li><Link className="hover:text-[#CE367F]" href="#">About</Link></li>
                             <li><Link className="hover:text-[#CE367F]" href="#">Service</Link></li>

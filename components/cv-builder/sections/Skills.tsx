@@ -24,7 +24,7 @@ export default function Skills() {
     };
 
     return (
-        <div className="p-[30px] border rounded-lg bg-white">
+        <div className="lg:p-[30px] p-[15px] border rounded-lg bg-white">
             <h3 className="text-lg text-[#CE367F] font-semibold">Skills</h3>
             <div className="flex gap-2 mt-2">
                 <input

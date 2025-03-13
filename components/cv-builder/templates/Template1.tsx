@@ -77,11 +77,11 @@ export default function Template1() {
             <div className="bg-white p-6 w-full md:w-2/3">
                 <div className="flex justify-between items-center pb-[30px] pt-[30px]">
                     {/* Personal Details */}
-                    <div className="text-left mt-4 pr-2">
-                        <h1 className="text-[22px] font-bold uppercase">{personalDetails.firstName} <span className="block">{personalDetails.lastName}</span></h1>
+                    <div className="text-left w-[40%] mt-4 pr-2">
+                        <h1 className="text-[22px] leading-1 font-bold uppercase">{personalDetails.firstName} <span className="block">{personalDetails.lastName}</span></h1>
                         <p className="text-gray-400 text-[12px] uppercase">{personalDetails.jobTitle}</p>
                     </div>
-                    <div className="mt-4 space-y-2">
+                    <div className="mt-4 space-y-2 w-[60%]">
                         <p className="flex text-[14px] items-center"><span className="flex justify-center items-center w-[30px] mr-2 h-[30px] bg-gray-800 rounded-full"><FaEnvelope className="text-[#fff]" /></span> {personalDetails.email}</p>
                         <p className="flex text-[14px] items-center"><span className="flex justify-center items-center w-[30px] mr-2 h-[30px] bg-gray-800 rounded-full"><FaPhone className="text-[#fff]" /></span> {personalDetails.phone}</p>
                         <p className="flex text-[14px] items-center"><span className="flex justify-center items-center w-[30px] mr-2 h-[30px] bg-gray-800 rounded-full"><FaMapMarkerAlt className="text-[#fff]" /></span> {personalDetails.city}, {personalDetails.country}</p>
@@ -93,7 +93,7 @@ export default function Template1() {
                     <h2 className="text-xl mb-5 font-semibold border-b border-gray-800 uppercase pb-1">Work Experience</h2>
                     {experience.map((exp, index) => (
                         <div key={index} className="pl-4 border-l-2 border-gray-800">
-                            <h3 className="text-lg leading-none capitalize mb-2 font-semibold relative before:content-[''] before:w-[12px] before:h-[12px] before:bg-gray-800 before:rounded-full before:absolute before:-left-[22px] before:top-[0]">{exp.jobTitle}</h3>
+                            <h3 className="text-lg leading-none capitalize mb-2 font-semibold relative before:content-[''] before:w-[12px] before:h-[12px] before:bg-gray-800 before:rounded-full before:absolute before:-left-[23px] before:top-[0]">{exp.jobTitle}</h3>
                             <p className="text-gray-500 text-sm pb-8">{exp.company} ({exp.startDate} - {exp.endDate})</p>
                         </div>
                     ))}

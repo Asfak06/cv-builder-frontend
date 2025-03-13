@@ -48,13 +48,13 @@ export default function Summary() {
     };
 
     return (
-        <div className="p-6 border rounded-lg bg-white shadow-md relative min-h-[300px]">
+        <div className="lg:p-[30px] p-[15px] border rounded-lg bg-white shadow-md relative lg:min-h-[300px] min-h-[350px]">
             {/* Header with Button */}
-            <div className="flex justify-between items-center mb-4">
-                <h3 className="text-lg text-[#CE367F] font-semibold">Professional Summary</h3>
+            <div className="lg:flex justify-between items-center mb-4">
+                <h3 className="text-lg text-[#CE367F] font-semibold lg:mb-0 mb-2">Professional Summary</h3>
                 <button
                     onClick={fetchSuggestions}
-                    className="flex items-center gap-2 bg-[#CE367F] hover:bg-slate-600 text-white px-4 py-2 rounded-lg hover:bg-slate-600 transition">
+                    className="flex lg:items-center gap-2 bg-[#CE367F] hover:bg-slate-600 text-white px-4 py-2 rounded-lg hover:bg-slate-600 transition">
                     {loading ? "Loading..." : <> <FaMagic /> Get Suggestions</>}
                 </button>
             </div>
