@@ -1,6 +1,14 @@
 import { useCVStore } from "@/store/cvStore";
 import parse from "html-react-parser";
+import { Space_Grotesk } from "next/font/google";
 import { TbWorld } from "react-icons/tb";
+
+
+
+const spaceGrotesk = Space_Grotesk({
+    subsets: ["latin"],
+    weight: ["300", "400", "500", "600", "700"],
+});
 
 
 export default function Template1() {
@@ -8,25 +16,25 @@ export default function Template1() {
 
 
     return (
-        <div className="bg-[#232B35] max-w-[595px] mx-auto shadow-lg min-h-[968px] border-b-[20px] border-[#1b1f24]">
+        <div className={`bg-[#232B35] max-w-[595px] mx-auto shadow-lg min-h-[968px] border-b-[20px] border-[#1b1f24] ${spaceGrotesk.className}`}>
             <div className='bg-[#1b1f24] flex justify-left items-center py-10 px-8'>
                 {/* Profile Image */}
                 <div className="flex justify-center pr-[20px]">
                     <img
                         src={personalDetails.profileImage ? `${process.env.NEXT_PUBLIC_API_RESOURCE}${personalDetails.profileImage}` : "https://placehold.co/500"}
                         alt="Profile"
-                        className="w-[112px] h-[112px] rounded-full border-4 border-white"
+                        className="w-[112px] h-[112px] rounded-full border-2 border-white"
                     />
                 </div>
                 {/* Personal Details */}
                 <div className="text-left">
                     <h1 className="text-[30px] text-[#fff] leading-0 font-bold mb-0 capitalize">{personalDetails.firstName} <span className="">{personalDetails.lastName}</span></h1>
-                    <p className="text-[#fff] text-[22px] capitalize mt-[-5px]">{personalDetails.jobTitle}</p>
+                    <p className="text-[#fff] text-[22px] capitalize font-bold mt-[-5px]">{personalDetails.jobTitle}</p>
                 </div>
             </div>
 
             {/* button grid */}
-            <div className="flex flex-col md:flex-row h-screen px-[20px] py-[40px]">
+            <div className="flex flex-col md:flex-row h-screen px-[20px] pt-[50px] pb-[30px]">
                 {/* Left Column */}
                 <div className="text-white w-full md:w-1/2 border-r-2 border-[#323b48] pr-8">
 
@@ -38,7 +46,7 @@ export default function Template1() {
 
                     {/* Education Section */}
                     <div className="mt-5">
-                        <h2 className="text-[16px] text-white font-semibold pb-[10px] relative before:content-[''] before:w-[40px] before:h-[2px] before:bg-[#fff] before:absolute before:left-[0] before:top-[-10px]">Education</h2>
+                        <h2 className="text-[16px] text-white font-semibold pb-[10px] relative before:content-[''] before:w-[40px] before:h-[2px] before:bg-[#fff] before:absolute before:left-[0] before:top-[-10px]">My Education</h2>
                         {education.map((edu, index) => (
                             <div key={index} className="border-l-2 border-gray-800 mb-5">
                                 <p className="text-[#C3CAD5] text-[8px] mb-2 uppercase">{edu.institution} <span className="text-[#075FE4] px-1"> / </span> ({edu.year})</p>
@@ -126,12 +134,12 @@ export default function Template1() {
 
                     {/* Hobbies Section */}
                     {hobbies.length > 0 && (
-                        <div className="mt-4 pb-4">
+                        <div className="mt-4 border-b border-white-200 pb-4">
                             <h2 className="text-[16px] text-white font-bold uppercase pb-1 relative before:content-[''] before:w-[40px] before:h-[2px] before:bg-[#fff] before:absolute before:left-[0] before:top-[-10px]"> Hobbies</h2>
                             <ul className="text-[#C3CAD5] text-[8px] mt-2 space-y-1">
                                 {hobbies.map((hobby, index) => (
                                     <li
-                                        className="pl-4 relative before:content-[''] before:w-[5px] before:h-[5px] before:bg-[#C3CAD5] before:rounded-full before:absolute before:left-[0] before:top-[4px] last:before:content-none"
+                                        className="pl-4 relative before:content-[''] before:w-[5px] before:h-[8px] before:bg-[#C3CAD5] before:rounded-full before:absolute before:left-[0] before:top-[5px] last:before:content-none"
                                         key={index}
                                     >
                                         {hobby}
