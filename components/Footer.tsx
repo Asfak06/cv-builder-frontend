@@ -1,8 +1,8 @@
 export default function Footer() {
     return (
         <footer className="pt-[80px] pb-[60px] bg-[#312D60] text-white text-center">
-            <h5 className="text-[16px] mb-[40px] font-semibold">Surveylancer CV Builder</h5>
-            <nav className="flex justify-center space-x-20 mb-[40px] text-[#fff] text-[16px]">
+            <h5 className="text-[16px] lg:mb-[40px] md:mb-[30px] sm:mb-[30px] mb-[25px] font-semibold">Surveylancer CV Builder</h5>
+            <nav className="flex justify-center lg:space-x-20 md:space-x-15 sm:space-x-12 space-x-10 mb-[40px] text-[#fff] text-[16px]">
                 <a className="hover:text-[#CE367F]" href="#">Home</a>
                 <a className="hover:text-[#CE367F]" href="#">About</a>
                 <a className="hover:text-[#CE367F]" href="#">Service</a>

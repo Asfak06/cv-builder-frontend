@@ -9,7 +9,7 @@ const steps = [
 
 export default function HowItWorks() {
     return (
-        <section className="py-[100px] text-center text-gray-500 bg-gray-50">
+        <section className="lg:py-[100px] md:py-[90px] sm:py-[80px] py-[60px]  text-center text-gray-500 bg-gray-50">
             <h2 className="text-3xl font-bold text-[#18191C]">How CV Builder work</h2>
             <div className="flex flex-wrap justify-center gap-8 mt-[40px] px-6">
                 {steps.map((step, index) => (
@@ -32,7 +32,7 @@ export default function HowItWorks() {
                         <p className="text-gray-600 mt-2">{step.desc}</p>
                         {step.stepArrow && (
                             <Image
-                                className="mt-4 mx-auto absolute z-10 right-0 top-1/2 transform -translate-y-1/2"
+                                className="mt-4 mx-auto lg:max-w-[180px] hidden lg:block absolute z-10 right-0 top-1/2 transform -translate-y-1/2"
                                 src={step.stepArrow}
                                 alt="step arrow"
                                 width={220}

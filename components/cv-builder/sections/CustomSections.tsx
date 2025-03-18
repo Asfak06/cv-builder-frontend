@@ -9,7 +9,7 @@ export default function CustomSections() {
     return (
         <>
             {customSections.map((section, sectionIndex) => (
-                <div key={sectionIndex} className="mb-6 p-[30px] bg-[#fff] border p-4 rounded-lg">
+                <div key={sectionIndex} className="mb-6 lg:p-[30px] p-[15px] bg-[#fff] border rounded-lg">
                     <h3 className="text-lg text-[#CE367F] font-semibold mb-3">Additional Sections</h3>
                     {/* Section Title Input */}
                     <input
@@ -68,7 +68,7 @@ export default function CustomSections() {
                     </button>
                 </div>
             ))}
-            <div className="p-[30px] border rounded-lg bg-[#fff]">
+            <div className="lg:p-[30px] p-[15px] pb-6 border rounded-lg bg-[#fff]">
                 {/* Add Section Button */}
 
                 {["Links", "Languages", "Hobbies"].map((section) => (

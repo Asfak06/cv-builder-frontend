@@ -63,10 +63,10 @@ export default function PersonalDetails() {
 
 
 
-        <div className="p-[30px] border rounded-lg bg-[#fff]">
+        <div className="lg:p-[30px] p-[15px] border rounded-lg bg-[#fff]">
             <h3 className="text-lg text-[#CE367F] font-semibold">Personal Details</h3>
-            <div className="flex gap-4 mt-2 mb-[20px]">
-                <div className="w-[50%] relative mb-[1px]">
+            <div className="lg:flex gap-4 mt-2 mb-[20px]">
+                <div className="lg:w-[50%] md:w-[50%] sm:w-[50%] w-full relative mb-[1px]">
                     <label className="text-[12px] text-[#5E6366] absolute top-[18px] left-[16px]">Job Title</label>
                     <input
                         type="text"
@@ -77,7 +77,7 @@ export default function PersonalDetails() {
                     />
                 </div>
                 {/* Profile Image Upload */}
-                <div className="w-[50%] flex items-center space-x-4">
+                <div className="lg:w-[50%] md:w-[50%] sm:w-[50%] w-full lg:mt-0 mt-5 flex items-center space-x-4">
                     <label className="relative cursor-pointer bg-[#EFF2F9] h-[58px] text-gray-700 py-[15px] px-4 rounded-lg font-medium hover:bg-gray-300 transition">
                         {uploading ? "Uploading..." : "Upload Image"}
                         <input
@@ -108,8 +108,8 @@ export default function PersonalDetails() {
                     )}
                 </div>
             </div>
-            <div className="flex gap-4 mt-2 mb-[20px]">
-                <div className="w-[50%] relative">
+            <div className="lg:flex gap-4 mt-2 mb-[20px]">
+                <div className="lg:w-[50%] md:w-[50%] sm:w-[50%] w-full relative">
                     <label className="text-[12px] text-[#5E6366] absolute top-[18px] left-[16px]">First Name</label>
                     <input
                         type="text"
@@ -119,7 +119,7 @@ export default function PersonalDetails() {
                         className="w-full h-[58px] p-[15px] pt-[30px] text-[16px] border border-[#CFD3D4] rounded-lg mt-2"
                     />
                 </div>
-                <div className="w-[50%] relative">
+                <div className="lg:w-[50%] md:w-[50%] sm:w-[50%] w-full lg:mt-0 mt-5 relative">
                     <label className="text-[12px] text-[#5E6366] absolute top-[18px] left-[16px]">Last Name</label>
                     <input
                         type="text"
@@ -130,8 +130,8 @@ export default function PersonalDetails() {
                     />
                 </div>
             </div>
-            <div className="flex gap-4 mt-2 mb-[20px]">
-                <div className="w-[50%] relative">
+            <div className="lg:flex gap-4 mt-2 mb-[20px]">
+                <div className="lg:w-[50%] md:w-[50%] sm:w-[50%] w-full relative">
                     <label className="text-[12px] text-[#5E6366] absolute top-[18px] left-[16px]">Email</label>
                     <input
                         type="email"
@@ -141,7 +141,7 @@ export default function PersonalDetails() {
                         className="w-full h-[58px] p-[15px] pt-[30px] text-[16px] border border-[#CFD3D4] rounded-lg mt-2"
                     />
                 </div>
-                <div className="w-[50%] relative">
+                <div className="lg:w-[50%] md:w-[50%] sm:w-[50%] w-full lg:mt-0 mt-5 relative">
                     <label className="text-[12px] text-[#5E6366] absolute top-[18px] left-[16px]">Phone</label>
                     <input
                         type="text"
@@ -152,8 +152,8 @@ export default function PersonalDetails() {
                     />
                 </div>
             </div>
-            <div className="flex gap-4 mt-2 mb-[20px]">
-                <div className="w-[50%] relative">
+            <div className="lg:flex gap-4 mt-2 mb-[20px]">
+                <div className="lg:w-[50%] md:w-[50%] sm:w-[50%] w-full relative">
                     <label className="text-[12px] text-[#5E6366] absolute top-[18px] left-[16px]">City</label>
                     <input
                         type="text"
@@ -163,7 +163,7 @@ export default function PersonalDetails() {
                         className="w-full h-[58px] p-[15px] pt-[30px] text-[16px] border border-[#CFD3D4] rounded-lg mt-2"
                     />
                 </div>
-                <div className="w-[50%] relative">
+                <div className="lg:w-[50%] md:w-[50%] sm:w-[50%] w-full lg:mt-0 mt-5 relative">
                     <label className="text-[12px] text-[#5E6366] absolute top-[18px] left-[16px]">Country</label>
                     <input
                         type="text"

@@ -6,10 +6,10 @@ const Feature = () => {
             <div className="container">
                 <div className="row">
                     <div className="text-center pb-[80px]">
-                        <h1 className="text-[60px] uppercase mb-[20px] leading-[1] font-bold text-[#CE367F]">
+                        <h1 className="lg:text-[60px] md:text-[55px] sm:text-[50px] text-[35px] uppercase mb-[20px] leading-[1] font-bold text-[#CE367F]">
                             Create a Professional CV
                         </h1>
-                        <h5 className="text-[#312D60] text-[24px] font-semibold uppercase mt-[5px]">
+                        <h5 className="text-[#312D60] lg:text-[24px] md:text-[22px] sm:text-[21px] text-[18px] font-semibold uppercase mt-[5px]">
                             in Minutes with AI-Powered Precision
                         </h5>
                         <p className="mt-4 text-lg text-[#646161] max-w-3xl mx-auto">
@@ -17,8 +17,8 @@ const Feature = () => {
                         </p>
                     </div>
 
-                    <div className="flex justify-between items-center gap-6 max-w-[1000px] w-full m-auto">
-                        <div className="w-[33.3333%] cursor-pointer rounded-xl text-center p-[20px] bg-white hover:shadow-[0px_32px_64px_-12px_#55698721] transition-shadow duration-300">
+                    <div className="lg:flex md:flex sm:block justify-between items-center gap-6 max-w-[1000px] w-full m-auto">
+                        <div className="lg:w-[33.3333%] md:w-[33.3333%] sm:w-full cursor-pointer rounded-xl text-center p-[20px] bg-white hover:shadow-[0px_32px_64px_-12px_#55698721] transition-shadow duration-300">
                             <Image className='m-auto'
                                 src="/cv_Icon_1.png"
                                 alt="Team Collaboration"
@@ -35,7 +35,7 @@ const Feature = () => {
                         </div>
 
 
-                        <div className="w-[33.3333%] cursor-pointer rounded-xl text-center p-[20px] bg-white hover:shadow-[0px_32px_64px_-12px_#55698721] transition-shadow duration-300">
+                        <div className="lg:w-[33.3333%] md:w-[33.3333%] sm:w-full cursor-pointer rounded-xl text-center p-[20px] bg-white hover:shadow-[0px_32px_64px_-12px_#55698721] transition-shadow duration-300">
                             <Image className='m-auto'
                                 src="/cv_Icon_2.png"
                                 alt="AI-Powered Resumes"
@@ -50,7 +50,7 @@ const Feature = () => {
                                 everyone
                             </p>
                         </div>
-                        <div className="w-[33.3333%] cursor-pointer rounded-xl text-center p-[20px] bg-white hover:shadow-[0px_32px_64px_-12px_#55698721] transition-shadow duration-300">
+                        <div className="lg:w-[33.3333%] md:w-[33.3333%] sm:w-full cursor-pointer rounded-xl text-center p-[20px] bg-white hover:shadow-[0px_32px_64px_-12px_#55698721] transition-shadow duration-300">
                             <Image className='m-auto'
                                 src="/cv_Icon_3.png"
                                 alt="Easy Customization"
