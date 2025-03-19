@@ -6,6 +6,7 @@ import ImageCropper from "../../ImageCropper";
 
 
 
+
 export default function PersonalDetails() {
     const { personalDetails, updatePersonalDetails, currentCV, updateProfileImage } = useCVStore();
     const [uploading, setUploading] = useState(false);
@@ -63,7 +64,7 @@ export default function PersonalDetails() {
 
 
 
-        <div className="lg:p-[30px] p-[15px] border rounded-lg bg-[#fff]">
+        <div className="lg:p-[30px] lg:pt-[20px] lg:pb-[5px] p-[15px] border rounded-lg bg-[#fff]">
             <h3 className="text-lg text-[#CE367F] font-semibold">Personal Details</h3>
             <div className="lg:flex gap-4 mt-2 mb-[20px]">
                 <div className="lg:w-[50%] md:w-[50%] sm:w-[50%] w-full relative mb-[1px]">
@@ -78,21 +79,27 @@ export default function PersonalDetails() {
                 </div>
                 {/* Profile Image Upload */}
                 <div className="lg:w-[50%] md:w-[50%] sm:w-[50%] w-full lg:mt-0 mt-5 flex items-center space-x-4">
-                    <label className="relative cursor-pointer bg-[#EFF2F9] h-[58px] text-gray-700 py-[15px] px-4 rounded-lg font-medium hover:bg-gray-300 transition">
-                        {uploading ? "Uploading..." : "Upload Image"}
+                    <img
+                        src={personalDetails.profileImage ? `${process.env.NEXT_PUBLIC_API_RESOURCE}${personalDetails.profileImage}` : "/profile-vector.png"}
+                        alt="Profile"
+                        className="w-[60px] h-[60px] rounded-sm border-2 border-white"
+                    />
+                    <label className="relative cursor-pointer text-[#474747] text-[16px] font-normal transition">
+                        {uploading ? "Uploading..." : "Upload Photo"}
                         <input
                             type="file"
                             accept="image/*"
                             onChange={handleImageUpload}
                             className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
                         />
+                        <span className="block text-[12px] text-[#ABAFB1]">(Max 500 kb)</span>
                     </label>
 
-                    <img
+                    {/* <img
                         src={personalDetails.profileImage ? `${process.env.NEXT_PUBLIC_API_RESOURCE}${personalDetails.profileImage}` : "https://placehold.co/500"}
                         alt="Profile"
                         className="w-14 h-14 rounded-full border-4 border-white"
-                    />
+                    /> */}
 
                     {showCropper && (
                         <div className="fixed inset-0 z-50 bg-black bg-opacity-50 flex justify-center items-center">
