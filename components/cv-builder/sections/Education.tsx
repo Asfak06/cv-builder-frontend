@@ -1,6 +1,8 @@
 import { useCVStore } from "@/store/cvStore";
 import { useEffect, useState } from "react";
 import { FaTrash } from "react-icons/fa";
+import EducationSummary from "./EducationSummary.tsx";
+
 
 export default function Education() {
     const { education, addEducation, updateEducation, currentCV, removeEducation } = useCVStore();
@@ -33,7 +35,7 @@ export default function Education() {
                         onClick={() => handleToggle(index)}
                         className="cursor-pointer w-full relative text-left px-4 py-2 mb-2 bg-[#F7F7F7] text-[#CE367F] rounded-[5px]"
                     >
-                        {edu.degree ? edu.degree : activeIndex === index ? "Hide Education" : "Show Education"}
+                        {edu.degree ? edu.degree : activeIndex === index ? "Education" : "Education"}
                         <button
                             onClick={(e) => {
                                 e.stopPropagation(); // Prevent accordion toggle when clicking delete
@@ -83,11 +85,13 @@ export default function Education() {
                                         className="w-full h-[58px] p-[15px] pt-[30px] text-[16px] border border-[#CFD3D4] rounded-lg"
                                     />
                                 </div>
+                                <EducationSummary />
                             </div>
                         )}
                     </div>
                 </div>
             ))}
+
 
             {/* Add Education Button */}
             <button

@@ -51,6 +51,7 @@ export default function Template1() {
                             <div key={index} className="border-l-2 border-gray-800 mb-5">
                                 <p className="text-[#C3CAD5] text-[8px] mb-2 uppercase">{edu.institution} <span className="text-[#075FE4] px-1"> / </span> ({edu.year})</p>
                                 <h3 className="text-[10px] mt-[-2px] capitalize leading-none mb-2 font-semibold relative before:content-[''] before:w-[12px] before:h-[12px] before:bg-gray-800 before:rounded-full before:absolute before:-left-[22px] before:top-[0]">{edu.degree}</h3>
+                                <p className="text-[#c3cad5] text-[8px] mt-1">{parse(summary)}</p>
                             </div>
                         ))}
                     </div>
@@ -89,6 +90,7 @@ export default function Template1() {
                             <div key={index} className="pb-3 pt-4 border-b-2 border-[#323b48]">
                                 <p className="pb-1"><strong className="text-[#fff] text-[12px] pr-3 capitalize">{exp.company}</strong> <span className="text-[#C3CAD5] text-[8px] uppercase">{exp.startDate} <span className="text-[#075FE4] px-1"> / </span> {exp.endDate}</span></p>
                                 <h3 className="text-[10px] text-[#fff] leading-none capitalize mb-2 font-bold">{exp.jobTitle}</h3>
+                                <p className="text-[#c3cad5] text-[8px] mt-1">{parse(summary)}</p>
                             </div>
                         ))}
                     </div>

@@ -34,6 +34,9 @@ export default function Skills() {
                     onChange={(e) => setInput(e.target.value)}
                     className="w-full h-[58px] p-[15px] text-[16px] border border-[#CFD3D4] rounded-lg"
                 />
+                <button onClick={handleAddSkill} className="px-4 py-2 bg-[#CE367F] text-white rounded">
+                    Add
+                </button>
             </div>
             <div className="flex flex-wrap gap-2 mt-4">
                 {skills.map((skill, index) => (
@@ -42,11 +45,6 @@ export default function Skills() {
                         <button onClick={() => removeSkill(skill)} className="ml-2 text-sm font-bold">✕</button>
                     </div>
                 ))}
-            </div>
-            <div>
-                <button onClick={handleAddSkill} className="mt-[10px] text-[#5570F1] font-medium hover:text-[#CE367F]">
-                    + Add
-                </button>
             </div>
         </div>
     );
