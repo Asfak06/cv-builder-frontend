@@ -99,8 +99,8 @@ export default function Template1() {
                     <div className="mt-8">
                         <h2 className="text-[16px] text-white font-bold uppercase pb-1 relative before:content-[''] before:w-[40px] before:h-[2px] before:bg-[#fff] before:absolute before:left-[0] before:top-[-10px]">Skills</h2>
                         <div className="mt-3 flex grid-flow-row">
-                            {skills.slice(0, -1).map((skill, index) => (
-                                <span key={index} className="text-[#000] text-[9px] mr-2 bg-[#EEEEEE] uppercase py-[8px] px-[8px] mb-2 rounded-full">{skill}</span>
+                            {skills.slice(0).map((skill, index) => (
+                                <span key={index} className="text-[#000] text-[9px] text-center w-[33.3333%] mr-2 bg-[#EEEEEE] uppercase py-[8px] px-[8px] mb-2 rounded-full">{skill}</span>
                             ))}
                         </div>
                     </div>
