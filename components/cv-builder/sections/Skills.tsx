@@ -7,7 +7,7 @@ export default function Skills() {
     const [suggestions, setSuggestions] = useState([]);
 
     // Static skill suggestions (যদি external API না থাকে)
-    const skillOptions = ["JavaScript", "React", "Node.js", "Next.js", "Tailwind CSS", "TypeScript", "Python", "Django", "MongoDB", "SQL", "GraphQL"];
+    const skillOptions = ["JavaScript", "React", "Node.js", "Java", "PHP", "Ruby", "Swift", "Kotlin", "html5", "css3", "Next.js", "Tailwind CSS", "TypeScript", "Python", "Django", "MongoDB", "SQL", "GraphQL"];
 
     // Auto-fill skills when currentCV changes
     useEffect(() => {

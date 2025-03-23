@@ -3,7 +3,7 @@ import { useCVStore } from "@/store/cvStore";
 
 
 export default function TemplateSelector() {
-    // const TemplateComponent = templates[selectedTemplate] || Template1;
+    const TemplateComponent = templates[selectedTemplate] || Template1;
     const { updateTemplate, selectedIndustry, selectedTemplate } = useCVStore();
     const filteredTemplates =
         selectedIndustry === "All"

@@ -1,11 +1,9 @@
-"use client";
 import { useCVStore } from "@/store/cvStore";
 import { useUserStore } from "@/store/userStore";
 import { useState } from "react";
 import { FaSpinner } from "react-icons/fa";
 import { FaFilePdf } from "react-icons/fa6";
 import { FiSave } from "react-icons/fi";
-import { IoMdClose } from "react-icons/io";
 import Template1 from "./templates/Template1";
 import Template2 from "./templates/Template2";
 import Template3 from "./templates/Template3";
@@ -27,11 +25,11 @@ export default function CVPreview() {
     const [isOpen, setIsOpen] = useState(false);
 
     const handleDownloadPDF = async () => {
-        await saveCVData(userData.id, true);
-        setLoading(true);
+        await saveCVData(userData.id, true)
+        setLoading(true)
         if (!currentCV?._id || !currentCV.personalDetails?.firstName) return;
 
-        const userName = currentCV.personalDetails.firstName.replace(/\s+/g, "_");
+        const userName = currentCV.personalDetails.firstName.replace(/\s+/g, "_"); // Remove spaces
         const fileName = `CV_${userName}_${currentCV._id}.pdf`;
 
         const res = await fetch(
@@ -46,40 +44,14 @@ export default function CVPreview() {
         document.body.appendChild(a);
         a.click();
         document.body.removeChild(a);
-        setLoading(false);
+        setLoading(false)
     };
 
     return (
-        <div className="p-4 border rounded-lg bg-gray-50 shadow-md text-gray-600 relative">
-            {/* Open Button */}
-            <button
-                className="px-4 py-2 bg-[#CE367F] mb-5 text-white rounded-lg shadow-md"
-                onClick={() => setIsOpen(true)}
-            >
-                Change
-            </button>
-
-            {/* Template Selector with Animation */}
-            <div
-                className={`fixed top-0 left-0 bottom-0 h-auto w-[50%] bg-white shadow-lg p-4 transition-transform duration-500 ${isOpen ? "translate-x-0" : "-translate-x-full"
-                    }`}
-            >
-                {/* Template Selector */}
-                <TemplateSelector />
-
-                {/* Close Button inside TemplateSelector */}
-                <button
-                    className="mt-3 px-2 pt-[5px] absolute top-0 right-[10px] w-[30px] h-[30px] py-2 bg-[#CE367F] text-white rounded-full shadow-md"
-                    onClick={() => setIsOpen(false)}
-                >
-                    <IoMdClose />
-                </button>
-            </div>
-
-            {/* Selected Template */}
+        <div className="p-4 border rounded-lg bg-gray-50 shadow-md text-gray-600">
+            <button className="px-4 py-2 bg-blue-600 text-white rounded-lg shadow-md" onClick={() => setIsOpen(true)}>Change</button>
+            <TemplateSelector />
             <TemplateComponent />
-
-            {/* Buttons */}
             <div className="flex gap-3 mt-5">
                 <button
                     onClick={() => saveCVData(userData.id)}
