@@ -63,7 +63,7 @@ export default function Experience() {
                                     />
                                 </div>
                                 <div className="lg:flex gap-4 mt-2 items-center">
-                                    <div className="relative lg:w-[50%] mb-5 mt-[-30px]">
+                                    <div className="relative lg:w-[50%] mt-[-30px]">
                                         <label className="text-[12px] text-[#5E6366] absolute top-[10px] left-[16px]">Start Date</label>
                                         <input
                                             type="date"
@@ -81,7 +81,7 @@ export default function Experience() {
                                             disabled={exp.endDate === "Present"}
                                             className="w-full h-[58px] p-[15px] pt-[30px] text-[16px] border border-[#CFD3D4] rounded-lg disabled:bg-gray-200"
                                         />
-                                        <div className="flex items-center mt-[10px] gap-2">
+                                        <div className="flex items-center pt-[10px] gap-2">
                                             <input
                                                 type="checkbox"
                                                 checked={exp.endDate === "Present"}

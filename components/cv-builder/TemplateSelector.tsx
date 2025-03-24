@@ -12,7 +12,7 @@ export default function TemplateSelector() {
 
     return (
         <div className="mb-4">
-            <h2 className="text-lg text-[#CE367F] font-semibold mb-6">Select Your Template:</h2>
+            <h2 className="text-lg text-[#CE367F] font-semibold mb-5">Select Your Template:</h2>
 
             {/* টেমপ্লেটের ছবি গুলি দেখানো */}
             <div className="grid grid-cols-2 md:grid-cols-2 gap-4">
