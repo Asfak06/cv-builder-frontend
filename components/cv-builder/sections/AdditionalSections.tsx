@@ -75,7 +75,7 @@ export default function AdditionalSections() {
                     ))}
                     <button
                         onClick={() => addLink({ label: "", url: "" })}
-                        className="mt-2 px-3 py-1 bg-[#CE367F] hover:bg-slate-600 text-white rounded"
+                        className="mt-[10px] text-[#5570F1] font-medium hover:text-[#CE367F]"
                     >
                         + Add
                     </button>
@@ -114,7 +114,7 @@ export default function AdditionalSections() {
                     ))}
                     <button
                         onClick={addLanguage}
-                        className="mt-2 px-3 py-1 bg-[#CE367F] hover:bg-slate-600 text-white rounded"
+                        className="mt-[10px] text-[#5570F1] font-medium hover:text-[#CE367F]"
                     >
                         + Add
                     </button>
@@ -153,7 +153,7 @@ export default function AdditionalSections() {
                     ))}
                     <button
                         onClick={addHobby}
-                        className="mt-2 px-3 py-1 bg-[#CE367F] hover:bg-slate-600 text-white rounded"
+                        className="mt-[10px] text-[#5570F1] font-medium hover:text-[#CE367F]"
                     >
                         + Add
                     </button>

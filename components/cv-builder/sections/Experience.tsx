@@ -1,6 +1,7 @@
 import { useCVStore } from "@/store/cvStore";
 import { useState } from "react";
 import { FaTrash } from "react-icons/fa";
+import EducationSummary from "./EducationSummary.tsx";
 
 export default function Experience() {
     const { experience, addExperience, updateExperience, removeExperience } = useCVStore();
@@ -20,9 +21,18 @@ export default function Experience() {
                     {/* Accordion header, clicking will toggle visibility */}
                     <div
                         onClick={() => handleToggle(index)}
-                        className="cursor-pointer w-full text-left px-4 py-2 bg-[#F7F7F7] text-[#CE367F] rounded-lg"
+                        className="cursor-pointer w-full relative text-left px-4 py-2 mb-2 bg-[#F7F7F7] text-[#CE367F] rounded-[5px]"
                     >
-                        {activeIndex === index ? 'Hide Experience' : 'Show Experience'}
+                        {exp.jobTitle ? exp.jobTitle : activeIndex === index ? "History" : "History"}
+                        <button
+                            onClick={(e) => {
+                                e.stopPropagation();
+                                removeExperience(index);
+                            }}
+                            className="absolute top-[12px] right-[15px] text-[#CE367F] hover:text-red-700"
+                        >
+                            <FaTrash />
+                        </button>
                     </div>
 
                     {/* Only show the div if the active index matches the current index */}
@@ -31,13 +41,7 @@ export default function Experience() {
                             }`}
                     >
                         {activeIndex === index && (
-                            <div className="border lg:p-[35px] p-[25px] rounded bg-white mt-2 relative">
-                                <button
-                                    onClick={() => removeExperience(index)}
-                                    className="absolute top-2 right-2 text-[#CE367F] hover:text-red-700"
-                                >
-                                    <FaTrash />
-                                </button>
+                            <div className="bg-white mt-2 relative">
                                 <div className="relative mb-[20px]">
                                     <label className="text-[12px] text-[#5E6366] absolute top-[10px] left-[16px]">Job Title</label>
                                     <input
@@ -59,7 +63,7 @@ export default function Experience() {
                                     />
                                 </div>
                                 <div className="lg:flex gap-4 mt-2 items-center">
-                                    <div className="relative lg:w-[50%] mb-5">
+                                    <div className="relative lg:w-[50%] mt-[-30px]">
                                         <label className="text-[12px] text-[#5E6366] absolute top-[10px] left-[16px]">Start Date</label>
                                         <input
                                             type="date"
@@ -68,7 +72,7 @@ export default function Experience() {
                                             className="w-full h-[58px] p-[15px] pt-[30px] text-[16px] border border-[#CFD3D4] rounded-lg"
                                         />
                                     </div>
-                                    <div className="relative lg:w-[50%] mb-5">
+                                    <div className="relative lg:w-[50%]">
                                         <label className="text-[12px] text-[#5E6366] absolute top-[10px] left-[16px]">End Date</label>
                                         <input
                                             type="date"
@@ -77,17 +81,18 @@ export default function Experience() {
                                             disabled={exp.endDate === "Present"}
                                             className="w-full h-[58px] p-[15px] pt-[30px] text-[16px] border border-[#CFD3D4] rounded-lg disabled:bg-gray-200"
                                         />
-                                    </div>
-                                    <div className="flex items-center gap-2">
-                                        <input
-                                            type="checkbox"
-                                            checked={exp.endDate === "Present"}
-                                            onChange={(e) => updateExperience(index, "endDate", e.target.checked ? "Present" : "")}
-                                            className="w-5 h-5 text-[#CE367F] border border-gray-300 rounded focus:ring focus:ring-[#CE367F]"
-                                        />
-                                        <label className="text-[14px] text-[#5E6366]">Currently Working Here</label>
+                                        <div className="flex items-center pt-[10px] gap-2">
+                                            <input
+                                                type="checkbox"
+                                                checked={exp.endDate === "Present"}
+                                                onChange={(e) => updateExperience(index, "endDate", e.target.checked ? "Present" : "")}
+                                                className="w-[25px] h-[25px] text-[#CE367F] border border-gray-300 rounded-[20px] focus:ring focus:ring-[#CE367F]"
+                                            />
+                                            <label className="text-[14px] text-[#ABAFB1]">Currently Working Here</label>
+                                        </div>
                                     </div>
                                 </div>
+                                <EducationSummary />
                             </div>
                         )}
                     </div>
@@ -100,7 +105,7 @@ export default function Experience() {
                     addExperience(); // Add new experience
                     setActiveIndex(experience.length); // Open the newly added div
                 }}
-                className="mt-4 px-4 py-2 bg-[#CE367F] text-white rounded"
+                className="mt-[10px] text-[#5570F1] font-medium hover:text-[#CE367F]"
             >
                 + Add Experience
             </button>

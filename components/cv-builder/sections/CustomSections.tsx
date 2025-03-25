@@ -9,7 +9,7 @@ export default function CustomSections() {
     return (
         <>
             {customSections.map((section, sectionIndex) => (
-                <div key={sectionIndex} className="mb-6 lg:p-[30px] p-[15px] bg-[#fff] border rounded-lg">
+                <div key={sectionIndex} className="mb-6 lg:p-[30px] lg:pt-[20px] lg:pb-[20px] p-[15px] bg-[#fff] border rounded-lg">
                     <h3 className="text-lg text-[#CE367F] font-semibold mb-3">Additional Sections</h3>
                     {/* Section Title Input */}
                     <input
@@ -22,7 +22,7 @@ export default function CustomSections() {
 
                     {/* Items in Section */}
                     {section.items.map((item, itemIndex) => (
-                        <div key={itemIndex} className="mb-4 p-3 border rounded-lg min-h-[230px] ">
+                        <div key={itemIndex} className="min-h-[200px] ">
                             {/* Remove Item Button */}
                             <button
                                 onClick={() => removeCustomItem(sectionIndex, itemIndex)}
@@ -54,7 +54,7 @@ export default function CustomSections() {
                     {/* Add Item Button */}
                     <button
                         onClick={() => addCustomItem(sectionIndex)}
-                        className="mt-3 px-4 py-2 bg-[#CE367F] hover:bg-slate-600 text-white rounded"
+                        className="mt-[10px] text-[#5570F1] font-medium hover:text-[#CE367F]"
                     >
                         + Add Item
                     </button>
@@ -62,13 +62,13 @@ export default function CustomSections() {
                     {/* Remove Section Button */}
                     <button
                         onClick={() => removeCustomSection(sectionIndex)}
-                        className="ml-2 mt-3 px-4 py-2 bg-[#CE367F] hover:bg-slate-600 text-white rounded"
+                        className="mt-[10px] ml-3 text-[#5570F1] font-medium hover:text-[#CE367F]"
                     >
                         Remove Section
                     </button>
                 </div>
             ))}
-            <div className="lg:p-[30px] p-[15px] pb-6 border rounded-lg bg-[#fff]">
+            <div className="lg:p-[30px] p-[15px] pb-6 bg-[#fff]">
                 {/* Add Section Button */}
 
                 {["Links", "Languages", "Hobbies"].map((section) => (
