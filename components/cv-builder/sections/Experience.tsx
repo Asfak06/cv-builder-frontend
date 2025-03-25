@@ -1,7 +1,7 @@
 import { useCVStore } from "@/store/cvStore";
 import { useState } from "react";
 import { FaTrash } from "react-icons/fa";
-import EducationSummary from "./EducationSummary.tsx";
+import EducationSummary from "./EducationSummary";
 
 export default function Experience() {
     const { experience, addExperience, updateExperience, removeExperience } = useCVStore();
