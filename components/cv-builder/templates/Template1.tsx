@@ -1,9 +1,8 @@
 import { useCVStore } from "@/store/cvStore";
 import parse from "html-react-parser";
 import { Space_Grotesk } from "next/font/google";
+import { FaFacebookF, FaGithub, FaInstagramSquare, FaLinkedinIn, FaTwitter, FaYoutube } from "react-icons/fa";
 import { TbWorld } from "react-icons/tb";
-
-
 
 const spaceGrotesk = Space_Grotesk({
     subsets: ["latin"],
@@ -108,13 +107,45 @@ export default function Template1() {
                     {/* Links Section */}
                     {links.length > 0 && (
                         <div className="mt-8 space-y-2 pb-4">
-                            <h2 className="text-[16px] text-white font-bold uppercase pb-1 relative before:content-[''] before:w-[40px] before:h-[2px] before:bg-[#fff] before:absolute before:left-[0] before:top-[-10px]">Links</h2>
-                            {links.map((link, index) => (
-                                <p key={index} className="flex items-center">
-                                    <TbWorld className="mr-2 text-[#fff]" />
-                                    <a href={link.url} target="_blank" rel="noopener noreferrer" className="text-[#fff] text-sm pb-1 hover:underline">{link.label}</a>
-                                </p>
-                            ))}
+                            <h2 className="text-[8px] text-white font-bold pb-1">@johncarter</h2>
+                            <div className="flex justify-start items-center">
+                                {links.map((link, index) => {
+                                    let Icon = TbWorld; // ডিফল্ট আইকন
+
+                                    // লিংকের লেবেল অনুযায়ী আইকন পরিবর্তন করা
+                                    switch (link.label.toLowerCase()) {
+                                        case "facebook":
+                                            Icon = FaFacebookF;
+                                            break;
+                                        case "linkedin":
+                                            Icon = FaLinkedinIn;
+                                            break;
+                                        case "twitter":
+                                            Icon = FaTwitter;
+                                            break;
+                                        case "youtube":
+                                            Icon = FaYoutube;
+                                            break;
+                                        case "instagram":
+                                            Icon = FaInstagramSquare;
+                                            break;
+                                        case "github":
+                                            Icon = FaGithub;
+                                            break;
+                                        default:
+                                            Icon = TbWorld;
+                                    }
+
+                                    return (
+                                        <p key={index} className="flex items-center">
+                                            <a href={link.url} target="_blank" rel="noopener noreferrer" className="text-[#fff] text-[20px] pb-1 hover:underline">
+                                                {/* {link.label} */}
+                                                <Icon className="mr-3 text-[#fff]" />
+                                            </a>
+                                        </p>
+                                    );
+                                })}
+                            </div>
                         </div>
                     )}
 
@@ -136,7 +167,7 @@ export default function Template1() {
 
                     {/* Hobbies Section */}
                     {hobbies.length > 0 && (
-                        <div className="mt-4 border-b border-white-200 pb-4">
+                        <div className="mt-4 pb-4">
                             <h2 className="text-[16px] text-white font-bold uppercase pb-1 relative before:content-[''] before:w-[40px] before:h-[2px] before:bg-[#fff] before:absolute before:left-[0] before:top-[-10px]"> Hobbies</h2>
                             <ul className="text-[#C3CAD5] text-[8px] mt-2 space-y-1">
                                 {hobbies.map((hobby, index) => (
