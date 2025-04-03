@@ -7,15 +7,13 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect } from "react";
 import { IoMdArrowRoundBack } from "react-icons/io";
 
-
-
-
 export default function CVBuilderPage() {
     const searchParams = useSearchParams();
     const cvId = searchParams.get("cvId"); // Get cvId from URL
-    const { userData } = useUserStore()
+    const { userData } = useUserStore();
     const { loadCVData, resetCV } = useCVStore();
     const router = useRouter();
+
     // Handle CV loading/reset logic
     useEffect(() => {
         if (cvId) {
@@ -39,8 +37,8 @@ export default function CVBuilderPage() {
                 <FormPanel />
             </div>
 
-            {/* Right Panel - CV Preview */}
-            <div className="w-full lg:w-1/2 p-6">
+            {/* Right Panel - CV Preview (Fixed with Scrollable Content) */}
+            <div className="w-full lg:w-1/2 h-screen p-6 fixed right-0 top-0 bg-white shadow-lg overflow-y-auto scrollbar-hidden">
                 <CVPreview />
             </div>
         </div>

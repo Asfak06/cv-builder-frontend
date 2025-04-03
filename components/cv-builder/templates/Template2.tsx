@@ -1,7 +1,7 @@
 import { useCVStore } from "@/store/cvStore";
 import parse from "html-react-parser";
 import { DM_Sans } from "next/font/google";
-import { FaEnvelope, FaMapMarkerAlt, FaPhone } from "react-icons/fa";
+import { FaEnvelope, FaFacebookF, FaGithub, FaInstagramSquare, FaLinkedinIn, FaMapMarkerAlt, FaPhone, FaTwitter, FaYoutube } from "react-icons/fa";
 import { TbWorld } from "react-icons/tb";
 
 
@@ -43,14 +43,47 @@ export default function Template2() {
 
                     {/* Links Section */}
                     {links.length > 0 && (
-                        <div className="mt-4 space-y-2 border-b border-white-200 pb-4">
-                            <h2 className="text-[12px] text-[#040404] uppercase font-bold pb-1 pt-3 relative before:content-[''] before:w-[12px] before:h-[2px] before:bg-[#FFCB14] before:absolute before:left-[0] before:top-[6px]">Links</h2>
-                            {links.map((link, index) => (
-                                <p key={index} className="flex items-center">
-                                    <TbWorld className="mr-2 mt-[-2px] text-[#333a3f]" />
-                                    <a href={link.url} target="_blank" rel="noopener noreferrer" className="text-[#333a3f] text-sm pb-1 hover:underline">{link.label}</a>
-                                </p>
-                            ))}
+                        <div className="mt-8 space-y-2 pb-4">
+                            <h2 className="text-[12px] text-[#040404] uppercase font-bold pb-1 pt-3 relative before:content-[''] before:w-[12px] before:h-[2px] before:bg-[#FFCB14] before:absolute before:left-[0] before:top-[6px]">Link</h2>
+                            <p className="text-[8px] text-[#707070] font-bold pb-1">@johncarter</p>
+                            <div className="flex justify-start items-center">
+                                {links.map((link, index) => {
+                                    let Icon = TbWorld; // ডিফল্ট আইকন
+
+                                    // লিংকের লেবেল অনুযায়ী আইকন পরিবর্তন করা
+                                    switch (link.label.toLowerCase()) {
+                                        case "facebook":
+                                            Icon = FaFacebookF;
+                                            break;
+                                        case "linkedin":
+                                            Icon = FaLinkedinIn;
+                                            break;
+                                        case "twitter":
+                                            Icon = FaTwitter;
+                                            break;
+                                        case "youtube":
+                                            Icon = FaYoutube;
+                                            break;
+                                        case "instagram":
+                                            Icon = FaInstagramSquare;
+                                            break;
+                                        case "github":
+                                            Icon = FaGithub;
+                                            break;
+                                        default:
+                                            Icon = TbWorld;
+                                    }
+
+                                    return (
+                                        <p key={index} className="flex items-center">
+                                            <a href={link.url} target="_blank" rel="noopener noreferrer" className="text-[#fff] text-[16px] pb-1 hover:underline">
+                                                {/* {link.label} */}
+                                                <Icon className="mr-3 text-[#040404]" />
+                                            </a>
+                                        </p>
+                                    );
+                                })}
+                            </div>
                         </div>
                     )}
 
