@@ -23,4 +23,10 @@ export const templates = [
     img: '/thumbnails/template4.png',
     industry: 'Product Manager',
   },
+  {
+    id: 'template-multipage',
+    name: 'Multi-Page Template',
+    img: '/thumbnails/template-multipage.png', // You'll need to create this thumbnail
+    industry: 'Software Engineer',
+  },
 ];

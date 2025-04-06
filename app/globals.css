@@ -49,3 +49,13 @@ body {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+.page-break-inside-avoid {
+  page-break-inside: avoid;
+}
+
+@media print {
+  .cv-page {
+    page-break-after: always;
+  }
+}

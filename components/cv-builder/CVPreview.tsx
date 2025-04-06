@@ -10,13 +10,14 @@ import Template1 from "./templates/Template1";
 import Template2 from "./templates/Template2";
 import Template3 from "./templates/Template3";
 import Template4 from "./templates/Template4";
+import TemplateMultipage from "./templates/TemplateMultipage";
 import TemplateSelector from "./TemplateSelector";
-
 const templates: Record<string, React.FC> = {
     'template-1': Template1,
     'template-2': Template2,
     'template-3': Template3,
     'template-4': Template4,
+    'template-multipage': TemplateMultipage,
 };
 
 export default function CVPreview() {
