@@ -14,7 +14,7 @@ export default function Template2() {
     const { personalDetails, links, summary, experience, education, skills, references, customSections, languages, hobbies } = useCVStore();
 
     return (
-        <div className={`bg-[#fff] max-w-[595px] mx-auto shadow-lg min-h-[842px] ${dmSans.className}`}>
+        <div className={`bg-[#fff] max-w-[794px] mx-auto shadow-lg min-h-[1123px] ${dmSans.className}`}>
             <div className='bg-[#040404] flex justify-left items-center py-8 px-8'>
                 {/* Header Section */}
                 <div className="flex justify-center pr-[50px]">
@@ -29,7 +29,7 @@ export default function Template2() {
                     <h1 className="text-[36px] mb-1 font-bold text-[#fff] capitalize">{personalDetails.firstName} {personalDetails.lastName}</h1>
                 </div>
             </div>
-            <div className="flex flex-col md:flex-row h-screen px-[20px] py-[30px]">
+            <div className="flex flex-col md:flex-row h-[950px] px-[20px] py-[30px]">
                 {/* Left Column */}
                 <div className="text-white border-r-2 border-[#f4f4f4] pr-3 w-[35%]">
 
