@@ -15,7 +15,7 @@ export default function Template1() {
 
 
     return (
-        <div className={`bg-[#232B35] max-w-[595px] mx-auto shadow-lg min-h-[968px] border-b-[20px] border-[#1b1f24] ${spaceGrotesk.className}`}>
+        <div className={`bg-[#232B35] max-w-[794px] mx-auto shadow-lg min-h-[1123px] border-b-[20px] border-[#1b1f24] ${spaceGrotesk.className}`}>
             <div className='bg-[#1b1f24] flex justify-left items-center py-10 px-8'>
                 {/* Profile Image */}
                 <div className="flex justify-center pr-[20px]">
@@ -33,7 +33,7 @@ export default function Template1() {
             </div>
 
             {/* button grid */}
-            <div className="flex flex-col md:flex-row h-screen px-[20px] pt-[50px] pb-[30px]">
+            <div className="flex flex-col md:flex-row h-[950px] px-[20px] pt-[50px] pb-[30px]">
                 {/* Left Column */}
                 <div className="text-white w-full md:w-1/2 border-r-2 border-[#323b48] pr-8">
 
@@ -95,14 +95,32 @@ export default function Template1() {
                     </div>
 
                     {/* Skills Section */}
-                    <div className="mt-8">
+                    {/* <div className="mt-8">
                         <h2 className="text-[16px] text-white font-bold uppercase pb-1 relative before:content-[''] before:w-[40px] before:h-[2px] before:bg-[#fff] before:absolute before:left-[0] before:top-[-10px]">Skills</h2>
-                        <div className="mt-3 flex grid-flow-row">
+                        <div className="mt-3">
                             {skills.slice(0).map((skill, index) => (
                                 <span key={index} className="text-[#000] text-[9px] text-center w-[33.3333%] mr-2 bg-[#EEEEEE] uppercase py-[8px] px-[8px] mb-2 rounded-full">{skill}</span>
                             ))}
                         </div>
+                    </div> */}
+
+                    <div className="mt-8">
+                        <h2 className="text-[16px] text-white font-bold uppercase pb-1 relative before:content-[''] before:w-[40px] before:h-[2px] before:bg-[#fff] before:absolute before:left-[0] before:top-[-10px]">
+                            Skills
+                        </h2>
+
+                        <div className="mt-3 grid grid-cols-3 gap-3">
+                            {skills.map((skill, index) => (
+                                <span
+                                    key={index}
+                                    className="text-[#000] text-[9px] text-center bg-[#EEEEEE] uppercase py-[8px] px-[8px] rounded-full"
+                                >
+                                    {skill}
+                                </span>
+                            ))}
+                        </div>
                     </div>
+
 
                     {/* Links Section */}
                     {links.length > 0 && (
