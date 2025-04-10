@@ -15,7 +15,7 @@ export default function Template1() {
 
 
     return (
-        <div className={`bg-[#232B35] max-w-[794px] mx-auto shadow-lg min-h-[968px] border-b-[20px] border-[#1b1f24] scale-[0.63] transform origin-top ${spaceGrotesk.className}`}>
+        <div className={`bg-[#232B35] max-w-[794px] mx-auto shadow-lg min-h-[1123px] border-b-[20px] border-[#1b1f24] ${spaceGrotesk.className}`}>
             <div className='bg-[#1b1f24] flex justify-left items-center py-8 px-8'>
                 {/* Profile Image */}
                 <div className="flex justify-center pr-[20px]">
