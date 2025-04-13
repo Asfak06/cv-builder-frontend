@@ -14,8 +14,14 @@ interface CV {
     phone?: string;
   };
   summary: string;
-  experience: { jobTitle: string; company: string; startDate: string; endDate: string }[];
-  education: { degree: string; institution: string; year: string }[];
+  experience: {
+    jobTitle: string;
+    company: string;
+    startDate: string;
+    endDate: string;
+    description?: string;
+  }[];
+  education: { degree: string; institution: string; year: string; description?: string }[];
   skills: string[];
   references: { name: string; position: string; company: string }[];
   updatedAt: string;
@@ -47,8 +53,14 @@ interface CVState {
   languages: string[];
   hobbies: string[];
   summary: string;
-  experience: { jobTitle: string; company: string; startDate: string; endDate: string }[];
-  education: { degree: string; institution: string; year: string }[];
+  experience: {
+    jobTitle: string;
+    company: string;
+    startDate: string;
+    endDate: string;
+    description: string;
+  }[];
+  education: { degree: string; institution: string; year: string; description: string }[];
   skills: string[];
   references: { name: string; position: string; company: string }[];
   activeAdditionalSections: string[];
@@ -137,8 +149,16 @@ export const useCVStore = create<CVState>((set, get) => ({
         currentCV: cvData,
         personalDetails: cvData.personalDetails || {}, // Auto-fill personal details
         summary: cvData.summary || '',
-        experience: cvData.experience || [],
-        education: cvData.education || [],
+        experience:
+          cvData.experience?.map((exp: any) => ({
+            ...exp,
+            description: exp.description || '',
+          })) || [],
+        education:
+          cvData.education?.map((edu: any) => ({
+            ...edu,
+            description: edu.description || '',
+          })) || [],
         skills: cvData.skills || [],
         links: cvData.links || [],
         references: cvData.references || [],
@@ -163,7 +183,10 @@ export const useCVStore = create<CVState>((set, get) => ({
 
   addExperience: () =>
     set((state) => ({
-      experience: [...state.experience, { jobTitle: '', company: '', startDate: '', endDate: '' }],
+      experience: [
+        ...state.experience,
+        { jobTitle: '', company: '', startDate: '', endDate: '', description: '' },
+      ],
     })),
 
   removeExperience: (index: number) =>
@@ -180,7 +203,7 @@ export const useCVStore = create<CVState>((set, get) => ({
 
   addEducation: () =>
     set((state) => ({
-      education: [...state.education, { degree: '', institution: '', year: '' }],
+      education: [...state.education, { degree: '', institution: '', year: '', description: '' }],
     })),
 
   removeEducation: (index: number) =>

@@ -36,6 +36,7 @@ export default function CVDownload() {
             {/* Hidden user name element for Puppeteer */}
             <span data-user-name={currentCV?.personalDetails?.firstName} className="hidden"></span>
             <TemplateComponent />
+            {/* <MultiPageCVPreview /> */}
         </div>
     );
 }

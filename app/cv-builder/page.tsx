@@ -1,6 +1,6 @@
 "use client";
-import CVPreview from "@/components/cv-builder/CVPreview";
 import FormPanel from "@/components/cv-builder/FormPanel";
+import MultiPageCVPreview from "@/components/cv-builder/MultiPageCVPreview";
 import { useCVStore } from "@/store/cvStore";
 import { useUserStore } from "@/store/userStore";
 import { useRouter, useSearchParams } from "next/navigation";
@@ -39,7 +39,8 @@ export default function CVBuilderPage() {
 
             {/* Right Panel - CV Preview (Fixed with Scrollable Content) */}
             <div className="w-full lg:w-1/2 h-screen fixed right-0 top-0 bg-white shadow-lg overflow-y-auto scrollbar-hidden">
-                <CVPreview />
+                {/* <CVPreview /> */}
+                <MultiPageCVPreview />
             </div>
         </div>
     );

@@ -6,12 +6,25 @@ import { FaSpinner } from "react-icons/fa";
 import { FaFilePdf } from "react-icons/fa6";
 import { FiSave } from "react-icons/fi";
 import { IoMdClose } from "react-icons/io";
+import Template1 from "./templates/Template1";
 import Template2 from "./templates/Template2";
+import Template3 from "./templates/Template3";
+import Template4 from "./templates/Template4";
+import TemplateMultipage from "./templates/TemplateMultipage";
 import TemplateSelector from "./TemplateSelector";
 
 // A4 dimensions in pixels (at 96 DPI)
 const PAGE_HEIGHT = 1123; // A4 height in pixels
 const PAGE_WIDTH = 794; // A4 width in pixels
+
+const templates: Record<string, React.FC> = {
+    'template-1': Template1,
+    'template-2': Template2,
+    'template-3': Template3,
+    'template-4': Template4,
+    'template-multipage': TemplateMultipage,
+};
+
 
 export default function MultiPageCVPreview() {
     const { selectedTemplate, saveCVData, currentCV } = useCVStore();
@@ -21,7 +34,7 @@ export default function MultiPageCVPreview() {
     const [pages, setPages] = useState<number>(1);
     const contentRef = useRef<HTMLDivElement>(null);
     const templateRef = useRef<HTMLDivElement>(null);
-
+    const TemplateComponent = templates[selectedTemplate] || Template1;
     // Calculate number of pages based on content height
     useEffect(() => {
         // We'll measure the template height directly, not the container that has multiple pages
@@ -122,7 +135,7 @@ export default function MultiPageCVPreview() {
                     className="absolute opacity-0 pointer-events-none"
                     style={{ width: `${PAGE_WIDTH}px` }}
                 >
-                    <Template2 />
+                    <TemplateComponent />
                 </div>
 
                 {/* Multi-page CV Container */}
@@ -149,7 +162,7 @@ export default function MultiPageCVPreview() {
                                     transform: `translateY(-${index * PAGE_HEIGHT}px)`,
                                 }}
                             >
-                                <Template2 />
+                                <TemplateComponent />
                             </div>
 
                             {/* Page number indicator */}
