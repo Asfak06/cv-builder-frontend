@@ -38,7 +38,7 @@ export default function CVBuilderPage() {
             </div>
 
             {/* Right Panel - CV Preview (Fixed with Scrollable Content) */}
-            <div className="w-full lg:w-1/2 h-screen p-6 fixed right-0 top-0 bg-white shadow-lg overflow-y-auto scrollbar-hidden">
+            <div className="w-full lg:w-1/2 h-screen fixed right-0 top-0 bg-white shadow-lg overflow-y-auto scrollbar-hidden">
                 <CVPreview />
             </div>
         </div>
