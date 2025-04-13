@@ -6,7 +6,7 @@ import { FaSpinner } from "react-icons/fa";
 import { FaFilePdf } from "react-icons/fa6";
 import { FiSave } from "react-icons/fi";
 import { IoMdClose } from "react-icons/io";
-import TemplateMultipage from "./templates/TemplateMultipage";
+import Template2 from "./templates/Template2";
 import TemplateSelector from "./TemplateSelector";
 
 // A4 dimensions in pixels (at 96 DPI)
@@ -122,7 +122,7 @@ export default function MultiPageCVPreview() {
                     className="absolute opacity-0 pointer-events-none"
                     style={{ width: `${PAGE_WIDTH}px` }}
                 >
-                    <TemplateMultipage />
+                    <Template2 />
                 </div>
 
                 {/* Multi-page CV Container */}
@@ -149,7 +149,7 @@ export default function MultiPageCVPreview() {
                                     transform: `translateY(-${index * PAGE_HEIGHT}px)`,
                                 }}
                             >
-                                <TemplateMultipage />
+                                <Template2 />
                             </div>
 
                             {/* Page number indicator */}

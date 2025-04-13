@@ -34,7 +34,7 @@ export default function Template2() {
                     <h1 className="text-[36px] mb-1 font-bold text-[#fff] capitalize">{personalDetails.firstName} {personalDetails.lastName}</h1>
                 </div>
             </div>
-            <div className="flex flex-col md:flex-row h-[950px] px-[20px] py-[30px]">
+            <div className="flex flex-col md:flex-row  px-[20px] py-[30px]">
                 {/* Left Column */}
                 <div className="text-white border-r-2 border-[#f4f4f4] pr-3 w-[35%]">
 
@@ -209,6 +209,5 @@ export default function Template2() {
                 </>
             ))}
         </div>
-        </div >
     );
 }

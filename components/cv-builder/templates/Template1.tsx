@@ -36,7 +36,7 @@ export default function Template1() {
             </div>
 
             {/* button grid */}
-            <div className="flex flex-col md:flex-row h-[950px] px-[20px] pt-[50px] pb-[30px]">
+            <div className="flex flex-col md:flex-row  px-[20px] pt-[50px] pb-[30px]">
                 {/* Left Column */}
                 <div className="text-white w-full md:w-1/2 border-r-2 border-[#323b48] pr-8">
 
@@ -231,6 +231,5 @@ export default function Template1() {
                 </div>
             ))}
         </div>
-        </div >
     );
 }
