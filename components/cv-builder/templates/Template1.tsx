@@ -1,3 +1,4 @@
+
 import { useCVStore } from "@/store/cvStore";
 import parse from "html-react-parser";
 import { Space_Grotesk } from "next/font/google";
@@ -9,10 +10,8 @@ const spaceGrotesk = Space_Grotesk({
     weight: ["300", "400", "500", "600", "700"],
 });
 
-
 export default function Template1() {
     const { personalDetails, links, summary, experience, education, skills, references, customSections, languages, hobbies } = useCVStore();
-
 
     return (
         <div className={`bg-[#232B35] max-w-[794px] mx-auto shadow-lg min-h-[968px] border-b-[20px] border-[#1b1f24] scale-[0.63] transform origin-top ${spaceGrotesk.className}`}>
@@ -33,7 +32,7 @@ export default function Template1() {
             </div>
 
             {/* button grid */}
-            <div className="flex flex-col md:flex-row h-[950px] px-[20px] pt-[50px] pb-[30px]">
+            <div className="flex flex-col md:flex-row  px-[20px] pt-[50px] pb-[30px]">
                 {/* Left Column */}
                 <div className="text-white w-full md:w-[45%] border-r-2 border-[#323b48] pr-8">
 
@@ -76,8 +75,6 @@ export default function Template1() {
                             </p>
                         ))}
                     </div>
-
-
                 </div>
 
                 {/* Right Column */}
@@ -128,9 +125,9 @@ export default function Template1() {
                             <h2 className="text-[8px] text-white font-bold pb-1">@johncarter</h2>
                             <div className="flex justify-start items-center">
                                 {links.map((link, index) => {
-                                    let Icon = TbWorld; // ডিফল্ট আইকন
+                                    let Icon = TbWorld; // Default icon
 
-                                    // লিংকের লেবেল অনুযায়ী আইকন পরিবর্তন করা
+                                    // Change icon based on link label
                                     switch (link.label.toLowerCase()) {
                                         case "facebook":
                                             Icon = FaFacebookF;
@@ -157,7 +154,6 @@ export default function Template1() {
                                     return (
                                         <p key={index} className="flex items-center">
                                             <a href={link.url} target="_blank" rel="noopener noreferrer" className="text-[#fff] text-[20px] pb-1 hover:underline">
-                                                {/* {link.label} */}
                                                 <Icon className="mr-3 text-[#fff]" />
                                             </a>
                                         </p>

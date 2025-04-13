@@ -1,16 +1,31 @@
 import { useCVStore } from "@/store/cvStore";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FaTrash } from "react-icons/fa";
-import EducationSummary from "./EducationSummary";
+import CommonSummary from "./CommonSummary";
 
 export default function Experience() {
-    const { experience, addExperience, updateExperience, removeExperience } = useCVStore();
+    const { experience, addExperience, updateExperience, removeExperience, currentCV, selectedIndustry } = useCVStore();
     const [activeIndex, setActiveIndex] = useState<number | null>(null); // active div index
 
     // Function to toggle visibility of the divs
     const handleToggle = (index: number) => {
         setActiveIndex(activeIndex === index ? null : index);
     };
+
+    // Auto-fill experience when currentCV changes
+    useEffect(() => {
+        if (currentCV?.experience) {
+            currentCV.experience.forEach((exp, index) => {
+                updateExperience(index, "jobTitle", exp.jobTitle);
+                updateExperience(index, "company", exp.company);
+                updateExperience(index, "startDate", exp.startDate);
+                updateExperience(index, "endDate", exp.endDate);
+                if (exp.description) {
+                    updateExperience(index, "description", exp.description);
+                }
+            });
+        }
+    }, [currentCV, updateExperience]);
 
     return (
         <div className="lg:p-[30px] p-[15px] border rounded-lg bg-[#fff]">
@@ -92,7 +107,12 @@ export default function Experience() {
                                         </div>
                                     </div>
                                 </div>
-                                <EducationSummary />
+                                <CommonSummary
+                                    description={exp.description || ""}
+                                    updateDescription={(text) => updateExperience(index, "description", text)}
+                                    industry={selectedIndustry}
+                                    sectionType="experience"
+                                />
                             </div>
                         )}
                     </div>

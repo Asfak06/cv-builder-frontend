@@ -1,11 +1,10 @@
 import { useCVStore } from "@/store/cvStore";
 import { useEffect, useState } from "react";
 import { FaTrash } from "react-icons/fa";
-import EducationSummary from "./EducationSummary";
-
+import CommonSummary from "./CommonSummary";
 
 export default function Education() {
-    const { education, addEducation, updateEducation, currentCV, removeEducation } = useCVStore();
+    const { education, addEducation, updateEducation, currentCV, removeEducation, selectedIndustry } = useCVStore();
     const [activeIndex, setActiveIndex] = useState<number | null>(null); // active div index
 
     // Function to toggle visibility of the divs
@@ -20,6 +19,9 @@ export default function Education() {
                 updateEducation(index, "degree", edu.degree);
                 updateEducation(index, "institution", edu.institution);
                 updateEducation(index, "year", edu.year);
+                if (edu.description) {
+                    updateEducation(index, "description", edu.description);
+                }
             });
         }
     }, [currentCV, updateEducation]);
@@ -46,7 +48,6 @@ export default function Education() {
                             <FaTrash />
                         </button>
                     </div>
-
 
                     {/* Smoothly Expanding & Collapsing Section */}
                     <div
@@ -85,13 +86,17 @@ export default function Education() {
                                         className="w-full h-[58px] p-[15px] pt-[30px] text-[16px] border border-[#CFD3D4] rounded-lg"
                                     />
                                 </div>
-                                <EducationSummary />
+                                <CommonSummary
+                                    description={edu.description || ""}
+                                    updateDescription={(text) => updateEducation(index, "description", text)}
+                                    industry={selectedIndustry}
+                                    sectionType="education"
+                                />
                             </div>
                         )}
                     </div>
                 </div>
             ))}
-
 
             {/* Add Education Button */}
             <button
