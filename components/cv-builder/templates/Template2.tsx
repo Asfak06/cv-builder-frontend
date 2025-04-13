@@ -1,4 +1,3 @@
-import { useHeightChecker } from "@/lib/useHeightChecker";
 import { useCVStore } from "@/store/cvStore";
 import parse from "html-react-parser";
 import { DM_Sans } from "next/font/google";
@@ -14,10 +13,7 @@ const dmSans = DM_Sans({
 export default function Template2() {
     const { personalDetails, links, summary, experience, education, skills, references, customSections, languages, hobbies } = useCVStore();
 
-    // Standard A4 height in pixels (approximately 1123px at 96 DPI)
-    const standardHeight = 1123;
-    const { containerRef, isOverflowing, pageBreaks } = useHeightChecker(standardHeight);
-    console.log(isOverflowing, pageBreaks)
+
     return (
         <div className={`bg-[#fff] max-w-[794px] mx-auto shadow-lg min-h-[1123px] ${dmSans.className}`}>
             <div className='bg-[#040404] flex justify-left items-center py-8 px-8'>
@@ -194,20 +190,7 @@ export default function Template2() {
                 </div>
 
             </div>
-            {/* Standard Height Indicators - One for each page break */}
-            {pageBreaks.map((breakPoint, index) => (
-                <>
-                    <div
-                        key={index}
-                        className="absolute left-0 right-0 h-8 bg-[#F9FAFB] pointer-events-none"
-                        style={{ top: `${breakPoint}px`, width: '100%' }}
-                    >
-                        <div className="absolute top-0 right-0 bg-red-100 text-red-800 p-1 text-[10px] transform -translate-y-full">
-                            Page {index + 1}
-                        </div>
-                    </div>
-                </>
-            ))}
+
         </div>
     );
 }

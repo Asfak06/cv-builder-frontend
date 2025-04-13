@@ -1,4 +1,4 @@
-import { useHeightChecker } from "@/lib/useHeightChecker";
+
 import { useCVStore } from "@/store/cvStore";
 import parse from "html-react-parser";
 import { Space_Grotesk } from "next/font/google";
@@ -12,10 +12,6 @@ const spaceGrotesk = Space_Grotesk({
 
 export default function Template1() {
     const { personalDetails, links, summary, experience, education, skills, references, customSections, languages, hobbies } = useCVStore();
-    const standardHeight = 1123; // Standard height in pixels for A4 paper (approx. 1123px for 96 DPI)
-
-    const { containerRef, pageBreaks, containerHeight } = useHeightChecker(standardHeight);
-    console.log(containerHeight, standardHeight)
 
     return (
         <div className={`bg-[#232B35] max-w-[794px] mx-auto shadow-lg min-h-[968px] border-b-[20px] border-[#1b1f24] scale-[0.63] transform origin-top ${spaceGrotesk.className}`}>
@@ -216,20 +212,6 @@ export default function Template1() {
                     </div>
                 </div>
             </div>
-
-
-            {/* Standard Height Indicators - One for each page break */}
-            {pageBreaks.map((breakPoint, index) => (
-                <div
-                    key={index}
-                    className="absolute left-0 right-0 h-8 bg-[#F9FAFB] pointer-events-none"
-                    style={{ top: `${breakPoint}px`, width: '100%' }}
-                >
-                    <div className="absolute top-0 right-0 bg-red-100 text-red-800 p-1 text-[10px] transform -translate-y-full">
-                        Page {index + 1}
-                    </div>
-                </div>
-            ))}
         </div>
     );
 }
