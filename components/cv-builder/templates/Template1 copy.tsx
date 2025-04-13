@@ -1,4 +1,3 @@
-import { useHeightChecker } from "@/lib/useHeightChecker";
 import { useCVStore } from "@/store/cvStore";
 import parse from "html-react-parser";
 import { Space_Grotesk } from "next/font/google";
@@ -10,15 +9,13 @@ const spaceGrotesk = Space_Grotesk({
     weight: ["300", "400", "500", "600", "700"],
 });
 
+
 export default function Template1() {
     const { personalDetails, links, summary, experience, education, skills, references, customSections, languages, hobbies } = useCVStore();
-    const standardHeight = 1123; // Standard height in pixels for A4 paper (approx. 1123px for 96 DPI)
 
-    const { containerRef, pageBreaks, containerHeight } = useHeightChecker(standardHeight);
-    console.log(containerHeight, standardHeight)
 
     return (
-        <div className={`bg-[#232B35] max-w-[794px] mx-auto shadow-lg min-h-[968px] border-b-[20px] border-[#1b1f24] scale-[0.63] transform origin-top ${spaceGrotesk.className}`}>
+        <div className={`bg-[#232B35] max-w-[794px] mx-auto shadow-lg min-h-[1123px] border-b-[20px] border-[#1b1f24] ${spaceGrotesk.className}`}>
             <div className='bg-[#1b1f24] flex justify-left items-center py-8 px-8'>
                 {/* Profile Image */}
                 <div className="flex justify-center pr-[20px]">
@@ -36,7 +33,7 @@ export default function Template1() {
             </div>
 
             {/* button grid */}
-            <div className="flex flex-col md:flex-row  px-[20px] pt-[50px] pb-[30px]">
+            <div className="flex flex-col md:flex-row h-[950px] px-[20px] pt-[50px] pb-[30px]">
                 {/* Left Column */}
                 <div className="text-white w-full md:w-[45%] border-r-2 border-[#323b48] pr-8">
 
@@ -79,6 +76,8 @@ export default function Template1() {
                             </p>
                         ))}
                     </div>
+
+
                 </div>
 
                 {/* Right Column */}
@@ -129,9 +128,9 @@ export default function Template1() {
                             <h2 className="text-[8px] text-white font-bold pb-1">@johncarter</h2>
                             <div className="flex justify-start items-center">
                                 {links.map((link, index) => {
-                                    let Icon = TbWorld; // Default icon
+                                    let Icon = TbWorld; // ডিফল্ট আইকন
 
-                                    // Change icon based on link label
+                                    // লিংকের লেবেল অনুযায়ী আইকন পরিবর্তন করা
                                     switch (link.label.toLowerCase()) {
                                         case "facebook":
                                             Icon = FaFacebookF;
@@ -158,6 +157,7 @@ export default function Template1() {
                                     return (
                                         <p key={index} className="flex items-center">
                                             <a href={link.url} target="_blank" rel="noopener noreferrer" className="text-[#fff] text-[20px] pb-1 hover:underline">
+                                                {/* {link.label} */}
                                                 <Icon className="mr-3 text-[#fff]" />
                                             </a>
                                         </p>
@@ -216,20 +216,6 @@ export default function Template1() {
                     </div>
                 </div>
             </div>
-
-
-            {/* Standard Height Indicators - One for each page break */}
-            {pageBreaks.map((breakPoint, index) => (
-                <div
-                    key={index}
-                    className="absolute left-0 right-0 h-8 bg-[#F9FAFB] pointer-events-none"
-                    style={{ top: `${breakPoint}px`, width: '100%' }}
-                >
-                    <div className="absolute top-0 right-0 bg-red-100 text-red-800 p-1 text-[10px] transform -translate-y-full">
-                        Page {index + 1}
-                    </div>
-                </div>
-            ))}
         </div>
     );
 }

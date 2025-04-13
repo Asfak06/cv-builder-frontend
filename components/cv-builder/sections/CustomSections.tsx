@@ -77,13 +77,13 @@ export default function CustomSections() {
                         if (section === 'Languages') addLanguage();
                         if (section === 'Hobbies') addHobby();
                         toggleAdditionalSection(section)
-                    }} className={`mt-4 px-4 py-2 mx-2  text-white rounded ${activeAdditionalSections.includes(section) ? 'bg-slate-500' : 'bg-[#CE367F]'}`}>
-                        {section}
+                    }} className={`mt-4 px-4 py-2 mx-2 border border-[#312D60] hover:border-[#CE367F] hover:bg-[#CE367F]  hover:text-white rounded-full ${activeAdditionalSections.includes(section) ? 'bg-[#CE367F]' : ''}`}>
+                        + {section}
                     </button>
                 ))}
                 <button
                     onClick={addCustomSection}
-                    className="mt-4 px-4 py-2 bg-[#CE367F] hover:bg-slate-600 text-white rounded"
+                    className="mt-4 px-4 py-2 border border-[#312D60] hover:border-[#CE367F] hover:bg-[#CE367F] text-[#312D60] hover:text-white rounded-full"
                 >
                     + Add Section
                 </button>

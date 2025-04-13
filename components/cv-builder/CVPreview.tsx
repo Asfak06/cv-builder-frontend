@@ -51,11 +51,11 @@ export default function CVPreview() {
     };
 
     return (
-        <div className="p-4 border rounded-lg bg-gray-50 shadow-md text-gray-600 relative">
+        <div className="p-2 border bg-gray-50 shadow-md text-gray-600 relative">
             <div className="">
                 {/* Open Button */}
                 <button
-                    className="px-4 py-2 bg-[#CE367F] mb-5 text-white rounded-lg shadow-md"
+                    className="px-4 py-2 fixed top-[25px] left-[43%] bg-[#CE367F] mb-5 text-white rounded-lg shadow-md"
                     onClick={() => setIsOpen(true)}
                 >
                     Change
