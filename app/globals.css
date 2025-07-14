@@ -53,9 +53,31 @@ body {
 .page-break-inside-avoid {
   page-break-inside: avoid;
 }
+.ql-toolbar.ql-snow {
+  padding: 10px !important;
+  border-radius: 10px 10px 0 0 !important;
+}
+.ql-toolbar.ql-snow + .ql-container.ql-snow {
+  border-radius: 1px 0px 10px 10px !important;
+}
 
-@media print {
+/* @media print {
   .cv-page {
     page-break-after: always;
+  }
+} */
+
+/* @media print {
+  .print\:break-inside-avoid {
+    break-inside: avoid;
+  }
+  .print\:grid-cols-\[250px_1fr\] {
+    grid-template-columns: 250px 1fr;
+  }
+} */
+
+@media print {
+  .page-break-after {
+    page-break-after: always !important;
   }
 }

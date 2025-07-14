@@ -1,6 +1,7 @@
 "use client";
 import { useCVStore } from "@/store/cvStore";
 import { useEffect } from "react";
+import { FaTrash } from "react-icons/fa";
 
 export default function AdditionalSections() {
     const {
@@ -45,9 +46,9 @@ export default function AdditionalSections() {
                             toggleAdditionalSection("Links");
                             useCVStore.setState({ links: [] });
                         }}
-                        className="absolute top-2 right-2 px-3 py-1 bg-[#CE367F] hover:bg-slate-600 text-white rounded text-sm"
+                        className="absolute top-3 right-3 px-3 py-3 bg-[#CE367F] hover:bg-slate-600 text-white rounded-full text-sm"
                     >
-                        ✖ Remove
+                        <FaTrash />
                     </button>
 
                     {links.map((link, index) => (
@@ -66,9 +67,9 @@ export default function AdditionalSections() {
                                 onChange={(e) => updateLink(index, "url", e.target.value)}
                                 className="w-2/3 h-[40px] border border-gray-300 rounded px-2"
                             />
-                            {index > 0 && (
-                                <button onClick={() => removeLink(index)} className="px-3 py-1 bg-[#CE367F]  text-white rounded">
-                                    ✖
+                            {index > -1 && (
+                                <button onClick={() => removeLink(index)} className="px-1 py-1  text-[#CE367F] rounded">
+                                    <FaTrash />
                                 </button>
                             )}
                         </div>
@@ -91,9 +92,9 @@ export default function AdditionalSections() {
                             toggleAdditionalSection("Languages");
                             useCVStore.setState({ languages: [] });
                         }}
-                        className="absolute top-2 right-2 px-3 py-1 bg-[#CE367F] hover:bg-slate-600 text-white rounded text-sm"
+                        className="absolute top-3 right-3 px-3 py-3 bg-[#CE367F] hover:bg-slate-600 text-white rounded-full text-sm"
                     >
-                        ✖ Remove
+                        <FaTrash />
                     </button>
 
                     {languages.map((language, index) => (
@@ -105,9 +106,9 @@ export default function AdditionalSections() {
                                 onChange={(e) => updateLanguage(index, e.target.value)}
                                 className="w-2/3 h-[40px] border border-gray-300 rounded px-2"
                             />
-                            {index > 0 && (
-                                <button onClick={() => removeLanguage(index)} className="px-3 py-1 bg-[#CE367F] text-white rounded">
-                                    ✖
+                            {index > - 1 && (
+                                <button onClick={() => removeLanguage(index)} className="px-1 py-1  text-[#CE367F] rounded">
+                                    <FaTrash />
                                 </button>
                             )}
                         </div>
@@ -130,9 +131,9 @@ export default function AdditionalSections() {
                             toggleAdditionalSection("Hobbies");
                             useCVStore.setState({ hobbies: [] });
                         }}
-                        className="absolute top-2 right-2 px-3 py-1 bg-[#CE367F] hover:bg-slate-600 text-white rounded text-sm"
+                        className="absolute top-3 right-3 px-3 py-3 bg-[#CE367F] hover:bg-slate-600 text-white rounded-full text-sm"
                     >
-                        ✖ Remove
+                        <FaTrash />
                     </button>
 
                     {hobbies.map((hobby, index) => (
@@ -144,9 +145,9 @@ export default function AdditionalSections() {
                                 onChange={(e) => updateHobby(index, e.target.value)}
                                 className="w-2/3 h-[40px] border border-gray-300 rounded px-2"
                             />
-                            {index > 0 && (
-                                <button onClick={() => removeHobby(index)} className="px-3 py-1 bg-[#CE367F] text-white rounded">
-                                    ✖
+                            {index > - 1 && (
+                                <button onClick={() => removeHobby(index)} className="px-1 py-1  text-[#CE367F] rounded">
+                                    <FaTrash />
                                 </button>
                             )}
                         </div>

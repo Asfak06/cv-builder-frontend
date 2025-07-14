@@ -10,13 +10,8 @@ import Template1 from "./templates/Template1";
 import Template2 from "./templates/Template2";
 import Template3 from "./templates/Template3";
 import Template4 from "./templates/Template4";
-import Template5 from "./templates/Template5";
-import Template6 from "./templates/Template6";
-import Template7 from "./templates/Template7";
-import Template8 from "./templates/Template8";
 import TemplateMultipage from "./templates/TemplateMultipage";
 import TemplateSelector from "./TemplateSelector";
-
 
 // A4 dimensions in pixels (at 96 DPI)
 const PAGE_HEIGHT = 1123;
@@ -27,10 +22,6 @@ const templates: Record<string, React.FC> = {
     'template-2': Template2,
     'template-3': Template3,
     'template-4': Template4,
-    'template-5': Template5,
-    'template-6': Template6,
-    'template-7': Template7,
-    'template-8': Template8,
     'template-multipage': TemplateMultipage,
 };
 
@@ -149,7 +140,7 @@ export default function MultiPageCVPreview() {
                         {Array.from({ length: pages }).map((_, index) => (
                             <div
                                 key={index}
-                                className={`cv-page mx-auto border-b-20 border-[#232B35] bg-[#232B35] ${index === pages - 1 ? "" : "mb-8"}`}
+                                className={`cv-page mx-auto ${index === pages - 1 ? "" : "mb-8"}`}
                                 style={{
                                     width: `${PAGE_WIDTH}px`,
                                     height: `${PAGE_HEIGHT}px`,
@@ -165,8 +156,8 @@ export default function MultiPageCVPreview() {
                                 </div>
 
                                 {/* Page number indicator */}
-                                <div className="absolute bottom-[-50px] right-4 z-50">
-                                    <span className="text-sm text-[#262626] relative z-50"> Page {index + 1} of {pages}</span>
+                                <div className="absolute bottom-3 right-4 text-xs text-gray-400">
+                                    Page {index + 1} of {pages}
                                 </div>
                             </div>
                         ))}
@@ -176,7 +167,7 @@ export default function MultiPageCVPreview() {
                     <div className="flex gap-3 mt-5">
                         <button
                             onClick={() => saveCVData(userData.id)}
-                            className="flex justify-center items-center px-5 py-2 text-[20px] bg-[#CE367F] hover:bg-slate-600 text-white font-bold rounded-full"
+                            className="flex justify-center items-center px-5 py-2 bg-[#CE367F] hover:bg-slate-600 text-white font-bold rounded-full"
                         >
                             <FiSave className="pr-[2px]" />
                             Save
@@ -184,7 +175,7 @@ export default function MultiPageCVPreview() {
 
                         <button
                             onClick={handleDownloadPDF}
-                            className="px-4 py-2 text-[20px] bg-[#CE367F] hover:bg-slate-600 text-white font-bold rounded-full flex items-center gap-2"
+                            className="px-4 py-2 bg-[#CE367F] hover:bg-slate-600 text-white font-bold rounded-full flex items-center gap-2"
                             disabled={loading}
                         >
                             <FaFilePdf />
@@ -199,14 +190,14 @@ export default function MultiPageCVPreview() {
 
                         <button
                             onClick={() => setIsOpen(true)}
-                            className="px-4 py-2 text-[20px] text-[#312D60] border-2 border-[#312D60] hover:bg-[#CE367F] hover:border-[#CE367F] hover:text-white rounded-full shadow-md"
+                            className="px-4 py-2 text-[#312D60] border-2 border-[#312D60] hover:bg-[#CE367F] hover:border-[#CE367F] hover:text-white rounded-full shadow-md"
                         >
                             Change Template
                         </button>
 
                         {/* Page Count Display */}
-                        <div className="flex justify-between items-center">
-                            <div className="px-5 py-3 text-[20px] bg-[#CE367F] hover:bg-slate-600 text-white font-bold rounded-full flex items-center gap-2">
+                        <div className="flex justify-between items-center mb-4">
+                            <div className="text-sm font-medium bg-slate-200 px-3 py-1 rounded-md">
                                 Pages: {pages}
                             </div>
                         </div>

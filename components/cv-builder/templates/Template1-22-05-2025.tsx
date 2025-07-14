@@ -5,7 +5,6 @@ import { Space_Grotesk } from "next/font/google";
 import { FaFacebookF, FaGithub, FaInstagramSquare, FaLinkedinIn, FaTwitter, FaYoutube } from "react-icons/fa";
 import { TbWorld } from "react-icons/tb";
 
-
 const spaceGrotesk = Space_Grotesk({
     subsets: ["latin"],
     weight: ["300", "400", "500", "600", "700"],

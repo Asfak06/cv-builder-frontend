@@ -14,6 +14,8 @@ export default function CVBuilderPage() {
     const { loadCVData, resetCV } = useCVStore();
     const router = useRouter();
 
+    console.log('Cv id ', cvId)
+
     // Handle CV loading/reset logic
     useEffect(() => {
         if (cvId) {

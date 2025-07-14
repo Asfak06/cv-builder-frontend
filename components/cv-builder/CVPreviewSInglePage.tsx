@@ -10,6 +10,10 @@ import Template1 from "./templates/Template1";
 import Template2 from "./templates/Template2";
 import Template3 from "./templates/Template3";
 import Template4 from "./templates/Template4";
+import Template5 from "./templates/Template5";
+import Template6 from "./templates/Template6"; // Assuming you might want to keep Template6
+import Template7 from "./templates/Template7";
+import Template8 from "./templates/Template8";
 import TemplateMultipage from "./templates/TemplateMultipage";
 import TemplateSelector from "./TemplateSelector";
 const templates: Record<string, React.FC> = {
@@ -17,6 +21,10 @@ const templates: Record<string, React.FC> = {
     'template-2': Template2,
     'template-3': Template3,
     'template-4': Template4,
+    'template-5': Template5,
+    'template-6': Template6,
+    'template-7': Template7,
+    'template-8': Template8,
     'template-multipage': TemplateMultipage,
 };
 
@@ -55,7 +63,7 @@ export default function CVPreview() {
             <div className="">
                 {/* Open Button */}
                 <button
-                    className="px-4 py-2 fixed top-[25px] left-[43%] bg-[#CE367F] mb-5 text-white rounded-lg shadow-md"
+                    className="px-4 py-2 text-[#312D60] border-2 border-[#312D60] hover:bg-[#CE367F] hover:border-[#CE367F] hover:text-white rounded-full shadow-md"
                     onClick={() => setIsOpen(true)}
                 >
                     Change

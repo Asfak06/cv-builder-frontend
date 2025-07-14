@@ -78,33 +78,36 @@ export default function PersonalDetails() {
                     />
                 </div>
                 {/* Profile Image Upload */}
-                <div className="lg:w-[50%] md:w-[50%] sm:w-[50%] w-full lg:mt-0 mt-5 flex items-center space-x-4">
+                <div className="lg:w-[50%] md:w-[50%] sm:w-[50%] w-full cursor-pointer lg:mt-0 mt-5 flex items-center space-x-4">
                     <img
                         src={personalDetails.profileImage ? `${process.env.NEXT_PUBLIC_API_RESOURCE}${personalDetails.profileImage}` : "/profile-vector.png"}
                         alt="Profile"
-                        className="w-[60px] h-[60px] rounded-sm border-2 border-white"
+                        className="w-[60px] h-[60px] rounded-lg border-2 border-white"
                     />
-                    <label className="relative cursor-pointer text-[#474747] text-[16px] font-normal transition">
+                    {/* <label className="relative cursor-pointer text-[#474747] text-[16px] font-normal transition">
                         {uploading ? "Uploading..." : "Upload Photo"}
                         <input
                             type="file"
                             accept="image/*"
                             onChange={handleImageUpload}
-                            className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+                            className="absolute inset-0 w-full h-full opacity-0"
                         />
-                        <span className="block text-[12px] text-[#ABAFB1]">(Max 500 kb)</span>
+                        <span className="block text-[12px] text-[#ABAFB1] cursor-pointernp">(Max 500 kb)</span>
+                    </label> */}
+                    <label className="relative cursor-pointer text-[#474747] text-[16px] font-normal transition inline-block overflow-hidden">
+                        {uploading ? "Uploading..." : "Upload Photo"}
+                        <input
+                            type="file"
+                            accept="image/*"
+                            onChange={handleImageUpload}
+                            className="absolute inset-0 w-0 h-full opacity-0 cursor-pointer"
+                        />
+                        <span className="block text-[12px] text-[#ABAFB1] cursor-pointer">(Max 500 kb)</span>
                     </label>
-
-                    {/* <img
-                        src={personalDetails.profileImage ? `${process.env.NEXT_PUBLIC_API_RESOURCE}${personalDetails.profileImage}` : "https://placehold.co/500"}
-                        alt="Profile"
-                        className="w-14 h-14 rounded-full border-4 border-white"
-                    /> */}
 
                     {showCropper && (
                         <div className="fixed inset-0 z-50 bg-black bg-opacity-50 flex justify-center items-center">
-                            <div className="p-6 rounded-lg shadow-lg w-96">
-                                {/* <h2 className="text-lg font-semibold mb-4">Crop Your Image</h2> */}
+                            <div className="p-6 rounded-lg cusor shadow-lg w-96 cursor-pointer">
                                 <ImageCropper
                                     imageSrc={imageSrc}
                                     onCropComplete={handleCropComplete}

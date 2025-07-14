@@ -52,12 +52,12 @@ export default function CommonSummary({
     };
 
     return (
-        <div className="bg-whitess relative mt-5 lg:min-h-[250px] min-h-[250px]">
+        <div className="bg-whitess relative mt-5 lg:min-h-[230px] min-h-[250px]">
             {/* Header with Button */}
             <div className="lg:flex justify-between items-center mb-4">
                 <button
                     onClick={fetchSuggestions}
-                    className="flex lg:items-center gap-2 bg-[#CE367F] hover:bg-slate-600 text-white px-4 py-2 rounded-lg transition"
+                    className="flex lg:items-center absolute right-[10px] top-[25px] gap-2 border-[1px] border-[#CE367F] hover:bg-[#CE367F] text-[12px] text-[#CE367F] hover:text-[#fff] px-3 py-[5px] rounded-full transition"
                 >
                     {loading ? "Loading..." : <><FaMagic /> Get Suggestions</>}
                 </button>
@@ -65,7 +65,7 @@ export default function CommonSummary({
 
             {/* Popover for Suggestions */}
             {showPopover && (
-                <div className="absolute top-12 right-0 w-80 bg-white shadow-lg rounded-md p-4 border z-10">
+                <div className="absolute top-[60px] right-0 w-80 bg-white shadow-lg rounded-md p-4 border z-10">
                     <div className="flex justify-between items-center mb-2">
                         <p className="text-sm text-gray-600">Click a suggestion to insert it:</p>
                         <button onClick={() => setShowPopover(false)} className="text-gray-500 hover:text-gray-700">✖</button>
@@ -90,7 +90,7 @@ export default function CommonSummary({
                 value={description}
                 onChange={updateDescription}
                 placeholder={`Write a description for this ${sectionType}...`}
-                className="w-full text-[16px] resize-none rounded-lg h-[140px]"
+                className="w-full text-[16px] resize-none rounded-lg h-[150px]"
                 theme="snow"
             />
         </div>

@@ -21,7 +21,7 @@ export default function TemplateGallery() {
                 {filteredTemplates.length > 0 ? (
                     filteredTemplates.map((template) => (
                         <div key={template.id} className="relative group cursor-pointer">
-                            <img src={template.img} alt={template.name} className="rounded-lg shadow-md w-full" />
+                            <img src={template.img} alt={template.name} className="rounded-lg shadow-md w-full h-full object-cover" />
                             <div className="absolute inset-0 bg-black bg-opacity-50 flex justify-center items-center opacity-0 group-hover:opacity-100 transition">
                                 <button
                                     onClick={() => {

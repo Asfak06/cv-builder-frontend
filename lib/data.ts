@@ -24,9 +24,33 @@ export const templates = [
     industry: 'Product Manager',
   },
   {
-    id: 'template-multipage',
-    name: 'Multi-Page Template',
-    img: '/thumbnails/template-multipage.png', // You'll need to create this thumbnail
+    id: 'template-5',
+    name: 'Lawyer X',
+    img: '/thumbnails/template5.png',
+    industry: 'Teacher',
+  },
+  {
+    id: 'template-6',
+    name: 'Lawyer X',
+    img: '/thumbnails/template5.png',
+    industry: 'Teacher',
+  },
+  {
+    id: 'template-7',
+    name: 'Lawyer X',
+    img: '/thumbnails/template7.png',
     industry: 'Software Engineer',
   },
+  {
+    id: 'template-8',
+    name: 'Lawyer X',
+    img: '/thumbnails/template8.png',
+    industry: 'Software Engineer',
+  },
+  // {
+  //   id: 'template-multipage',
+  //   name: 'Multi-Page Template',
+  //   img: '/thumbnails/template-multipage.png', // You'll need to create this thumbnail
+  //   industry: 'Software Engineer',
+  // },
 ];

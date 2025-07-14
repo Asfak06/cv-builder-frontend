@@ -14,5 +14,19 @@ export default {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    function ({ addUtilities }) {
+      addUtilities(
+        {
+          '.page-break': {
+            'page-break-after': 'always',
+          },
+          '.avoid-break': {
+            'break-inside': 'avoid',
+          },
+        },
+        ['responsive', 'print']
+      );
+    },
+  ],
 } satisfies Config;
