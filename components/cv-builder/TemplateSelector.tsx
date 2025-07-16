@@ -1,5 +1,6 @@
 import { templates } from "@/lib/data";
 import { useCVStore } from "@/store/cvStore";
+import Image from "next/image";
 
 export default function TemplateSelector() {
     const { updateTemplate, selectedIndustry, selectedTemplate } = useCVStore();
@@ -25,7 +26,7 @@ export default function TemplateSelector() {
                         onClick={() => updateTemplate(item.id)} // টেমপ্লেট সিলেক্ট করলে
                     >
                         {/* ইমেজ */}
-                        <img
+                        <Image
                             src={item.img}
                             alt={item.id}
                             className="w-full h-auto rounded-md"

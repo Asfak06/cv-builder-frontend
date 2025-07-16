@@ -1,6 +1,7 @@
 import { useCVStore } from "@/store/cvStore";
 import parse from "html-react-parser";
 import { DM_Sans } from "next/font/google";
+import Image from "next/image";
 import { FaEnvelope, FaFacebookF, FaGithub, FaInstagramSquare, FaLinkedinIn, FaMapMarkerAlt, FaPhone, FaTwitter, FaYoutube } from "react-icons/fa";
 import { TbWorld } from "react-icons/tb";
 
@@ -21,10 +22,17 @@ export default function Template2() {
                 <div className="text-white border-r-2 border-[#f4f4f4] w-[35%]">
 
                     <div className="w-50 h-50">
-                        <img
-                            src={personalDetails.profileImage ? `${process.env.NEXT_PUBLIC_API_RESOURCE}${personalDetails.profileImage}` : "https://placehold.co/500"}
+                        <Image
+                            src={
+                                personalDetails.profileImage
+                                    ? `${process.env.NEXT_PUBLIC_API_RESOURCE}${personalDetails.profileImage}`
+                                    : "https://placehold.co/500"
+                            }
                             alt="Profile"
-                            className="w-full h-full"
+                            width={150}
+                            height={150}
+                            className="w-[150px] h-[150px] rounded-full border-2 border-white object-cover"
+                            unoptimized
                         />
                     </div>
                     <div className="bg-[#1e2027] min-h-[845px] px-6 py-10">

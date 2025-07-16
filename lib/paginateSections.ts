@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 export function paginateSections(sections: any[], maxItemsPerPage: number) {
   const pages: any[][] = [];
   let currentPage: any[] = [];

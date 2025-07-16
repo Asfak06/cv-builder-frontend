@@ -1,5 +1,6 @@
 import axiosInstance from "@/lib/axiosInstance";
 import { useCVStore } from "@/store/cvStore";
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import ImageCropper from "../../ImageCropper";
@@ -79,7 +80,7 @@ export default function PersonalDetails() {
                 </div>
                 {/* Profile Image Upload */}
                 <div className="lg:w-[50%] md:w-[50%] sm:w-[50%] w-full cursor-pointer lg:mt-0 mt-5 flex items-center space-x-4">
-                    <img
+                    <Image
                         src={personalDetails.profileImage ? `${process.env.NEXT_PUBLIC_API_RESOURCE}${personalDetails.profileImage}` : "/profile-vector.png"}
                         alt="Profile"
                         className="w-[60px] h-[60px] rounded-lg border-2 border-white"

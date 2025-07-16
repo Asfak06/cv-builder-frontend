@@ -1,5 +1,6 @@
 import { useCVStore } from "@/store/cvStore";
 import parse from "html-react-parser";
+import Image from "next/image";
 import { FaEnvelope, FaMapMarkerAlt, FaPhone } from "react-icons/fa";
 import { TbWorld } from "react-icons/tb";
 export default function Template4() {
@@ -17,10 +18,17 @@ export default function Template4() {
             <div className="text-white pr-0 w-[40%]">
                 {/* Profile Section */}
                 <div className="flex items-center justify-items-center relative">
-                    <img
-                        src={personalDetails.profileImage ? `${process.env.NEXT_PUBLIC_API_RESOURCE}${personalDetails.profileImage}` : "https://placehold.co/500"}
+                    <Image
+                        src={
+                            personalDetails.profileImage
+                                ? `${process.env.NEXT_PUBLIC_API_RESOURCE}${personalDetails.profileImage}`
+                                : "https://placehold.co/500"
+                        }
                         alt="Profile"
-                        className="w-[170px] h-[170px] table m-auto"
+                        width={150}
+                        height={150}
+                        className="w-[150px] h-[150px] rounded-full border-2 border-white object-cover"
+                        unoptimized
                     />
                     <span className="absolute bottom-0 left-0 w-[30px] h-[20px] bg-[#81ad89]"></span>
                 </div>

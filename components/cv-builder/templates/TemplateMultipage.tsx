@@ -1,6 +1,7 @@
 import { useCVStore } from "@/store/cvStore";
 import parse from "html-react-parser";
 import { Inter } from "next/font/google";
+import Image from "next/image";
 import { FaEnvelope, FaMapMarkerAlt, FaPhone } from "react-icons/fa";
 
 const inter = Inter({
@@ -11,7 +12,7 @@ const inter = Inter({
 export default function TemplateMultipage() {
     const {
         personalDetails,
-        links,
+        // links,
         summary,
         experience,
         education,
@@ -37,7 +38,7 @@ export default function TemplateMultipage() {
                     </div>
                     <div>
                         {personalDetails.profileImage && (
-                            <img
+                            <Image
                                 src={`${process.env.NEXT_PUBLIC_API_RESOURCE}${personalDetails.profileImage}`}
                                 alt="Profile"
                                 className="w-24 h-24 rounded-full border-4 border-slate-600"

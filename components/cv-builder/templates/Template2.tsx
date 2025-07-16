@@ -1,6 +1,7 @@
 import { useCVStore } from "@/store/cvStore";
 import parse from "html-react-parser";
 import { DM_Sans } from "next/font/google";
+import Image from "next/image";
 import { FaEnvelope, FaFacebookF, FaGithub, FaInstagramSquare, FaLinkedinIn, FaMapMarkerAlt, FaPhone, FaTwitter, FaYoutube } from "react-icons/fa";
 import { TbWorld } from "react-icons/tb";
 
@@ -19,10 +20,17 @@ export default function Template2() {
             <div className='bg-[#040404] flex justify-left items-center py-8 px-8'>
                 {/* Header Section */}
                 <div className="flex justify-center pr-[50px]">
-                    <img
-                        src={personalDetails.profileImage ? `${process.env.NEXT_PUBLIC_API_RESOURCE}${personalDetails.profileImage}` : "https://placehold.co/500"}
+                    <Image
+                        src={
+                            personalDetails.profileImage
+                                ? `${process.env.NEXT_PUBLIC_API_RESOURCE}${personalDetails.profileImage}`
+                                : "https://placehold.co/500"
+                        }
                         alt="Profile"
-                        className="w-40 h-40 rounded-full border-2 border-white"
+                        width={150}
+                        height={150}
+                        className="w-[150px] h-[150px] rounded-full border-2 border-white object-cover"
+                        unoptimized
                     />
                 </div>
                 <div className="text-left">

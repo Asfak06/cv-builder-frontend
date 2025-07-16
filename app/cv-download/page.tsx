@@ -32,7 +32,7 @@ export default function CVDownload() {
         } else {
             resetCV(); // Reset Zustand when creating a new CV
         }
-    }, [cvId, loadCVData, resetCV]);
+    }, [cvId, loadCVData, resetCV, userData.id]);
 
     return (
         <div id="cv-container" className="bg-white w-[794px] mx-auto shadow-md">

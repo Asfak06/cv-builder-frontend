@@ -23,7 +23,7 @@ export default function CVBuilderPage() {
         } else {
             resetCV(); // Reset Zustand when creating a new CV
         }
-    }, [cvId, loadCVData, resetCV]);
+    }, [cvId, loadCVData, resetCV, userData.id]);
 
     return (
         <div className="flex flex-col lg:flex-row min-h-screen bg-gray-100">
