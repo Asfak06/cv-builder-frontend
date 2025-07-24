@@ -7,6 +7,10 @@ import { FaFilePdf } from "react-icons/fa6";
 import { FiSave } from "react-icons/fi";
 import { IoMdClose } from "react-icons/io";
 import Template1 from "./templates/Template1";
+import Template10 from "./templates/Template10";
+import Template11 from "./templates/Template11";
+import Template12 from "./templates/Template12";
+import Template13 from "./templates/Template13";
 import Template2 from "./templates/Template2";
 import Template3 from "./templates/Template3";
 import Template4 from "./templates/Template4";
@@ -14,6 +18,7 @@ import Template5 from "./templates/Template5";
 import Template6 from "./templates/Template6"; // Assuming you might want to keep Template6
 import Template7 from "./templates/Template7";
 import Template8 from "./templates/Template8";
+import Template9 from "./templates/Template9";
 import TemplateMultipage from "./templates/TemplateMultipage";
 import TemplateSelector from "./TemplateSelector";
 const templates: Record<string, React.FC> = {
@@ -25,6 +30,11 @@ const templates: Record<string, React.FC> = {
     'template-6': Template6,
     'template-7': Template7,
     'template-8': Template8,
+    'template-9': Template9,
+    'template-10': Template10,
+    'template-11': Template11,
+    'template-12': Template12,
+    'template-13': Template13,
     'template-multipage': TemplateMultipage,
 };
 

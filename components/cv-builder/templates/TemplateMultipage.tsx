@@ -37,11 +37,17 @@ export default function TemplateMultipage() {
                         <p className="text-xl text-slate-300 mt-1">{personalDetails.jobTitle}</p>
                     </div>
                     <div>
-                        {personalDetails.profileImage && (
+                        {personalDetails && (
                             <Image
-                                src={`${process.env.NEXT_PUBLIC_API_RESOURCE}${personalDetails.profileImage}`}
+                                src={
+                                    personalDetails.profileImage
+                                        ? `${process.env.NEXT_PUBLIC_API_RESOURCE}${personalDetails.profileImage}`
+                                        : "/public/profile-vector.svg"
+                                }
                                 alt="Profile"
-                                className="w-24 h-24 rounded-full border-4 border-slate-600"
+                                width={150}
+                                height={150}
+                                className="w-[150px] h-[150px] rounded-full object-cover"
                             />
                         )}
                     </div>

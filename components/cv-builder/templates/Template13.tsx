@@ -1,46 +1,53 @@
 import { useCVStore } from "@/store/cvStore";
 import parse from "html-react-parser";
-import { DM_Sans } from "next/font/google";
-import { FaEnvelope, FaFacebookF, FaGithub, FaInstagramSquare, FaLinkedinIn, FaMapMarkerAlt, FaPhone, FaTwitter, FaYoutube } from "react-icons/fa";
+import { Poppins } from "next/font/google";
+import { FaFacebookF, FaGithub, FaInstagramSquare, FaLinkedinIn, FaTwitter, FaYoutube } from "react-icons/fa";
 import { TbWorld } from "react-icons/tb";
 
 
-const dmSans = DM_Sans({
+const poppins = Poppins({
     subsets: ["latin"],
     weight: ["300", "400", "500", "600", "700"],
 });
 
-export default function Template7() {
+
+export default function Template13() {
     const { personalDetails, links, summary, experience, education, skills, references, customSections, languages, hobbies } = useCVStore();
 
 
     return (
-        <div className={`bg-[#fff] max-w-[1000px] mx-auto shadow-lg min-h-[1123px] ${dmSans.className}`}>
+        <div className={`bg-[#fff] max-w-[1000px] mx-auto shadow-lg min-h-[1123px] ${poppins.className}`}>
             <div className="flex flex-col md:flex-row">
                 {/* Left Column */}
-                <div className="text-white border-r-2 border-[#f4f4f4] w-[35%]">
+                <div className="w-[40%] bg-[#233A5F] min-h-[1123px] px-6 py-10">
+                    <div className="">
+                        <div className="w-50 h-50 flex justify-center items-center pb-5">
+                            <img
+                                src={personalDetails.profileImage ? `${process.env.NEXT_PUBLIC_API_RESOURCE}${personalDetails.profileImage}` : "https://placehold.co/500"}
+                                alt="Profile"
+                                className="w-[160px] h-[160px] rounded-full border-2 border-white"
+                            />
+                        </div>
 
-                    <div className="w-50 h-50">
-                        <img
-                            src={personalDetails.profileImage ? `${process.env.NEXT_PUBLIC_API_RESOURCE}${personalDetails.profileImage}` : "https://placehold.co/500"}
-                            alt="Profile"
-                            className="w-[112px] h-[112px] rounded-full border-2 border-white"
-                        />
-                    </div>
-                    <div className="bg-[#1e2027] min-h-[845px] px-6 py-10">
+                        <div className='flex justify-left items-center'>
+                            {/* Header Section */}
+                            <div className="text-left">
+                                <h1 className="text-[26px] mb-1 font-semibold text-[#fff] leading-0 capitalize">{personalDetails.firstName} {personalDetails.lastName}</h1>
+                                <p className="text-[22px] text-[#C3C2C2] capitalize font-normal pb-1">{personalDetails.jobTitle}</p>
+                            </div>
+                        </div>
 
                         {/* Contact Information */}
-                        <div className="">
-                            <h2 className="text-[24px] text-[#F2F1ED] uppercase font-normal pb-1 pl-8 relative before:content-[''] before:w-[22px] before:h-[2px] before:bg-[#DFAE4F] before:absolute before:left-[0] before:top-[16px]">Contact</h2>
-                            <p className="flex items-center justify-start mt-4 pb-1"><FaEnvelope /> <span className="block text-[15px] pl-[8px] text-[#fff] leading-none">{personalDetails.email}</span></p>
-                            <p className="flex items-center justify-start mt-4 pb-1"><FaPhone /> <span className="block text-[15px] pl-[8px] text-[#fff] leading-none">{personalDetails.phone}</span></p>
-                            <p className="flex items-center justify-start mt-4 pb-1"><FaMapMarkerAlt /> <span className="block text-[15px] pl-[8px] text-[#fff] leading-none">{personalDetails.city}, {personalDetails.country}</span></p>
+                        <div className="pt-2">
+                            <p className="bg-[#E5E5E5] text-[16px] text-[#233A5F] leading-none rounded-[4px] flex items-center justify-start mt-4 py-3 px-4">{personalDetails.email}</p>
+                            <p className="bg-[#E5E5E5] text-[16px] text-[#233A5F] leading-none rounded-[4px] flex items-center justify-start underline mt-4 py-3 px-4">{personalDetails.phone}</p>
+                            <p className="bg-[#E5E5E5] text-[16px] text-[#233A5F] leading-none rounded-[4px] flex items-center justify-start mt-4 py-3 px-4">{personalDetails.city}, {personalDetails.country}</p>
                         </div>
 
 
                         {/* Skills */}
                         <div className="mt-5">
-                            <h2 className="text-[24px] text-[#F2F1ED] uppercase font-normal pb-1 pl-8 relative before:content-[''] before:w-[22px] before:h-[2px] before:bg-[#DFAE4F] before:absolute before:left-[0] before:top-[16px]">Skills</h2>
+                            <h2 className="text-[24px] text-[#FFFFFF] font-semibold pb-1">Skills</h2>
                             <div className="gap-2 mt-2">
                                 {skills.map((skill, index) => (
                                     <span key={index} className="block text-[#F2F1ED] pb-2 text-[16px] pl-[15px] relative before:content-[''] before:rounded-full before:w-[5px] before:h-[5px] before:bg-[#fff] before:absolute before:left-[0] before:top-[8px]">{skill}</span>
@@ -51,7 +58,7 @@ export default function Template7() {
                         {/* Hobbies Section */}
                         {hobbies.length > 0 && (
                             <div className="mt-4">
-                                <h2 className="text-[24px] text-[#F2F1ED] uppercase font-normal pb-1 pl-8 relative before:content-[''] before:w-[22px] before:h-[2px] before:bg-[#DFAE4F] before:absolute before:left-[0] before:top-[16px]">Hobbies</h2>
+                                <h2 className="text-[24px] text-[#FFFFFF] font-semibold pb-1">Hobbies</h2>
                                 <ul className="text-gray-300 text-sm mt-2 space-y-1">
                                     {hobbies.map((hobby, index) => (
                                         <li
@@ -68,7 +75,7 @@ export default function Template7() {
                         {/* Links Section */}
                         {links.length > 0 && (
                             <div className="mt-8 space-y-2 pb-4">
-                                <h2 className="text-[24px] text-[#F2F1ED] uppercase font-normal pb-1 pl-8 relative before:content-[''] before:w-[22px] before:h-[2px] before:bg-[#DFAE4F] before:absolute before:left-[0] before:top-[16px]">Link</h2>
+                                <h2 className="text-[24px] text-[#FFFFFF] font-semibold pb-1">Link</h2>
                                 <p className="text-[16px] text-[#F2F1ED] font-bold pb-1">@johncarter</p>
                                 <div className="flex justify-start items-center">
                                     {links.map((link, index) => {
@@ -113,34 +120,26 @@ export default function Template7() {
 
                         {/* References */}
                         <div className="mt-5">
-                            <h2 className="text-[24px] text-[#F2F1ED] uppercase font-normal pb-1 pl-8 relative before:content-[''] before:w-[22px] before:h-[2px] before:bg-[#DFAE4F] before:absolute before:left-[0] before:top-[16px]">References</h2>
+                            <h2 className="text-[24px] text-[#FFFFFF] font-semibold pb-1">References</h2>
                             {references.map((ref, index) => (
-                                <p key={index} className="text-[#F2F1ED] text-[16px] mt-2"><strong className="text-[18px]">{ref.name}</strong> <span className="flex items-center mt-1 pb-1 text-[16px]">{ref.position}</span><span className="flex items-center pb-1 text-[16px]">{ref.company}</span></p>
+                                <p key={index} className="text-[#fff] text-[16px] mt-2"><strong className="pl-[15px] relative before:content-[''] before:rounded-full before:w-[5px] before:h-[5] before:bg-[#fff] before:absolute before:left-[0] before:top-[8px]"> {ref.name} </strong><span className="flex items-center mt-1 pb-1 text-[16px]">{ref.position}</span><span className="flex items-center pb-1 text-[16px]">{ref.company}</span></p>
                             ))}
                         </div>
                     </div>
 
                 </div>
                 {/* Right Column */}
-                <div className="w-[65%]">
-
-                    <div className='bg-[#F2F1ED] flex justify-left items-center py-14 px-8'>
-                        {/* Header Section */}
-                        <div className="text-left">
-                            <p className="text-[24px] text-[#353743] uppercase font-normal pb-1 pl-12 relative before:content-[''] before:w-[32px] before:h-[2px] before:bg-[#DFAE4F] before:absolute before:left-[0] before:top-[16px]">{personalDetails.jobTitle}</p>
-                            <h1 className="text-[36px] mb-1 font-normal text-[#353743] capitalize">{personalDetails.firstName} {personalDetails.lastName}</h1>
-                        </div>
-                    </div>
+                <div className="w-[60%]">
                     <div className="p-10">
                         {/* Profile Summary */}
                         <div className="pb-8">
-                            <h2 className="text-[24px] text-[#353743] uppercase font-normal pb-3 pl-12 relative before:content-[''] before:w-[32px] before:h-[2px] before:bg-[#DFAE4F] before:absolute before:left-[0] before:top-[16px]">About me</h2>
+                            <h2 className="text-[24px] text-[#FFFFFF] font-semibold pb-1">About me</h2>
                             <p className="text-[#707070] text-[16px] mt-1">{parse(summary)}</p>
                         </div>
 
                         {/* Work Experience */}
                         <div className="mt-5 pb-2">
-                            <h2 className="text-[24px] text-[#353743] uppercase font-normal pb-3 pl-12 relative before:content-[''] before:w-[32px] before:h-[2px] before:bg-[#DFAE4F] before:absolute before:left-[0] before:top-[16px]">Work Experience</h2>
+                            <h2 className="text-[24px] text-[#FFFFFF] font-semibold pb-1">Work Experience</h2>
                             {experience.map((exp, index) => (
                                 <div key={index} className="mt-1 mb-4">
                                     <h3 className="text-[18px] text-[#DFAE4F] mb-3 uppercase font-medium">{exp.jobTitle}</h3>
@@ -151,7 +150,7 @@ export default function Template7() {
                         </div>
                         {/* Education */}
                         <div className="mt-5">
-                            <h2 className="text-[24px] text-[#353743] uppercase font-normal pb-3 pl-12 relative before:content-[''] before:w-[32px] before:h-[2px] before:bg-[#DFAE4F] before:absolute before:left-[0] before:top-[16px]">Education</h2>
+                            <h2 className="text-[24px] text-[#FFFFFF] font-semibold pb-1">Education</h2>
                             <div className="flex flex-wrap justify-left items-center">
                                 {education.map((edu, index) => (
                                     <div key={index} className="mt-2 mb-3 pr-2 w-full">
@@ -166,7 +165,7 @@ export default function Template7() {
                         {/* Languages Section */}
                         {languages.length > 0 && (
                             <div className="mt-6 pb-4">
-                                <h2 className="text-[24px] text-[#353743] uppercase font-normal pb-1 pl-12 relative before:content-[''] before:w-[32px] before:h-[2px] before:bg-[#DFAE4F] before:absolute before:left-[0] before:top-[16px]">
+                                <h2 className="text-[24px] text-[#FFFFFF] font-semibold pb-1">
                                     Languages
                                 </h2>
                                 <ul className="text-gray-800 text-sm mt-2 space-y-1 grid grid-cols-2 gap-5">
@@ -183,7 +182,7 @@ export default function Template7() {
                         <div className="mt-6">
                             {customSections.map((section, index) => (
                                 <div key={index} className="mb-6">
-                                    <h2 className="text-[24px] text-[#353743] uppercase font-normal pb-1 pl-12 relative before:content-[''] before:w-[32px] before:h-[2px] before:bg-[#DFAE4F] before:absolute before:left-[0] before:top-[16px]">{section.sectionTitle}</h2>
+                                    <h2 className="text-[24px] text-[#FFFFFF] font-semibold pb-1">{section.sectionTitle}</h2>
                                     {section.items.map((item, idx) => (
                                         <div key={idx} className="mt-2">
                                             <h3 className="text-[22px] text-gray-600 mt-[-2px] capitalize leading-none mb-2 font-semibold">{item.title}</h3>
@@ -198,6 +197,6 @@ export default function Template7() {
 
             </div>
 
-        </div>
+        </div >
     );
 }

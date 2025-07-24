@@ -1,6 +1,5 @@
 import { useCVStore } from "@/store/cvStore";
 import parse from "html-react-parser";
-import Image from "next/image";
 import { FaHeart } from "react-icons/fa";
 import { TbWorld } from "react-icons/tb";
 
@@ -20,17 +19,10 @@ export default function Template3() {
             {/* Left Column */}
             <div className="text-white bg-[#62888b] px-5 mt-[170px] w-full md:w-1/3 rounded-full md:rounded-b-none flex flex-col items-center">
                 {/* Profile Image */}
-                <Image
-                    src={
-                        personalDetails.profileImage
-                            ? `${process.env.NEXT_PUBLIC_API_RESOURCE}${personalDetails.profileImage}`
-                            : "https://placehold.co/500"
-                    }
+                <img
+                    src={personalDetails.profileImage ? `${process.env.NEXT_PUBLIC_API_RESOURCE}${personalDetails.profileImage}` : "https://placehold.co/500"}
                     alt="Profile"
-                    width={150}
-                    height={150}
-                    className="w-[150px] h-[150px] rounded-full border-2 border-white object-cover"
-                    unoptimized
+                    className="w-[112px] h-[112px] rounded-full border-2 border-white"
                 />
                 <h1 className="text-[26px] font-extrabold uppercase text-center leading-[34px] mt-4 mb-2">{personalDetails.firstName} <span className='block'>{personalDetails.lastName}</span></h1>
                 <p className="text-white text-[14px] font-medium uppercase text-center">{personalDetails.jobTitle}</p>

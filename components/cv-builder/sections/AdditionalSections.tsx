@@ -31,7 +31,7 @@ export default function AdditionalSections() {
 
         useCVStore.setState({ activeAdditionalSections: Array.from(updatedSections) });
 
-    }, [links, languages, hobbies, activeAdditionalSections]);
+    }, [links, languages, hobbies]);
 
     console.log(languages)
 

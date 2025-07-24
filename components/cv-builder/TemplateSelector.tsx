@@ -30,6 +30,7 @@ export default function TemplateSelector() {
                             src={item.img}
                             alt={item.id}
                             className="w-full h-auto rounded-md"
+                            width={500} height={700}
                         />
 
                         {/* হিডেন টেক্সট */}

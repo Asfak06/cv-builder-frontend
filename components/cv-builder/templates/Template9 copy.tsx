@@ -10,25 +10,36 @@ const spaceGrotesk = Space_Grotesk({
     weight: ["300", "400", "500", "600", "700"],
 });
 
-export default function Template1() {
+export default function Template9() {
     const { personalDetails, links, summary, experience, education, skills, references, customSections, languages, hobbies } = useCVStore();
 
     return (
         <div className={`bg-[#232B35] max-w-[1123px] mx-auto shadow-lg min-h-[1123px] border-b-[20px] border-[#1b1f24] ${spaceGrotesk.className}`}>
-            <div className='bg-[#1b1f24] flex justify-left items-center py-8 px-8'>
-                {/* Profile Image */}
-                <div className="flex justify-center pr-[20px]">
-                    <img
-                        src={personalDetails.profileImage ? `${process.env.NEXT_PUBLIC_API_RESOURCE}${personalDetails.profileImage}` : "https://placehold.co/500"}
-                        alt="Profile"
-                        className="w-[112px] h-[112px] rounded-full border-2 border-white"
-                    />
+            <div className="bg-[#1b1f24] flex justify-between items-center py-8 px-8">
+                <div className='flex justify-left items-center'>
+                    {/* Profile Image */}
+                    <div className="flex justify-center pr-[20px]">
+                        <img
+                            src={personalDetails.profileImage ? `${process.env.NEXT_PUBLIC_API_RESOURCE}${personalDetails.profileImage}` : "https://placehold.co/500"}
+                            alt="Profile"
+                            className="w-[112px] h-[112px] rounded-full border-2 border-white"
+                        />
 
+                    </div>
+                    {/* Personal Details */}
+                    <div className="text-left">
+                        <h1 className="text-[35px] text-[#fff] leading-0 font-bold mb-0 capitalize">{personalDetails.firstName} <span className="">{personalDetails.lastName}</span></h1>
+                        <p className="text-[#fff] text-[25px] capitalize font-bold mt-[-5px]">{personalDetails.jobTitle}</p>
+                    </div>
                 </div>
-                {/* Personal Details */}
-                <div className="text-left">
-                    <h1 className="text-[35px] text-[#fff] leading-0 font-bold mb-0 capitalize">{personalDetails.firstName} <span className="">{personalDetails.lastName}</span></h1>
-                    <p className="text-[#fff] text-[25px] capitalize font-bold mt-[-5px]">{personalDetails.jobTitle}</p>
+                {/* Contact Info */}
+                <div className="mt-8">
+                    <h1>Template 9sdssfdfs</h1>
+                    <div className="">
+                        <p className="text-[14px] pb-3 font-bold"><span className="text-[16px] pb-1 text-[#C3CAD5] block font-bold uppercase">Email:</span> {personalDetails.email}</p>
+                        <p className="text-[14px] pb-3 font-bold"><span className="text-[16px] pb-1 text-[#C3CAD5] block font-bold uppercase">Call:</span> {personalDetails.phone}</p>
+                        <p className="text-[14px] pb-3 font-bold"><span className="text-[16px] pb-1 text-[#C3CAD5] block font-bold uppercase">Address:</span> {personalDetails.city}, {personalDetails.country}</p>
+                    </div>
                 </div>
             </div>
 
@@ -53,16 +64,6 @@ export default function Template1() {
                                 <p className="text-[#c3cad5] text-[14px] mt-1">{parse(edu.description)}</p>
                             </div>
                         ))}
-                    </div>
-
-                    {/* Contact Info */}
-                    <div className="mt-8">
-                        <h2 className="text-[26px] text-white font-semibold pb-[15px] relative before:content-[''] before:w-[40px] before:h-[2px] before:bg-[#fff] before:absolute before:left-[0] before:top-[-10px]">Contact information</h2>
-                        <div className="">
-                            <p className="text-[14px] pb-3 font-bold"><span className="text-[16px] pb-1 text-[#C3CAD5] block font-bold uppercase">Email:</span> {personalDetails.email}</p>
-                            <p className="text-[14px] pb-3 font-bold"><span className="text-[16px] pb-1 text-[#C3CAD5] block font-bold uppercase">Call:</span> {personalDetails.phone}</p>
-                            <p className="text-[14px] pb-3 font-bold"><span className="text-[16px] pb-1 text-[#C3CAD5] block font-bold uppercase">Address:</span> {personalDetails.city}, {personalDetails.country}</p>
-                        </div>
                     </div>
 
                     {/* References Section */}

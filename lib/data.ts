@@ -47,6 +47,36 @@ export const templates = [
     img: '/thumbnails/template8.png',
     industry: 'Software Engineer',
   },
+  {
+    id: 'template-9',
+    name: 'Lawyer X',
+    img: '/thumbnails/template9.png',
+    industry: 'Software Engineer',
+  },
+  {
+    id: 'template-10',
+    name: 'Lawyer X',
+    img: '/thumbnails/template10.png',
+    industry: 'Software Engineer',
+  },
+  {
+    id: 'template-11',
+    name: 'Lawyer X',
+    img: '/thumbnails/template11.png',
+    industry: 'Software Engineer',
+  },
+  {
+    id: 'template-12',
+    name: 'Lawyer X',
+    img: '/thumbnails/template12.png',
+    industry: 'Software Engineer',
+  },
+  {
+    id: 'template-13',
+    name: 'Lawyer X',
+    img: '/thumbnails/template13.png',
+    industry: 'Software Engineer',
+  },
   // {
   //   id: 'template-multipage',
   //   name: 'Multi-Page Template',

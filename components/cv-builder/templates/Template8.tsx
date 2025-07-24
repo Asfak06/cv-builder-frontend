@@ -1,7 +1,6 @@
 import { useCVStore } from "@/store/cvStore";
 import parse from "html-react-parser";
 import { Inter } from "next/font/google";
-import Image from "next/image";
 import {
     FaCode,
     FaFacebookF,
@@ -23,7 +22,7 @@ const inter = Inter({
     weight: ["300", "400", "500", "600", "700"],
 });
 
-export default function Template2() {
+export default function Template8() {
     const {
         personalDetails,
         links,
@@ -52,17 +51,10 @@ export default function Template2() {
                 <div className="flex justify-left items-center w-full border-b-[1px] border-[#E8E8E8] py-8">
                     {/* Header Section */}
                     <div className="flex justify-center pr-[30px]">
-                        <Image
-                            src={
-                                personalDetails.profileImage
-                                    ? `${process.env.NEXT_PUBLIC_API_RESOURCE}${personalDetails.profileImage}`
-                                    : "https://placehold.co/500"
-                            }
+                        <img
+                            src={personalDetails.profileImage ? `${process.env.NEXT_PUBLIC_API_RESOURCE}${personalDetails.profileImage}` : "https://placehold.co/500"}
                             alt="Profile"
-                            width={150}
-                            height={150}
-                            className="w-[150px] h-[150px] rounded-full border-2 border-white object-cover"
-                            unoptimized
+                            className="w-[112px] h-[112px] rounded-full border-2 border-white"
                         />
                     </div>
                     <div className="text-left">
