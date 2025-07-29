@@ -29,7 +29,7 @@ export default function Template3() {
                 {/* About Me */}
                 <div className="mt-6 text-center">
                     <h2 className="text-[18px] uppercase font-semibold pb-1">About Me</h2>
-                    <p className="text-gray-200 text-justify text-sm mt-2">{parse(summary)}</p>
+                    <span className="text-gray-200 text-justify text-sm mt-2">{parse(summary)}</span>
                 </div>
                 {/* Contact Info */}
                 <div className="mt-6 text-center">

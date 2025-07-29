@@ -51,7 +51,7 @@ export default function Template14() {
                         </div>
                         {/* Summary Section */}
                         <div className="pb-3 w-[65%]">
-                            <p className="text-[16px] text-[#000000B2] font-normal leading-6 mt-1">{parse(summary)}</p>
+                            <span className="text-[16px] text-[#000000B2] font-normal leading-6 mt-1">{parse(summary)}</span>
                         </div>
                     </div>
 

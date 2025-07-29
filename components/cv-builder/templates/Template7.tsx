@@ -141,7 +141,7 @@ export default function Template7() {
                         {/* Profile Summary */}
                         <div className="pb-8">
                             <h2 className={`text-[24px] text-[#353743] uppercase font-normal pb-3 pl-12 relative before:content-[''] before:w-[32px] before:h-[2px] before:bg-[#DFAE4F] before:absolute before:left-[0] before:top-[16px] ${playfairDisplay.className}`}>About me</h2>
-                            <p className="text-[#707070] text-[16px] mt-1">{parse(summary)}</p>
+                            <span className="text-[#707070] text-[16px] mt-1">{parse(summary)}</span>
                         </div>
 
                         {/* Work Experience */}
@@ -151,7 +151,7 @@ export default function Template7() {
                                 <div key={index} className="mt-1 mb-5">
                                     <h3 className="text-[18px] text-[#DFAE4F] mb-3 uppercase font-medium">{exp.jobTitle}</h3>
                                     <p className="text-[16px] text-[#707070E5] mb-2"><strong className="text-[16px] text-[#030B1A] uppercase font-bold">{exp.company}</strong> | {exp.startDate} - {exp.endDate}</p>
-                                    <p className="text-[#707070] text-[16px] mt-1">{parse(exp.description)}</p>
+                                    <span className="text-[#707070] text-[16px] mt-1">{parse(exp.description)}</span>
                                 </div>
                             ))}
                         </div>

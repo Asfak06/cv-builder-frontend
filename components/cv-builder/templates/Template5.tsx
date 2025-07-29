@@ -156,7 +156,7 @@ export default function Template5() {
                         {/* Profile Summary */}
                         <div className="border-b-2 border-[#E5E5EA] pb-4">
                             <h2 className="text-[24px] text-[#3A395D] uppercase font-bold pb-1">About me</h2>
-                            <p className="text-[#6E6D8F] text-[16px] mt-1 mb-8">{parse(summary)}</p>
+                            <span className="text-[#6E6D8F] text-[16px] mt-1 mb-8">{parse(summary)}</span>
                         </div>
 
                         {/* Work Experience */}
@@ -166,7 +166,7 @@ export default function Template5() {
                                 <div key={index} className="mt-1 mb-4">
                                     <h3 className="text-[20px] text-[#7051EF] mb-2 capitalize font-medium">{exp.company}</h3>
                                     <p className="text-[18px] text-[#3A395D] mb-1"><strong className="text-[18px] text-[#030B1A] font-bold">{exp.jobTitle}</strong> - {exp.startDate} / {exp.endDate}</p>
-                                    <p className="text-[#6E6D8F] text-[16px] mb-6">{parse(exp.description)}</p>
+                                    <span className="text-[#6E6D8F] text-[16px] mb-6">{parse(exp.description)}</span>
                                 </div>
                             ))}
                         </div>

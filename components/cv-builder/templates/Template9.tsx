@@ -47,7 +47,7 @@ export default function Template9() {
                     {/* Summary Section */}
                     <div className="pb-5">
                         <h2 className="text-[26px] text-white font-semibold pb-5 mb-8 relative border-b border-[#4A4A4A]">About me</h2>
-                        <p className="text-[#C9C9C9] text-[16px] mt-1">{parse(summary)}</p>
+                        <span className="text-[#C9C9C9] text-[16px] mt-1">{parse(summary)}</span>
                     </div>
 
                     {/* Education Section */}
@@ -59,7 +59,7 @@ export default function Template9() {
                                 <h3 className="text-[16px] mt-[-2px] text-[#fff] capitalize leading-none mb-2 font-semibold">{edu.degree}</h3>
                                 <p className="text-[#C9C9C9] text-[14px] mb-2">{edu.institution}</p>
 
-                                <p className="text-[#c3cad5] text-[14px] mt-1">{parse(edu.description)}</p>
+                                <span className="text-[#c3cad5] text-[14px] mt-1">{parse(edu.description)}</span>
                             </div>
                         ))}
                     </div>
@@ -105,7 +105,7 @@ export default function Template9() {
                             <div key={index} className="pb-3 pt-0">
                                 <p className="pb-3"><strong className="text-[#fff] text-[18px] font-normal pr-3 capitalize">{exp.company}</strong> <span className="text-[#909090] text-[13px] uppercase">{exp.startDate} - {exp.endDate}</span></p>
                                 <h3 className="text-[18px] text-[#fff] leading-none capitalize mb-4 font-normal">{exp.jobTitle}</h3>
-                                <p className="text-[#C9C9C9] text-[14px] mt-1 leading-6">{parse(exp.description)}</p>
+                                <span className="text-[#C9C9C9] text-[14px] mt-1 leading-6">{parse(exp.description)}</span>
                             </div>
                         ))}
                     </div>

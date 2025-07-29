@@ -40,7 +40,7 @@ export default function Template12() {
                         </div>
                     </div>
                     {/* Contact Info */}
-                    <div className="">
+                    <div className=" relative z-10">
                         <h2 className="text-[26px] text-[#1D2B5F] font-semibold pb-[10px]">Contact</h2>
                         <div className="">
                             <p className="text-[16px] text-[#1D2B5F] pb-2 flex justify-start items-center"><span className="text-[16px] pr-3 text-[#1D2B5F] block font-bold"><MdOutlineMail /></span> {personalDetails.email}</p>
@@ -57,7 +57,7 @@ export default function Template12() {
                         </div>
                         {/* Summary Section */}
                         <div className="pb-3 w-[65%]">
-                            <p className="text-[16px] text-[#5D6890] font-medium leading-7 mt-1">{parse(summary)}</p>
+                            <span className="text-[16px] text-[#5D6890] font-medium leading-7 mt-1">{parse(summary)}</span>
                         </div>
                     </div>
 
@@ -71,7 +71,7 @@ export default function Template12() {
                                 <div key={index} className="pb-3 pt-4">
                                     <h3 className="text-[16px] text-[#1D2B5F] leading-none capitalize mb-2 font-semibold">{exp.jobTitle} <span className="text-[#5D6890CC] text-[14px] pl-2">{exp.startDate} <span className="text-[#5D6890CC] px-1"> - </span> {exp.endDate}</span></h3>
                                     <p className="pb-1"><strong className="text-[#1D2B5F] text-[16px] pr-3 font-semibold">{exp.company}</strong></p>
-                                    <p className="text-[#5D6890] text-[16px] leading-7 font-medium mt-1">{parse(exp.description)}</p>
+                                    <span className="text-[#5D6890] text-[16px] leading-7 font-medium mt-1">{parse(exp.description)}</span>
                                 </div>
                             ))}
                         </div>
@@ -88,7 +88,7 @@ export default function Template12() {
                                     <span className="text-[16px] text-[#5D6890B2] font-medium inline-block mb-3">{edu.year}</span>
                                     <h3 className="text-[16px] mt-[-2px] text-[#1D2B5F] leading-none mb-2 font-semibold">{edu.degree}</h3>
                                     <p className="text-[#5D6890] text-[16px] font-medium mb-2">{edu.institution}</p>
-                                    <p className="text-[16px] text-[#5D6890] font-medium leading-7 mt-1">{parse(edu.description)}</p>
+                                    <span className="text-[16px] text-[#5D6890] font-medium leading-7 mt-1">{parse(edu.description)}</span>
                                 </div>
                             ))}
                         </div>

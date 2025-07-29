@@ -94,7 +94,7 @@ export default function Template4() {
                     {/* Profile Section */}
                     <div className="p-5">
                         <h2 className="text-[17px] pl-2 mb-5 border-l-8 border-l-[#81ad89] text-[#fff] uppercase font-semibold">My Profile</h2>
-                        <p className="text-gray-200 text-justify text-sm mt-2">{parse(summary)}</p>
+                        <span className="text-gray-200 text-justify text-sm mt-2">{parse(summary)}</span>
                     </div>
                     {/* Education Section */}
                     <div className="p-6">

@@ -183,7 +183,7 @@ export default function Template8() {
                         <h2 className="text-[30px] text-[#141414] capitalize font-medium">
                             About me
                         </h2>
-                        <p className="text-[#666666] text-[16px] mt-1">{parse(summary)}</p>
+                        <span className="text-[#666666] text-[16px] mt-1">{parse(summary)}</span>
                     </div>
 
                     {/* Work Experience */}
@@ -201,9 +201,9 @@ export default function Template8() {
                                         {exp.company}
                                     </strong> {exp.startDate} - {exp.endDate}
                                 </p>
-                                <p className="text-[#707070] text-[16px] mt-1">
+                                <span className="text-[#707070] text-[16px] mt-1">
                                     {parse(exp.description)}
-                                </p>
+                                </span>
                             </div>
                         ))}
                     </div>
@@ -223,9 +223,9 @@ export default function Template8() {
                                         <p>{edu.institution}</p>
                                         {edu.year}
                                     </p>
-                                    <p className="text-[#707070] text-[16px] mt-1">
+                                    <span className="text-[#707070] text-[16px] mt-1">
                                         {parse(edu.description)}
-                                    </p>
+                                    </span>
                                 </div>
                             ))}
                         </div>

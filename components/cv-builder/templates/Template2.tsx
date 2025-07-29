@@ -130,7 +130,7 @@ export default function Template2() {
                     {/* Profile Summary */}
                     <div className="border-b-2 border-[#f4f4f4] pb-4">
                         <h2 className="text-[26px] text-[#040404] uppercase font-bold pb-1 pt-3 relative before:content-[''] before:w-[12px] before:h-[2px] before:bg-[#FFCB14] before:absolute before:left-[0] before:top-[6px]">About me</h2>
-                        <p className="text-[#707070] text-[16px] mt-1">{parse(summary)}</p>
+                        <span className="text-[#707070] text-[16px] mt-1">{parse(summary)}</span>
                     </div>
 
                     {/* Work Experience */}
@@ -140,7 +140,7 @@ export default function Template2() {
                             <div key={index} className="mt-1 mb-4">
                                 <h3 className="text-[18px] text-[#040404] mb-2 capitalize font-medium">{exp.jobTitle}</h3>
                                 <p className="text-[16px] text-[#707070E5] mb-2"><strong className="text-[16px] text-[#030B1A] font-bold">{exp.company}</strong> - {exp.startDate} / {exp.endDate}</p>
-                                <p className="text-[#707070] text-[16px] mt-1">{parse(exp.description)}</p>
+                                <span className="text-[#707070] text-[16px] mt-1">{parse(exp.description)}</span>
                             </div>
                         ))}
                     </div>

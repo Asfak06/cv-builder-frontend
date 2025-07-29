@@ -101,7 +101,7 @@ export default function Template10() {
                     </div>
                     {/* Summary Section */}
                     <div className="pb-3 w-[70%]">
-                        <p className="text-[#848484] text-[16px] mt-1">{parse(summary)}</p>
+                        <span className="text-[#848484] text-[16px] mt-1">{parse(summary)}</span>
                     </div>
                 </div>
 
@@ -115,7 +115,7 @@ export default function Template10() {
                             <div key={index} className="mb-8">
                                 <h3 className="text-[16px] mt-[-2px] text-[#1A1A1A] leading-none mb-2 font-semibold">{edu.degree} <span className="text-[#848484] font-normal pl-2">{edu.year}</span></h3>
                                 <p className="text-[#848484] text-[16px] mb-2">{edu.institution}</p>
-                                <p className="text-[#848484] text-[16px] mt-1">{parse(edu.description)}</p>
+                                <span className="text-[#848484] text-[16px] mt-1">{parse(edu.description)}</span>
                             </div>
                         ))}
                     </div>
@@ -131,7 +131,7 @@ export default function Template10() {
                             <div key={index} className="pb-3 pt-4">
                                 <h3 className="text-[16px] text-[#1A1A1A] leading-none capitalize mb-2 font-bold">{exp.jobTitle}</h3>
                                 <p className="pb-1"><strong className="text-[#1A1A1A] text-[16px] pr-3 font-semibold">{exp.company}</strong> <span className="text-[#848484] text-[13px] uppercase">{exp.startDate} <span className="text-[#848484] px-1"> - </span> {exp.endDate}</span></p>
-                                <p className="text-[#848484] text-[16px] leading-7 mt-1">{parse(exp.description)}</p>
+                                <span className="text-[#848484] text-[16px] leading-7 mt-1">{parse(exp.description)}</span>
                             </div>
                         ))}
                     </div>

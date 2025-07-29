@@ -137,7 +137,7 @@ export default function Template13() {
                         {/* Profile Summary */}
                         <div className="pb-5">
                             <h2 className="text-[24px] text-[#233A5F] font-semibold pb-2 mb-5 relative before:content-[''] before:rounded-full before:w-[50px] before:h-[4] before:bg-[#233A5F] before:absolute before:left-[0] before:bottom-[0]">About me</h2>
-                            <p className="text-[#878787] text-[16px] mt-1">{parse(summary)}</p>
+                            <span className="text-[#878787] text-[16px] mt-1">{parse(summary)}</span>
                         </div>
 
                         {/* Work Experience */}
@@ -147,7 +147,7 @@ export default function Template13() {
                                 <div key={index} className="mt-1 mb-5">
                                     <h3 className="text-[20px] text-[#2A2A2A] font-semibold pl-[20px] mb-2 relative before:content-[''] before:rounded-full before:w-[10px] before:h-[10] before:bg-[#E5E5E5] before:absolute before:left-[0] before:top-[10px]">{exp.company}</h3>
                                     <p className="text-[18px] text-[#2A2A2A] pl-[20px] mb-2">{exp.jobTitle} | {exp.startDate} - {exp.endDate}</p>
-                                    <p className="text-[#878787] text-[16px] pl-[20px] mt-1">{parse(exp.description)}</p>
+                                    <span className="text-[#878787] text-[16px] pl-[20px] mt-1">{parse(exp.description)}</span>
                                 </div>
                             ))}
                         </div>
@@ -159,7 +159,7 @@ export default function Template13() {
                                     <div key={index} className="mt-2 mb-3 pr-2 w-full">
                                         <h3 className="text-[20px] text-[#2A2A2A] font-semibold pl-[20px] mb-2 relative before:content-[''] before:rounded-full before:w-[10px] before:h-[10] before:bg-[#E5E5E5] before:absolute before:left-[0] before:top-[10px]">{edu.degree}</h3>
                                         <p className="text-[18px] text-[#2A2A2A] pl-[20px] mb-2">{edu.institution} | {edu.year}</p>
-                                        <p className="text-[#878787] text-[16px] pl-[20px] mt-1">{parse(edu.description)}</p>
+                                        <span className="text-[#878787] text-[16px] pl-[20px] mt-1">{parse(edu.description)}</span>
                                     </div>
                                 ))}
                             </div>
