@@ -1,13 +1,13 @@
 import { useCVStore } from "@/store/cvStore";
 import parse from "html-react-parser";
-import { DM_Sans } from "next/font/google";
+import { Playfair_Display } from "next/font/google";
 import { FaEnvelope, FaFacebookF, FaGithub, FaInstagramSquare, FaLinkedinIn, FaMapMarkerAlt, FaPhone, FaTwitter, FaYoutube } from "react-icons/fa";
 import { TbWorld } from "react-icons/tb";
 
 
-const dmSans = DM_Sans({
+const playfairDisplay = Playfair_Display({
     subsets: ["latin"],
-    weight: ["300", "400", "500", "600", "700"],
+    weight: ["400", "500", "600", "700", "800", "900"],
 });
 
 export default function Template7() {
@@ -15,19 +15,19 @@ export default function Template7() {
 
 
     return (
-        <div className={`bg-[#fff] max-w-[1000px] mx-auto shadow-lg min-h-[1123px] ${dmSans.className}`}>
+        <div className={`bg-[#fff] max-w-[1000px] mx-auto shadow-lg min-h-[1123px] ${playfairDisplay.className}`}>
             <div className="flex flex-col md:flex-row">
                 {/* Left Column */}
                 <div className="text-white border-r-2 border-[#f4f4f4] w-[35%]">
 
-                    <div className="w-50 h-50">
+                    <div className="">
                         <img
                             src={personalDetails.profileImage ? `${process.env.NEXT_PUBLIC_API_RESOURCE}${personalDetails.profileImage}` : "https://placehold.co/500"}
                             alt="Profile"
-                            className="w-[112px] h-[112px] rounded-full border-2 border-white"
+                            className="w-[280px] h-[280px]"
                         />
                     </div>
-                    <div className="bg-[#1e2027] min-h-[845px] px-6 py-10">
+                    <div className="bg-[#1e2027] min-h-[840px] px-6 py-10">
 
                         {/* Contact Information */}
                         <div className="">

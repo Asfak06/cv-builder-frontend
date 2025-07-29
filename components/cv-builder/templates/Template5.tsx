@@ -1,13 +1,13 @@
 import { useCVStore } from "@/store/cvStore";
 import parse from "html-react-parser";
-import { DM_Sans } from "next/font/google";
+import { Plus_Jakarta_Sans } from "next/font/google";
 import { FaBehance, FaDribbble, FaEnvelope, FaFacebookF, FaGithub, FaInstagram, FaLinkedinIn, FaMapMarkerAlt, FaPhone, FaTwitter, FaYoutube } from "react-icons/fa";
 import { TbWorld } from "react-icons/tb";
 
 
-const dmSans = DM_Sans({
+const plusJakartaSans = Plus_Jakarta_Sans({
     subsets: ["latin"],
-    weight: ["300", "400", "500", "600", "700"],
+    weight: ["200", "300", "400", "500", "600", "700", "800"],
 });
 
 export default function Template5() {
@@ -15,7 +15,7 @@ export default function Template5() {
 
 
     return (
-        <div className={`bg-[#fff] max-w-[1000px] mx-auto shadow-lg min-h-[1123px] ${dmSans.className}`}>
+        <div className={`bg-[#fff] max-w-[1000px] mx-auto shadow-lg min-h-[1123px] ${plusJakartaSans.className}`}>
             <div className='flex justify-left items-center py-8 px-12'>
                 {/* Header Section */}
                 <div className="flex justify-center pr-[30px]">
@@ -48,7 +48,7 @@ export default function Template5() {
                         <div className="flex flex-wrap justify-left items-center">
                             {education.map((edu, index) => (
                                 <div key={index} className="mt-2 mb-2 pr-2 w-full">
-                                    <h3 className="text-[20px] text-[#040404] mb-0 font-bold">{edu.degree}</h3>
+                                    <h3 className="text-[18px] text-[#040404] mb-0 font-bold">{edu.degree}</h3>
                                     <p className="text-[#6E6D8F] text-[16px] font-medium">{edu.institution}</p>
                                     <p className="text-[#7051EF] text-[16px] font-medium pt-3">{edu.year}</p>
                                 </div>
@@ -161,7 +161,7 @@ export default function Template5() {
 
                         {/* Work Experience */}
                         <div className="mt-5 pb-2 border-b-2 border-[#f4f4f4]">
-                            <h2 className="text-[24px] text-[#3A395D] uppercase font-bold pb-1">Work Experience</h2>
+                            <h2 className="text-[24px] text-[#3A395D] uppercase font-bold pb-1">Work <span className="bg-[#7051EF]">Experience</span> </h2>
                             {experience.map((exp, index) => (
                                 <div key={index} className="mt-1 mb-4">
                                     <h3 className="text-[20px] text-[#7051EF] mb-2 capitalize font-medium">{exp.company}</h3>

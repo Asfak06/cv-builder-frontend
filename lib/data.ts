@@ -77,6 +77,12 @@ export const templates = [
     img: '/thumbnails/template13.png',
     industry: 'Software Engineer',
   },
+  {
+    id: 'template-14',
+    name: 'Lawyer X',
+    img: '/thumbnails/template14.png',
+    industry: 'Software Engineer',
+  },
   // {
   //   id: 'template-multipage',
   //   name: 'Multi-Page Template',

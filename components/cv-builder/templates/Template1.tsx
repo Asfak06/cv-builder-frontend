@@ -69,10 +69,10 @@ export default function Template1() {
                     <div className="mt-8 pb-5">
                         <h2 className="text-[26px] text-white font-semibold uppercase pb-1 relative before:content-[''] before:w-[40px] before:h-[2px] before:bg-[#fff] before:absolute before:left-[0] before:top-[-10px]">References</h2>
                         {references.map((ref, index) => (
-                            <p key={index} className="mb-3">
+                            <p key={index} className="mb-4">
                                 <strong className="text-[16px] text-[#fff] font-bold capitalize mb-1">{ref.name}</strong>
                                 <span className="text-[14px] uppercase text-[#C3CAD5] font-normal block pt-1 mb-1">{ref.position}</span>
-                                <span className="text-[14px] uppercase text-[#C3CAD5] font-normal block relative before:content-[''] before:w-[5px] before:h-[5px] before:rounded-full before:bg-[#C3CAD5] before:absolute before:left-[0] before:top-[4px] pl-2">{ref.company}</span>
+                                <span className="text-[14px] uppercase text-[#C3CAD5] font-normal block relative before:content-[''] before:w-[5px] before:h-[5px] before:rounded-full before:bg-[#C3CAD5] before:absolute before:left-[0] before:top-[8px] pl-3">{ref.company}</span>
                             </p>
                         ))}
                     </div>
@@ -84,7 +84,7 @@ export default function Template1() {
                     <div>
                         <h2 className="text-[26px] text-white font-semibold capitalize pb-1 relative before:content-[''] before:w-[40px] before:h-[2px] before:bg-[#fff] before:absolute before:left-[0] before:top-[-10px]">Work Experience</h2>
                         {experience.map((exp, index) => (
-                            <div key={index} className="pb-3 pt-4 border-b-2 border-[#323b48]">
+                            <div key={index} className="pb-5 pt-4 mb-4 border-b-2 border-[#323b48] last-of-type:border-none">
                                 <p className="pb-1"><strong className="text-[#fff] text-[18px] pr-3 capitalize">{exp.company}</strong> <span className="text-[#C3CAD5] text-[13px] uppercase">{exp.startDate} <span className="text-[#075FE4] px-1"> / </span> {exp.endDate}</span></p>
                                 <h3 className="text-[16px] text-[#fff] leading-none capitalize mb-2 font-bold">{exp.jobTitle}</h3>
                                 <p className="text-[#c3cad5] text-[14px] mt-1">{parse(exp.description)}</p>
@@ -92,7 +92,7 @@ export default function Template1() {
                         ))}
                     </div>
 
-                    <div className="mt-8">
+                    <div className="mt-10">
                         <h2 className="text-[26px] text-white font-bold uppercase pb-1 relative before:content-[''] before:w-[40px] before:h-[2px] before:bg-[#fff] before:absolute before:left-[0] before:top-[-10px]">
                             Skills
                         </h2>
@@ -156,7 +156,7 @@ export default function Template1() {
 
                     {/* Languages Section */}
                     {languages.length > 0 && (
-                        <div className="mt-6 pb-4">
+                        <div className="mt-10 pb-4">
                             <h2 className="text-[26px] text-white font-bold uppercase pb-1 relative before:content-[''] before:w-[40px] before:h-[2px] before:bg-[#fff] before:absolute before:left-[0] before:top-[-10px]">
                                 Languages
                             </h2>
@@ -172,12 +172,12 @@ export default function Template1() {
 
                     {/* Hobbies Section */}
                     {hobbies.length > 0 && (
-                        <div className="mt-7 pb-4">
+                        <div className="mt-10 pb-4">
                             <h2 className="text-[26px] text-white font-bold uppercase pb-1 relative before:content-[''] before:w-[40px] before:h-[2px] before:bg-[#fff] before:absolute before:left-[0] before:top-[-10px]"> Hobbies</h2>
                             <ul className="text-[#C3CAD5] text-[14px] mt-2 space-y-1">
                                 {hobbies.map((hobby, index) => (
                                     <li
-                                        className="pl-4 relative before:content-[''] before:w-[8px] before:h-[8px] before:bg-[#C3CAD5] before:rounded-full before:absolute before:left-[0] before:top-[5px] last:before:content-none"
+                                        className="pl-4 relative before:content-[''] before:w-[5px] before:h-[5px] before:bg-[#C3CAD5] before:rounded-full before:absolute before:left-[0] before:top-[8px] last:before:content-none"
                                         key={index}
                                     >
                                         {hobby}

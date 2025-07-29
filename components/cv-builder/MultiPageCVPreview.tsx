@@ -11,6 +11,7 @@ import Template10 from "./templates/Template10";
 import Template11 from "./templates/Template11";
 import Template12 from "./templates/Template12";
 import Template13 from "./templates/Template13";
+import Template14 from "./templates/Template14";
 import Template2 from "./templates/Template2";
 import Template3 from "./templates/Template3";
 import Template4 from "./templates/Template4";
@@ -41,6 +42,7 @@ const templates: Record<string, React.FC> = {
     'template-11': Template11,
     'template-12': Template12,
     'template-13': Template13,
+    'template-14': Template14,
     'template-multipage': TemplateMultipage,
 };
 
