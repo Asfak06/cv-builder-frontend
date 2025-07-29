@@ -1,6 +1,6 @@
 import { useCVStore } from "@/store/cvStore";
 import parse from "html-react-parser";
-import { Playfair_Display } from "next/font/google";
+import { Mulish, Playfair_Display } from "next/font/google";
 import { FaEnvelope, FaFacebookF, FaGithub, FaInstagramSquare, FaLinkedinIn, FaMapMarkerAlt, FaPhone, FaTwitter, FaYoutube } from "react-icons/fa";
 import { TbWorld } from "react-icons/tb";
 
@@ -10,12 +10,18 @@ const playfairDisplay = Playfair_Display({
     weight: ["400", "500", "600", "700", "800", "900"],
 });
 
+const mulish = Mulish({
+    subsets: ["latin"],
+    weight: ["300", "400", "500", "600", "700", "800"],
+    variable: "--font-mulish",
+});
+
 export default function Template7() {
     const { personalDetails, links, summary, experience, education, skills, references, customSections, languages, hobbies } = useCVStore();
 
 
     return (
-        <div className={`bg-[#fff] max-w-[1000px] mx-auto shadow-lg min-h-[1123px] ${playfairDisplay.className}`}>
+        <div className={`bg-[#fff] max-w-[1000px] mx-auto shadow-lg min-h-[1123px] ${mulish.className}`}>
             <div className="flex flex-col md:flex-row">
                 {/* Left Column */}
                 <div className="text-white border-r-2 border-[#f4f4f4] w-[35%]">
@@ -31,7 +37,7 @@ export default function Template7() {
 
                         {/* Contact Information */}
                         <div className="">
-                            <h2 className="text-[24px] text-[#F2F1ED] uppercase font-normal pb-1 pl-8 relative before:content-[''] before:w-[22px] before:h-[2px] before:bg-[#DFAE4F] before:absolute before:left-[0] before:top-[16px]">Contact</h2>
+                            <h2 className={`text-[24px] text-[#F2F1ED] uppercase font-normal pb-1 pl-8 relative before:content-[''] before:w-[22px] before:h-[2px] before:bg-[#DFAE4F] before:absolute before:left-[0] before:top-[16px] ${playfairDisplay.className}`}>Contact</h2>
                             <p className="flex items-center justify-start mt-4 pb-1"><FaEnvelope /> <span className="block text-[15px] pl-[8px] text-[#fff] leading-none">{personalDetails.email}</span></p>
                             <p className="flex items-center justify-start mt-4 pb-1"><FaPhone /> <span className="block text-[15px] pl-[8px] text-[#fff] leading-none">{personalDetails.phone}</span></p>
                             <p className="flex items-center justify-start mt-4 pb-1"><FaMapMarkerAlt /> <span className="block text-[15px] pl-[8px] text-[#fff] leading-none">{personalDetails.city}, {personalDetails.country}</span></p>
@@ -40,7 +46,7 @@ export default function Template7() {
 
                         {/* Skills */}
                         <div className="mt-5">
-                            <h2 className="text-[24px] text-[#F2F1ED] uppercase font-normal pb-1 pl-8 relative before:content-[''] before:w-[22px] before:h-[2px] before:bg-[#DFAE4F] before:absolute before:left-[0] before:top-[16px]">Skills</h2>
+                            <h2 className={`text-[24px] text-[#F2F1ED] uppercase font-normal pb-1 pl-8 relative before:content-[''] before:w-[22px] before:h-[2px] before:bg-[#DFAE4F] before:absolute before:left-[0] before:top-[16px] ${playfairDisplay.className}`}>Skills</h2>
                             <div className="gap-2 mt-2">
                                 {skills.map((skill, index) => (
                                     <span key={index} className="block text-[#F2F1ED] pb-2 text-[16px] pl-[15px] relative before:content-[''] before:rounded-full before:w-[5px] before:h-[5px] before:bg-[#fff] before:absolute before:left-[0] before:top-[8px]">{skill}</span>
@@ -51,7 +57,7 @@ export default function Template7() {
                         {/* Hobbies Section */}
                         {hobbies.length > 0 && (
                             <div className="mt-4">
-                                <h2 className="text-[24px] text-[#F2F1ED] uppercase font-normal pb-1 pl-8 relative before:content-[''] before:w-[22px] before:h-[2px] before:bg-[#DFAE4F] before:absolute before:left-[0] before:top-[16px]">Hobbies</h2>
+                                <h2 className={`text-[24px] text-[#F2F1ED] uppercase font-normal pb-1 pl-8 relative before:content-[''] before:w-[22px] before:h-[2px] before:bg-[#DFAE4F] before:absolute before:left-[0] before:top-[16px] ${playfairDisplay.className}`}>Hobbies</h2>
                                 <ul className="text-gray-300 text-sm mt-2 space-y-1">
                                     {hobbies.map((hobby, index) => (
                                         <li
@@ -68,7 +74,7 @@ export default function Template7() {
                         {/* Links Section */}
                         {links.length > 0 && (
                             <div className="mt-8 space-y-2 pb-4">
-                                <h2 className="text-[24px] text-[#F2F1ED] uppercase font-normal pb-1 pl-8 relative before:content-[''] before:w-[22px] before:h-[2px] before:bg-[#DFAE4F] before:absolute before:left-[0] before:top-[16px]">Link</h2>
+                                <h2 className={`text-[24px] text-[#F2F1ED] uppercase font-normal pb-1 pl-8 relative before:content-[''] before:w-[22px] before:h-[2px] before:bg-[#DFAE4F] before:absolute before:left-[0] before:top-[16px] ${playfairDisplay.className}`}>Link</h2>
                                 <p className="text-[16px] text-[#F2F1ED] font-bold pb-1">@johncarter</p>
                                 <div className="flex justify-start items-center">
                                     {links.map((link, index) => {
@@ -113,7 +119,7 @@ export default function Template7() {
 
                         {/* References */}
                         <div className="mt-5">
-                            <h2 className="text-[24px] text-[#F2F1ED] uppercase font-normal pb-1 pl-8 relative before:content-[''] before:w-[22px] before:h-[2px] before:bg-[#DFAE4F] before:absolute before:left-[0] before:top-[16px]">References</h2>
+                            <h2 className={`text-[24px] text-[#F2F1ED] uppercase font-normal pb-1 pl-8 relative before:content-[''] before:w-[22px] before:h-[2px] before:bg-[#DFAE4F] before:absolute before:left-[0] before:top-[16px] ${playfairDisplay.className}`}>References</h2>
                             {references.map((ref, index) => (
                                 <p key={index} className="text-[#F2F1ED] text-[16px] mt-2"><strong className="text-[18px]">{ref.name}</strong> <span className="flex items-center mt-1 pb-1 text-[16px]">{ref.position}</span><span className="flex items-center pb-1 text-[16px]">{ref.company}</span></p>
                             ))}
@@ -128,21 +134,21 @@ export default function Template7() {
                         {/* Header Section */}
                         <div className="text-left">
                             <p className="text-[24px] text-[#353743] uppercase font-normal pb-1 pl-12 relative before:content-[''] before:w-[32px] before:h-[2px] before:bg-[#DFAE4F] before:absolute before:left-[0] before:top-[16px]">{personalDetails.jobTitle}</p>
-                            <h1 className="text-[36px] mb-1 font-normal text-[#353743] capitalize">{personalDetails.firstName} {personalDetails.lastName}</h1>
+                            <h1 className={`text-[36px] mb-1 font-normal text-[#353743] capitalize ${playfairDisplay.className}`}>{personalDetails.firstName} {personalDetails.lastName}</h1>
                         </div>
                     </div>
                     <div className="p-10">
                         {/* Profile Summary */}
                         <div className="pb-8">
-                            <h2 className="text-[24px] text-[#353743] uppercase font-normal pb-3 pl-12 relative before:content-[''] before:w-[32px] before:h-[2px] before:bg-[#DFAE4F] before:absolute before:left-[0] before:top-[16px]">About me</h2>
+                            <h2 className={`text-[24px] text-[#353743] uppercase font-normal pb-3 pl-12 relative before:content-[''] before:w-[32px] before:h-[2px] before:bg-[#DFAE4F] before:absolute before:left-[0] before:top-[16px] ${playfairDisplay.className}`}>About me</h2>
                             <p className="text-[#707070] text-[16px] mt-1">{parse(summary)}</p>
                         </div>
 
                         {/* Work Experience */}
                         <div className="mt-5 pb-2">
-                            <h2 className="text-[24px] text-[#353743] uppercase font-normal pb-3 pl-12 relative before:content-[''] before:w-[32px] before:h-[2px] before:bg-[#DFAE4F] before:absolute before:left-[0] before:top-[16px]">Work Experience</h2>
+                            <h2 className={`text-[24px] text-[#353743] uppercase font-normal pb-3 pl-12 relative before:content-[''] before:w-[32px] before:h-[2px] before:bg-[#DFAE4F] before:absolute before:left-[0] before:top-[16px] ${playfairDisplay.className}`}>Work Experience</h2>
                             {experience.map((exp, index) => (
-                                <div key={index} className="mt-1 mb-4">
+                                <div key={index} className="mt-1 mb-5">
                                     <h3 className="text-[18px] text-[#DFAE4F] mb-3 uppercase font-medium">{exp.jobTitle}</h3>
                                     <p className="text-[16px] text-[#707070E5] mb-2"><strong className="text-[16px] text-[#030B1A] uppercase font-bold">{exp.company}</strong> | {exp.startDate} - {exp.endDate}</p>
                                     <p className="text-[#707070] text-[16px] mt-1">{parse(exp.description)}</p>
@@ -151,12 +157,12 @@ export default function Template7() {
                         </div>
                         {/* Education */}
                         <div className="mt-5">
-                            <h2 className="text-[24px] text-[#353743] uppercase font-normal pb-3 pl-12 relative before:content-[''] before:w-[32px] before:h-[2px] before:bg-[#DFAE4F] before:absolute before:left-[0] before:top-[16px]">Education</h2>
+                            <h2 className={`text-[24px] text-[#353743] uppercase font-normal pb-3 pl-12 relative before:content-[''] before:w-[32px] before:h-[2px] before:bg-[#DFAE4F] before:absolute before:left-[0] before:top-[16px] ${playfairDisplay.className}`}>Education</h2>
                             <div className="flex flex-wrap justify-left items-center">
                                 {education.map((edu, index) => (
                                     <div key={index} className="mt-2 mb-3 pr-2 w-full">
                                         <h3 className="text-[18px] text-[#040404] mb-0 font-normal uppercase">{edu.degree}</h3>
-                                        <p className="text-[#666D79] text-[16px] font-medium">{edu.institution} | {edu.year}</p>
+                                        <p className="text-[#666D79] text-[16px] font-medium">{edu.institution} <span className=" inline-block px-2">|</span> {edu.year}</p>
                                     </div>
                                 ))}
                             </div>
@@ -166,7 +172,7 @@ export default function Template7() {
                         {/* Languages Section */}
                         {languages.length > 0 && (
                             <div className="mt-6 pb-4">
-                                <h2 className="text-[24px] text-[#353743] uppercase font-normal pb-1 pl-12 relative before:content-[''] before:w-[32px] before:h-[2px] before:bg-[#DFAE4F] before:absolute before:left-[0] before:top-[16px]">
+                                <h2 className={`text-[24px] text-[#353743] uppercase font-normal pb-1 pl-12 relative before:content-[''] before:w-[32px] before:h-[2px] before:bg-[#DFAE4F] before:absolute before:left-[0] before:top-[16px] ${playfairDisplay.className}`}>
                                     Languages
                                 </h2>
                                 <ul className="text-gray-800 text-sm mt-2 space-y-1 grid grid-cols-2 gap-5">
@@ -183,7 +189,7 @@ export default function Template7() {
                         <div className="mt-6">
                             {customSections.map((section, index) => (
                                 <div key={index} className="mb-6">
-                                    <h2 className="text-[24px] text-[#353743] uppercase font-normal pb-1 pl-12 relative before:content-[''] before:w-[32px] before:h-[2px] before:bg-[#DFAE4F] before:absolute before:left-[0] before:top-[16px]">{section.sectionTitle}</h2>
+                                    <h2 className={`text-[24px] text-[#353743] uppercase font-normal pb-1 pl-12 relative before:content-[''] before:w-[32px] before:h-[2px] before:bg-[#DFAE4F] before:absolute before:left-[0] before:top-[16px] ${playfairDisplay.className}`}>{section.sectionTitle}</h2>
                                     {section.items.map((item, idx) => (
                                         <div key={idx} className="mt-2">
                                             <h3 className="text-[22px] text-gray-600 mt-[-2px] capitalize leading-none mb-2 font-semibold">{item.title}</h3>

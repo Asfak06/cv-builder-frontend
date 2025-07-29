@@ -81,3 +81,23 @@ body {
     page-break-after: always !important;
   }
 }
+
+/* Custom Scrollbar */
+.custom-scroll::-webkit-scrollbar {
+  width: 5px; /* scrollbar width */
+}
+
+.custom-scroll::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-left: 1px solid #ccc; /* 1px border */
+}
+
+.custom-scroll::-webkit-scrollbar-thumb {
+  background: #ce367f;
+  border: 1px solid #ccc; /* Thumb border 1px */
+  border-radius: 6px;
+}
+
+.custom-scroll::-webkit-scrollbar-thumb:hover {
+  background: #a72a66;
+}
