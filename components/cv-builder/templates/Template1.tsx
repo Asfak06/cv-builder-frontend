@@ -13,8 +13,11 @@ const spaceGrotesk = Space_Grotesk({
 export default function Template1() {
     const { personalDetails, links, summary, experience, education, skills, references, customSections, languages, hobbies } = useCVStore();
 
+    // Check if we're in multi-page context by looking for cv-container in the DOM
+    const isMultiPage = typeof window !== 'undefined' && document.querySelector('.cv-container');
+
     return (
-        <div className={`bg-[#232B35] max-w-[1123px] mx-auto shadow-lg min-h-[1123px] border-b-[20px] border-[#1b1f24] ${spaceGrotesk.className}`}>
+        <div className={`bg-[#232B35] max-w-[1123px] mx-auto shadow-lg min-h-[1123px] ${!isMultiPage ? 'border-b-[20px] border-[#1b1f24]' : ''} ${spaceGrotesk.className}`}>
             <div className='bg-[#1b1f24] flex justify-left items-center py-8 px-8'>
                 {/* Profile Image */}
                 <div className="flex justify-center pr-[20px]">

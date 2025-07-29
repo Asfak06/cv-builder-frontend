@@ -3,12 +3,14 @@ import { useCVStore } from "@/store/cvStore";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import ImageCropper from "../../ImageCropper";
+import { useUserStore } from "@/store/userStore";
 
 
 
 
 export default function PersonalDetails() {
-    const { personalDetails, updatePersonalDetails, currentCV, updateProfileImage } = useCVStore();
+    const { personalDetails, updatePersonalDetails, currentCV, updateProfileImage, saveCVData } = useCVStore();
+    const { userData } = useUserStore();
     const [uploading, setUploading] = useState(false);
     const [imageSrc, setImageSrc] = useState(null);
     const [showCropper, setShowCropper] = useState(false);
@@ -37,7 +39,10 @@ export default function PersonalDetails() {
         if (!croppedBlob) return;
 
         const formData = new FormData();
-        formData.append("profileImage", croppedBlob);
+        // Give the blob a proper filename with extension
+        const fileName = `profile-image-${Date.now()}.png`;
+        formData.append("profileImage", croppedBlob, fileName);
+        
         try {
             setUploading(true);
             const response = await axiosInstance.post("/api/upload-image", formData, {
@@ -47,6 +52,10 @@ export default function PersonalDetails() {
             if (response.status === 200) {
                 updateProfileImage(response.data.imageUrl);
                 toast.success("Profile image uploaded successfully!");
+
+                setTimeout(() => {
+                     saveCVData(userData.id)
+                }, 1000);
             } else {
                 toast.error("Failed to upload image. Please try again.");
             }
