@@ -18,7 +18,7 @@ export default function TemplateSelector() {
             </h2>
 
             {/* Scrollable Grid */}
-            <div className="max-h-[600px] overflow-y-auto pr-2 custom-scroll">
+            <div className="h-[calc(100vh-150px)] overflow-y-auto pr-2 custom-scroll">
                 <div className="grid grid-cols-2 md:grid-cols-2 gap-4">
                     {filteredTemplates.map((item) => (
                         <div

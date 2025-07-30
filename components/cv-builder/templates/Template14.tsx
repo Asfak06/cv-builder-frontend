@@ -66,7 +66,7 @@ export default function Template14() {
                                     <h3 className="text-[18px] text-[#000] leading-none capitalize mb-1 font-bold">{exp.company}</h3>
                                     <p className="pb-1"><strong className="text-[#000000] text-[16px] font-normal">{exp.jobTitle}</strong></p>
                                     <p className="pb-2"><span className="text-[#000000B2] text-[16px]">{exp.startDate} <span className="text-[#000000B2] px-1"> - </span> {exp.endDate}</span></p>
-                                    <p className="text-[#000000B2] text-[16px] leading-6 font-normal pl-5 relative before:content-[''] before:w-[8px] before:h-[8px] before:bg-[#000000] before:absolute before:left-0 before:top-[7px] before:rounded-full">{parse(exp.description)}</p>
+                                    <span className="text-[#000000B2] text-[16px] leading-6 font-normal pl-5 relative before:content-[''] before:w-[8px] before:h-[8px] before:bg-[#000000] before:absolute before:left-0 before:top-[7px] before:rounded-full">{parse(exp.description)}</span>
                                 </div>
                             ))}
                         </div>
@@ -82,7 +82,7 @@ export default function Template14() {
                                 <div key={index} className="mb-8">
                                     <h3 className="text-[18px] mt-1 text-[#000000] leading-none mb-2 font-bold">{edu.degree}</h3>
                                     <p className="text-[#000000B2] text-[16px] font-normal mb-2">{edu.institution} <span className="pl-2"> {edu.year}</span></p>
-                                    <p className="text-[16px] text-[#000000B2] font-medium leading-6 mt-1 pl-5 relative before:content-[''] before:w-[8px] before:h-[8px] before:bg-[#000000] before:absolute before:left-0 before:top-[7px] before:rounded-full">{parse(edu.description)}</p>
+                                    <span className="text-[16px] text-[#000000B2] font-medium leading-6 mt-1 pl-5 relative before:content-[''] before:w-[8px] before:h-[8px] before:bg-[#000000] before:absolute before:left-0 before:top-[7px] before:rounded-full">{parse(edu.description)}</span>
                                 </div>
                             ))}
                         </div>
