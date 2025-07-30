@@ -53,7 +53,7 @@ export default function EducationSummary() {
             <div className="lg:flex justify-between items-center mb-4">
                 <button
                     onClick={fetchSuggestions}
-                    className="flex lg:items-center gap-2 bg-[#CE367F] hover:bg-slate-600 text-white px-4 py-2 rounded-lg hover:bg-slate-600 transition">
+                    className="flex lg:items-center gap-2 bg-[#CE367F]  text-white px-4 py-2 rounded-lg hover:bg-slate-600 transition">
                     {loading ? "Loading..." : <> <FaMagic /> Get Suggestions</>}
                 </button>
             </div>
