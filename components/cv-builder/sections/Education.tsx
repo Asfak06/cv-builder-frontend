@@ -2,10 +2,9 @@
 import { useCVStore } from "@/store/cvStore";
 import { useEffect, useState } from "react";
 import { FaAngleDown, FaAngleUp, FaTrash } from "react-icons/fa";
-import CommonSummary from "./CommonSummary";
 
 export default function Education() {
-    const { education, addEducation, updateEducation, currentCV, removeEducation, selectedIndustry } = useCVStore();
+    const { education, addEducation, updateEducation, currentCV, removeEducation } = useCVStore();
     const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
     const handleToggle = (index: number) => {
@@ -96,13 +95,13 @@ export default function Education() {
                                             className="w-full h-[58px] p-[15px] pt-[30px] text-[16px] border border-[#CFD3D4] rounded-lg"
                                         />
                                     </div>
-
+{/* 
                                     <CommonSummary
                                         description={edu.description || ""}
                                         updateDescription={(text) => updateEducation(index, "description", text)}
                                         industry={selectedIndustry}
                                         sectionType="education"
-                                    />
+                                    /> */}
                                 </div>
                                 <p className="text-[12px] text-[#979797] absolute right-0 bottom-[-5px]">150/200 words</p>
                             </div>
