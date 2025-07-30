@@ -131,7 +131,7 @@ export default function MultiPageCVPreview() {
         const userName = currentCV.personalDetails.firstName.replace(/\s+/g, "_");
         const fileName = `CV_${userName}_${currentCV._id}.pdf`;
 
-        const res = await fetch(`/api/generate-pdf?cvId=${currentCV._id}&selectedTemplate={selectedTemplate}`);
+        const res = await fetch(`/api/generate-pdf?cvId=${currentCV._id}&selectedTemplate=${selectedTemplate}`);
         const blob = await res.blob();
         const url = window.URL.createObjectURL(blob);
 
