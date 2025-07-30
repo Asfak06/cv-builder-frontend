@@ -15,7 +15,7 @@ export default function Template2() {
 
 
     return (
-        <div className={`bg-[#fff] max-w-[1000px] mx-auto shadow-lg min-h-[1123px] ${dmSans.className}`}>
+        <div className={`bg-[#fff] max-w-[1000px] mx-auto  min-h-[1123px] ${dmSans.className}`}>
             <div className='bg-[#040404] flex justify-left items-center py-8 px-8'>
                 {/* Header Section */}
                 <div className="flex justify-center pr-[50px]">

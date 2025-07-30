@@ -59,6 +59,23 @@ export default function MultiPageCVPreview() {
 
     const TemplateComponent = useMemo(() => templates[selectedTemplate] || Template1, [selectedTemplate]);
 
+    // Get template background color based on selected template
+    const getTemplateBackgroundColor = () => {
+        switch (selectedTemplate) {
+            case 'template-1':
+                return '#232B35';
+            case 'template-2':
+                return '#ffffff';
+            case 'template-3':
+                return '#ffffff';
+            case 'template-4':
+                return '#ffffff';
+            // Add more template background colors as needed
+            default:
+                return '#ffffff';
+        }
+    };
+
     // Responsive scale adjustment
     useEffect(() => {
         const updateScale = () => {
@@ -156,22 +173,26 @@ export default function MultiPageCVPreview() {
                     {/* Multi-Page CV Container */}
                     <div
                         ref={contentRef}
-                        className="cv-container relative"
+                        className="cv-container relative "
                     >
                         {Array.from({ length: pages }).map((_, index) => (
                             <div
                                 key={index}
-                                className={`cv-page mx-auto border-b-20 border-[#232B35] bg-[#232B35] ${index === pages - 1 ? "" : "mb-8"}`}
+                                className={`cv-page mx-auto ${index === pages - 1 ? "" : "mb-8"}`}
                                 style={{
                                     width: `${PAGE_WIDTH}px`,
                                     height: `${PAGE_HEIGHT}px`,
                                     position: "relative",
                                     overflow: "hidden",
+                                    backgroundColor: getTemplateBackgroundColor(),
                                 }}
                             >
+                                {/* Page Content */}
                                 <div
-                                    className="absolute inset-0"
-                                    style={{ transform: `translateY(-${index * PAGE_HEIGHT}px)` }}
+                                    className="absolute"
+                                    style={{ 
+                                        transform: `translateY(-${index * (PAGE_HEIGHT)}px)`,
+                                    }}
                                 >
                                     <TemplateComponent />
                                 </div>
