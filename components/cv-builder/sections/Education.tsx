@@ -2,10 +2,9 @@
 import { useCVStore } from "@/store/cvStore";
 import { useEffect, useState } from "react";
 import { FaAngleDown, FaAngleUp, FaTrash } from "react-icons/fa";
-import CommonSummary from "./CommonSummary";
 
 export default function Education() {
-    const { education, addEducation, updateEducation, currentCV, removeEducation, selectedIndustry } = useCVStore();
+    const { education, addEducation, updateEducation, currentCV, removeEducation } = useCVStore();
     const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
     const handleToggle = (index: number) => {
