@@ -1,17 +1,15 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
 import { useCVStore } from "@/store/cvStore";
 import { Space_Grotesk } from "next/font/google";
-import { FaSpinner } from "react-icons/fa";
-import { FaFilePdf } from "react-icons/fa6";
-import { FiSave } from "react-icons/fi";
+import { useEffect, useState } from "react";
+import ActionButtons from "../../ActionButtons";
 
 import { SmartPaginationEngine } from '../../core/PaginationEngine';
+import { PageContent } from '../../core/types';
 import { Template1Config } from './config';
 import { Template1HeightEstimator } from './height-estimator';
 import { Template1SectionRenderer } from './renderer';
-import { PageContent } from '../../core/types';
 
 const spaceGrotesk = Space_Grotesk({
     subsets: ["latin"],
@@ -20,7 +18,6 @@ const spaceGrotesk = Space_Grotesk({
 
 export default function SmartTemplate1Preview() {
     const { personalDetails, summary, experience, education, skills, references, languages, hobbies, links, customSections } = useCVStore();
-    const [loading, setLoading] = useState(false);
     const [pages, setPages] = useState<PageContent[]>([]);
     const [scale, setScale] = useState(0.6);
 
@@ -62,17 +59,7 @@ export default function SmartTemplate1Preview() {
         setPages(calculatedPages);
     }, [personalDetails, summary, experience, education, skills, references, languages, hobbies, links, customSections]);
 
-    const handleDownloadPDF = async () => {
-        setLoading(true);
-        // Add PDF generation logic here
-        setLoading(false);
-    };
-
-    const handleSaveCV = async () => {
-        setLoading(true);
-        // Add save logic here
-        setLoading(false);
-    };
+    // Core actions moved to reusable component.
 
     return (
         <div className="p-2 border bg-gray-50 shadow-md text-gray-600 relative">
@@ -96,9 +83,9 @@ export default function SmartTemplate1Preview() {
                                 }}
                             >
                                 {/* Page content */}
-                                <div className={`${spaceGrotesk.className} h-full`}>                                    
+                                <div className={`${spaceGrotesk.className} h-full`}>
                                     {/* Render sections for this page */}
-                                    <div 
+                                    <div
                                         className="h-full flex flex-col"
                                         style={{
                                             paddingTop: `${Template1Config.marginTop}px`,
@@ -108,22 +95,22 @@ export default function SmartTemplate1Preview() {
                                         }}
                                     >
                                         {/* Header Section (Full Width) - Only on first page or if page has header */}
-                                        {page.sections.length > 0 && page.sections.filter(section => section.type === 'header').map((section, sectionIndex) => 
+                                        {page.sections.length > 0 && page.sections.filter(section => section.type === 'header').map((section, sectionIndex) =>
                                             sectionRenderer.renderSection(section, pageIndex * 1000 + sectionIndex)
                                         )}
-                                        
+
                                         {/* Two Column Layout */}
-                                        <div className={`flex flex-col md:flex-row h-full px-[20px] ${page.sections.length > 0 ? 'pt-[50px]' : 'pt-[20px]'} pb-[30px]`}>
+                                        <div className={`flex flex-col md:flex-row flex-1 min-h-0 px-[20px] ${page.sections.length > 0 ? 'pt-[50px]' : 'pt-[20px]'} pb-[30px]`}>
                                             {/* Left Column */}
                                             <div className="text-white w-full md:w-[45%] border-r-2 border-[#323b48] pr-5">
-                                                {page.leftSections?.map((section, sectionIndex) => 
+                                                {page.leftSections?.map((section, sectionIndex) =>
                                                     sectionRenderer.renderSection(section, pageIndex * 1000 + 100 + sectionIndex)
                                                 )}
                                             </div>
-                                            
+
                                             {/* Right Column */}
                                             <div className="w-full md:w-[55%] pl-[30px]">
-                                                {page.rightSections?.map((section, sectionIndex) => 
+                                                {page.rightSections?.map((section, sectionIndex) =>
                                                     sectionRenderer.renderSection(section, pageIndex * 1000 + 200 + sectionIndex)
                                                 )}
                                             </div>
@@ -140,33 +127,7 @@ export default function SmartTemplate1Preview() {
                     </div>
 
                     {/* Action Buttons */}
-                    <div className="flex gap-3 mt-5">
-                        <button
-                            onClick={handleDownloadPDF}
-                            disabled={loading}
-                            className="flex items-center px-4 py-2 bg-pink-500 text-white rounded-lg hover:bg-pink-600 disabled:opacity-50"
-                        >
-                            {loading ? (
-                                <FaSpinner className="animate-spin mr-2" />
-                            ) : (
-                                <FaFilePdf className="mr-2" />
-                            )}
-                            Download PDF
-                        </button>
-
-                        <button
-                            onClick={handleSaveCV}
-                            disabled={loading}
-                            className="flex items-center px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 disabled:opacity-50"
-                        >
-                            {loading ? (
-                                <FaSpinner className="animate-spin mr-2" />
-                            ) : (
-                                <FiSave className="mr-2" />
-                            )}
-                            Save CV
-                        </button>
-                    </div>
+                    <ActionButtons selectedTemplate="template-multipage" />
                 </div>
             </div>
         </div>
