@@ -12,7 +12,7 @@ export default function CVBuilderPage() {
     const searchParams = useSearchParams();
     const cvId = searchParams.get("cvId"); // Get cvId from URL
     const { userData } = useUserStore();
-    const { loadCVData, resetCV } = useCVStore();
+    const { loadCVData, resetCV, selectedTemplate } = useCVStore();
     const router = useRouter();
     const [useSmartPreview, setUseSmartPreview] = useState(true); // Toggle between old and new preview
 
@@ -39,20 +39,18 @@ export default function CVBuilderPage() {
                         <IoMdArrowRoundBack className="pr-[1px]" />
                         Go back
                     </button>
-                    
+
                     {/* Preview Toggle */}
                     <div className="flex items-center gap-2">
                         <span className="text-sm text-gray-600">Smart Preview</span>
                         <button
                             onClick={() => setUseSmartPreview(!useSmartPreview)}
-                            className={`w-12 h-6 rounded-full transition-colors ${
-                                useSmartPreview ? 'bg-[#CE367F]' : 'bg-gray-300'
-                            }`}
+                            className={`w-12 h-6 rounded-full transition-colors ${useSmartPreview ? 'bg-[#CE367F]' : 'bg-gray-300'
+                                }`}
                         >
                             <div
-                                className={`w-5 h-5 bg-white rounded-full shadow-md transition-transform ${
-                                    useSmartPreview ? 'translate-x-6' : 'translate-x-0.5'
-                                }`}
+                                className={`w-5 h-5 bg-white rounded-full shadow-md transition-transform ${useSmartPreview ? 'translate-x-6' : 'translate-x-0.5'
+                                    }`}
                             />
                         </button>
                     </div>
@@ -63,7 +61,7 @@ export default function CVBuilderPage() {
             {/* Right Panel - CV Preview (Fixed with Scrollable Content) */}
             <div className="w-full lg:w-1/2 h-screen fixed right-0 top-0 bg-white shadow-lg overflow-y-auto scrollbar-hidden">
                 {useSmartPreview ? (
-                    <SmartTemplateManager templateId={1} />
+                    <SmartTemplateManager templateId={selectedTemplate} />
                 ) : (
                     <MultiPageCVPreview />
                 )}

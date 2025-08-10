@@ -12,7 +12,7 @@ interface ActionButtonsProps {
     className?: string;
 }
 
-export default function ActionButtons({ selectedTemplate = "template-multipage", className = "" }: ActionButtonsProps) {
+export default function ActionButtons({ selectedTemplate = "template-1", className = "" }: ActionButtonsProps) {
     const { saveCVData, currentCV } = useCVStore();
     const { userData } = useUserStore();
     const [loading, setLoading] = useState(false);

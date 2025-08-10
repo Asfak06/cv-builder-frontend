@@ -1,6 +1,6 @@
 "use client";
-import { SmartTemplateManager } from "@/components/cv-builder/smart-templates";
 import FormPanel from "@/components/cv-builder/FormPanel";
+import { SmartTemplateManager } from "@/components/cv-builder/smart-templates";
 import { useCVStore } from "@/store/cvStore";
 import { useUserStore } from "@/store/userStore";
 import { useRouter, useSearchParams } from "next/navigation";
@@ -11,7 +11,7 @@ export default function SmartCVBuilderPage() {
     const searchParams = useSearchParams();
     const cvId = searchParams.get("cvId"); // Get cvId from URL
     const { userData } = useUserStore();
-    const { loadCVData, resetCV } = useCVStore();
+    const { loadCVData, resetCV, selectedTemplate } = useCVStore();
     const router = useRouter();
 
     console.log('Cv id ', cvId)
@@ -45,7 +45,7 @@ export default function SmartCVBuilderPage() {
 
             {/* Right Panel - Smart CV Preview */}
             <div className="w-full lg:w-1/2 h-screen fixed right-0 top-0 bg-white shadow-lg overflow-y-auto scrollbar-hidden">
-                <SmartTemplateManager templateId={1} />
+                <SmartTemplateManager templateId={selectedTemplate || 'template-1'} />
             </div>
         </div>
     );

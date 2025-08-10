@@ -127,7 +127,7 @@ export default function SmartTemplate1Preview() {
                     </div>
 
                     {/* Action Buttons */}
-                    <ActionButtons selectedTemplate="template-multipage" />
+                    <ActionButtons selectedTemplate="template-1" />
                 </div>
             </div>
         </div>
