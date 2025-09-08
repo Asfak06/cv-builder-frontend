@@ -165,6 +165,7 @@ export const useCVStore = create<CVState>((set, get) => ({
         languages: cvData.languages,
         hobbies: cvData.hobbies,
         customSections: cvData.customSections,
+        selectedTemplate: cvData.templateId || 'template-1', // Sync template from loaded CV
       });
     } catch (error) {
       console.error('Error fetching CV data:', error);
