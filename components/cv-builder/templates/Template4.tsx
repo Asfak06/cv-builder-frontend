@@ -16,16 +16,16 @@ export default function Template4() {
             {/* Left Column */}
             <div className="text-white pr-0 w-[40%]">
                 {/* Profile Section */}
-                <div className="flex items-center justify-items-center relative">
+                <div className="flex justify-center items-center relative">
                     <img
                         src={personalDetails.profileImage ? `${process.env.NEXT_PUBLIC_API_RESOURCE}${personalDetails.profileImage}` : "https://placehold.co/500"}
                         alt="Profile"
-                        className="w-[112px] h-[112px] rounded-full border-2 border-white"
+                        className="w-[180px] h-[180px] border-2 border-white"
                     />
                     <span className="absolute bottom-0 left-0 w-[30px] h-[20px] bg-[#81ad89]"></span>
                 </div>
                 {/* Experience Section */}
-                <div className="mt-6 p-6 pr-1 pl-5 pt-0">
+                <div className="mt-8 p-6 pr-1 pl-5 pt-0">
                     <h2 className="text-[17px] pl-2 border-l-8 border-l-[#81ad89] text-[#090909] uppercase font-semibold">My Experiences</h2>
                     {experience.map((exp, index) => (
                         <div key={index} className="mt-5 mb-7 pl-2 relative border-l-[20px] border-l-[#81ad89]">
@@ -83,11 +83,11 @@ export default function Template4() {
             {/* Right Column */}
             <div className="p-6 pr-0 pt-[0] pl-0 w-[60%] bg-[#404040] md:w-2/3">
                 {/* Name Info */}
-                <div className="bg-[#efefef] pt-3">
+                <div className="bg-[#efefef] pt-4 pb-4 my-[-1px] mx-[-1px]">
                     <h1 className="text-4xl font-medium pb-2 uppercase text-gray-800">{personalDetails.firstName} <span className="block font-bold">{personalDetails.lastName}</span></h1>
                 </div>
                 <div className="bg-[#404040]">
-                    <div className="bg-[#81ad89]">
+                    <div className="bg-[#81ad89] mb-2">
                         <p className="text-[#fff] px-5 py-3 text-lg font-medium uppercase">{personalDetails.jobTitle}</p>
                     </div>
 

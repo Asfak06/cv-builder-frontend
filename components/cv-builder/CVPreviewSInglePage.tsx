@@ -16,7 +16,7 @@ import Template2 from "./templates/Template2";
 import Template3 from "./templates/Template3";
 import Template4 from "./templates/Template4";
 import Template5 from "./templates/Template5";
-import Template6 from "./templates/Template6"; // Assuming you might want to keep Template6
+import Template6 from "./templates/Template6";
 import Template7 from "./templates/Template7";
 import Template8 from "./templates/Template8";
 import Template9 from "./templates/Template9";

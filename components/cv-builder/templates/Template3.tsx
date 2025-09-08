@@ -22,7 +22,7 @@ export default function Template3() {
                 <img
                     src={personalDetails.profileImage ? `${process.env.NEXT_PUBLIC_API_RESOURCE}${personalDetails.profileImage}` : "https://placehold.co/500"}
                     alt="Profile"
-                    className="w-[112px] h-[112px] rounded-full border-2 border-white"
+                    className="w-[200px] h-[200px] relative top-[-120px] z-50 rounded-full border-2 border-white"
                 />
                 <h1 className="text-[26px] font-extrabold uppercase text-center leading-[34px] mt-4 mb-2">{personalDetails.firstName} <span className='block'>{personalDetails.lastName}</span></h1>
                 <p className="text-white text-[14px] font-medium uppercase text-center">{personalDetails.jobTitle}</p>

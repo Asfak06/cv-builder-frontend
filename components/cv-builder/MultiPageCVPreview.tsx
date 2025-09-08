@@ -189,8 +189,8 @@ export default function MultiPageCVPreview() {
                             >
                                 {/* Page Content */}
                                 <div
-                                    className="absolute"
-                                    style={{ 
+                                    className="absolute w-full"
+                                    style={{
                                         transform: `translateY(-${index * (PAGE_HEIGHT)}px)`,
                                     }}
                                 >

@@ -161,7 +161,7 @@ export default function Template5() {
 
                         {/* Work Experience */}
                         <div className="mt-5 pb-2 border-b-2 border-[#f4f4f4]">
-                            <h2 className="text-[24px] text-[#3A395D] uppercase font-bold pb-1">Work <span className="bg-[#7051EF]">Experience</span> </h2>
+                            <h2 className="text-[24px] text-[#3A395D] uppercase font-bold pb-1">Work <span className="text-[#7051EF]">Experience</span> </h2>
                             {experience.map((exp, index) => (
                                 <div key={index} className="mt-1 mb-4">
                                     <h3 className="text-[20px] text-[#7051EF] mb-2 capitalize font-medium">{exp.company}</h3>
